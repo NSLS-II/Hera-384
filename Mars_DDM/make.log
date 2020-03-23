@@ -1,0 +1,177 @@
+make -C ./configure install 
+make[1]: Entering directory '/home/peter/zed_copy/Mars_DDM/configure'
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../.. \
+    T_A=linux-x86_64 install
+make[2]: Entering directory '/home/peter/zed_copy/Mars_DDM/configure/O.linux-x86_64'
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/convertRelease.pl checkRelease
+make[2]: Leaving directory '/home/peter/zed_copy/Mars_DDM/configure/O.linux-x86_64'
+make[1]: Leaving directory '/home/peter/zed_copy/Mars_DDM/configure'
+make -C ./zDDMApp install 
+make[1]: Entering directory '/home/peter/zed_copy/Mars_DDM/zDDMApp'
+make -C ./src install 
+make[2]: Entering directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/src'
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=linux-x86_64 install
+make[3]: Entering directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/src/O.linux-x86_64'
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/dbdToRecordtypeH.pl   -I. -I.. -I../O.Common -I../../../dbd -I/home/peter/epics/base/dbd -o zDDMRecord.h ../zDDMRecord.dbd
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -MM -MF pl_lib.d  ../pl_lib.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -MM -MF devI2C.d  ../devI2C.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -MM -MF zDDMRecord.d  ../zDDMRecord.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -MM -MF devzDDM.d  ../devzDDM.c
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -MM -MF zDDMMain.d  ../zDDMMain.cpp
+Expanding dbd file ../zDDMInclude.dbd
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/dbdExpand.pl   -I. -I.. -I../O.Common -I../../../dbd -I/home/peter/epics/base/dbd -o zDDM.dbd ../zDDMInclude.dbd
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/registerRecordDeviceDriver.pl   -I. -I.. -I../O.Common -I../../../dbd -I/home/peter/epics/base/dbd    -o zDDM_registerRecordDeviceDriver.cpp ../O.Common/zDDM.dbd zDDM_registerRecordDeviceDriver /home/peter/zed_copy/Mars_DDM
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -MM -MF zDDM_registerRecordDeviceDriver.d  zDDM_registerRecordDeviceDriver.cpp
+Installing created dbd file ../../../dbd/zDDM.dbd
+Installing generated generic include file ../../../include/zDDMRecord.h
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -c ../devzDDM.c
+../devzDDM.c: In function ‘frame_done’:
+../devzDDM.c:219:15: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+    pcallbacks = (struct CALLBACK *)rpvt->pcallbacks;
+               ^
+../devzDDM.c: In function ‘event_publish’:
+../devzDDM.c:407:57: warning: unused variable ‘newaddr’ [-Wunused-variable]
+     int i, chipnum, channel, pd, td, ts, ts_prev, addr, newaddr;
+                                                         ^~~~~~~
+../devzDDM.c:407:51: warning: unused variable ‘addr’ [-Wunused-variable]
+     int i, chipnum, channel, pd, td, ts, ts_prev, addr, newaddr;
+                                                   ^~~~
+../devzDDM.c: In function ‘zDDM_init’:
+../devzDDM.c:509:2: warning: implicit declaration of function ‘ad9252_cnfg’ [-Wimplicit-function-declaration]
+  ad9252_cnfg(22,8); /* clock skew adjust */
+  ^~~~~~~~~~~
+../devzDDM.c: In function ‘ldaddrlkup’:
+../devzDDM.c:1071:5: warning: variable ‘val’ set but not used [-Wunused-but-set-variable]
+ int val, i;
+     ^~~
+../devzDDM.c: In function ‘event_publish’:
+../devzDDM.c:446:36: warning: ‘ts’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+                   if (ts > ts_prev + 19)
+                            ~~~~~~~~^~~~
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -c ../zDDMRecord.c
+../zDDMRecord.c: In function ‘init_record’:
+../zDDMRecord.c:458:25: warning: implicit declaration of function ‘errlogPrintf’ [-Wimplicit-function-declaration]
+                         errlogPrintf("zDDMRecord:init_record: could not create mutex.\n");
+                         ^~~~~~~~~~~~
+../zDDMRecord.c:564:12: warning: format ‘%i’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+   Debug(3, "init_record: dset->init_record returns %i\n", status);
+            ^
+../zDDMRecord.c:108:13: note: in definition of macro ‘Debug’
+      printf(FMT,V); } }
+             ^~~
+../zDDMRecord.c: In function ‘process’:
+../zDDMRecord.c:616:12: warning: unused variable ‘pdeviceCallback’ [-Wunused-variable]
+  CALLBACK *pdeviceCallback = (CALLBACK *)&(pcallbacks[3]);
+            ^~~~~~~~~~~~~~~
+../zDDMRecord.c:614:12: warning: unused variable ‘pdelayCallback’ [-Wunused-variable]
+  CALLBACK *pdelayCallback = (CALLBACK *)&(pcallbacks[1]);
+            ^~~~~~~~~~~~~~
+../zDDMRecord.c:609:24: warning: unused variable ‘ppreset’ [-Wunused-variable]
+         unsigned long *ppreset = (unsigned long *)&(pscal->pr1);
+                        ^~~~~~~
+../zDDMRecord.c: In function ‘updateCounts’:
+../zDDMRecord.c:782:16: warning: variable ‘tdc’ set but not used [-Wunused-but-set-variable]
+  unsigned int *tdc;
+                ^~~
+../zDDMRecord.c: In function ‘special’:
+../zDDMRecord.c:859:6: warning: ‘j’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  int j, rt, chip;
+      ^
+../zDDMRecord.c:859:9: warning: ‘rt’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  int j, rt, chip;
+         ^~
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -c ../devI2C.c
+../devI2C.c: In function ‘devI2CConfig’:
+../devI2C.c:194:5: warning: unused variable ‘temp’ [-Wunused-variable]
+ int temp;
+     ^~~~
+../devI2C.c: In function ‘init_ao’:
+../devI2C.c:298:100: warning: format ‘%i’ expects argument of type ‘int’, but argument 5 has type ‘long unsigned int’ [-Wformat=]
+         errlogPrintf("init_ao 1:\n\tpPvt->reg %i\n\tpPvt->nbit %i\n\tpPvt->type %i\n\tpPvt->value %i \n\r",pPvt->reg,pPvt->nbit,pPvt->type,pPvt->value);
+                                                                                                   ~^                                       ~~~~~~~~~~~
+                                                                                                   %li
+../devI2C.c:308:10: warning: implicit declaration of function ‘ReadDac’; did you mean ‘read_ai’? [-Wimplicit-function-declaration]
+       if(ReadDac(card,reg,&pPvt,&rawVal) == OK) {
+          ^~~~~~~
+          read_ai
+../devI2C.c:329:3: warning: implicit declaration of function ‘EnableIntRef’ [-Wimplicit-function-declaration]
+   EnableIntRef(card);
+   ^~~~~~~~~~~~
+../devI2C.c:255:6: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+ long status = 0L;
+      ^~~~~~
+../devI2C.c: In function ‘init_ai’:
+../devI2C.c:358:32: warning: comparison between pointer and integer
+            if(cards[card].base == NULL) {
+                                ^~
+../devI2C.c:345:6: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+ long status;
+      ^~~~~~
+../devI2C.c: In function ‘write_ao’:
+../devI2C.c:425:7: warning: implicit declaration of function ‘WriteDac’; did you mean ‘write_ao’? [-Wimplicit-function-declaration]
+   if (WriteDac(card,reg,pao->rval) == OK)
+       ^~~~~~~~
+       write_ao
+../devI2C.c:431:59: warning: format ‘%i’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+           errlogPrintf("write_ao: card %i  reg %i rawVal %i\n\r", card, reg, rawVal);
+                                                          ~^
+                                                          %li
+../devI2C.c:437:31: warning: result of ‘2 << 31’ requires 34 bits to represent, but ‘int’ only has 32 bits [-Wshift-overflow=]
+                pao->rbv |= ((2<<31) - (2<<(pPvt->nbit-2)))*2;
+                               ^~
+../devI2C.c:417:8: warning: unused variable ‘status’ [-Wunused-variable]
+   long status;
+        ^~~~~~
+../devI2C.c: In function ‘read_ai’:
+../devI2C.c:466:58: warning: format ‘%i’ expects argument of type ‘int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+           errlogPrintf("read_ai: card %i  reg %i rawVal %i\n\r", card, reg, rawVal);
+                                                         ~^
+                                                         %li
+../devI2C.c:471:32: warning: result of ‘2 << 31’ requires 34 bits to represent, but ‘int’ only has 32 bits [-Wshift-overflow=]
+                pai->rval |= ((2<<31) - (2<<(pPvt->nbit-2)))*2;
+                                ^~
+../devI2C.c:453:8: warning: unused variable ‘status’ [-Wunused-variable]
+   long status;
+        ^~~~~~
+../devI2C.c: In function ‘ReadDac’:
+../devI2C.c:548:8: warning: unused variable ‘voltage’ [-Wunused-variable]
+    int voltage;
+        ^~~~~~~
+../devI2C.c:547:8: warning: variable ‘bytesWritten’ set but not used [-Wunused-but-set-variable]
+    int bytesWritten, bytesRead;
+        ^~~~~~~~~~~~
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -c ../pl_lib.c
+/usr/bin/ar -rc    libzDDMSupport.a        devzDDM.o zDDMRecord.o devI2C.o pl_lib.o 
+/usr/bin/ranlib libzDDMSupport.a
+/usr/bin/g++ -o libzDDMSupport.so -shared -fPIC -Wl,-hlibzDDMSupport.so -L/home/peter/zed_copy/Mars_DDM/lib/linux-x86_64 -L/home/peter/epics/base-3.15.6/lib/linux-x86_64 -Wl,-rpath,/home/peter/zed_copy/Mars_DDM/lib/linux-x86_64 -Wl,-rpath,/home/peter/epics/base-3.15.6/lib/linux-x86_64           -rdynamic -m64            devzDDM.o zDDMRecord.o devI2C.o pl_lib.o    -ldbRecStd -ldbCore -lca -lCom   -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing shared library ../../../lib/linux-x86_64/libzDDMSupport.so
+Installing library ../../../lib/linux-x86_64/libzDDMSupport.a
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -c zDDM_registerRecordDeviceDriver.cpp
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include -I/home/peter/epics/base/include/compiler/gcc -I/home/peter/epics/base/include/os/Linux -I/home/peter/epics/base/include        -c ../zDDMMain.cpp
+/usr/bin/g++ -o zDDM  -L/home/peter/zed_copy/Mars_DDM/lib/linux-x86_64 -L/home/peter/epics/base-3.15.6/lib/linux-x86_64 -Wl,-rpath,/home/peter/zed_copy/Mars_DDM/lib/linux-x86_64 -Wl,-rpath,/home/peter/epics/base-3.15.6/lib/linux-x86_64           -rdynamic -m64            zDDM_registerRecordDeviceDriver.o zDDMMain.o    -lzDDMSupport -ldbRecStd -ldbCore -lca -lCom  -lreadline -lzmq 
+Installing created executable ../../../bin/linux-x86_64/zDDM
+make[3]: Leaving directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/src/O.linux-x86_64'
+make[2]: Leaving directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/src'
+make -C ./Db install 
+make[2]: Entering directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/Db'
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=linux-x86_64 install
+make[3]: Entering directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/Db/O.linux-x86_64'
+make[3]: Nothing to be done for 'install'.
+make[3]: Leaving directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/Db/O.linux-x86_64'
+make[2]: Leaving directory '/home/peter/zed_copy/Mars_DDM/zDDMApp/Db'
+make[1]: Leaving directory '/home/peter/zed_copy/Mars_DDM/zDDMApp'
+make -C ./iocBoot install 
+make[1]: Entering directory '/home/peter/zed_copy/Mars_DDM/iocBoot'
+make -C ./ioczDDM install 
+make[2]: Entering directory '/home/peter/zed_copy/Mars_DDM/iocBoot/ioczDDM'
+perl -CSD /home/peter/epics/base/bin/linux-x86_64/convertRelease.pl -t /home/peter/zed_copy/Mars_DDM envPaths
+make[2]: Leaving directory '/home/peter/zed_copy/Mars_DDM/iocBoot/ioczDDM'
+make[1]: Leaving directory '/home/peter/zed_copy/Mars_DDM/iocBoot'

@@ -1,0 +1,608 @@
+menu(zddmCNT) {
+        choice(scalerCNT_Done,"Done")
+        choice(scalerCNT_Count,"Count")
+}
+menu(zddmCONT) {
+        choice(scalerCONT_OneShot,"OneShot")
+        choice(scalerCONT_AutoCount,"AutoCount")
+}
+
+
+menu(zddmGain) {
+	choice(gain_0,"75keV")
+	choice(gain_1,"37.5keV")
+	choice(gain_2,"25keV")
+	choice(gain_3,"12.5keV")
+}
+
+menu(zddmLeak) {
+	choice(leak_1,"Off")
+	choice(leak_2,"2pA")
+	choice(leak_3,"8pA")
+}
+
+
+menu(zddmshapeT) {
+	choice(shapeT_1,"0.25us")
+	choice(shapeT_2,"0.5us")
+	choice(shapeT_3,"1us")
+	choice(shapeT_4,"2us")
+}
+
+menu(zddmMFS) {
+	choice(zddmscMFS_0,"Off")
+	choice(zddmscMFS_1,"250ns")
+	choice(zddmscMFS_2,"500ns")
+	choice(zddmscMFS_3,"1us")
+	choice(zddmscMFS_4,"2us")
+}
+
+menu(zddmLOAO) {
+	choice(zddmscLOAO_0,"Pulse")
+	choice(zddmscLOAO_1,"Leakage")
+}
+
+menu(zddmTPENB) {
+	choice(zddmscTPENB_0,"Off")
+	choice(zddmscTPENB_1,"On")
+}
+
+menu(zddmGMON) {
+	choice(zddmGMON_0,"Off")
+	choice(zddmGMON_1,"Temperature")
+	choice(zddmGMON_2,"Baseline")
+	choice(zddmGMON_3,"Threshold")
+	choice(zddmGMON_4,"Test pulse")
+	choice(zddmGMON_5,"Channel monitor")
+}
+
+menu(zddmPUEN) {
+	choice(zddmscPUEN_0,"Disable")
+	choice(zddmscPUEN_1,"Enable")
+}
+
+menu(zddmTDS) {
+	choice(zddmscTOS_0,"1us")
+	choice(zddmscTOS_1,"2us")
+	choice(zddmscTOS_2,"3us")
+	choice(zddmscTOS_3,"4us")
+	choice(zddmscTOS_4,"6us")
+	choice(zddmscTOS_5,"9us")
+	choice(zddmscTOS_6,"12us")
+}
+
+menu(zddmTDM) {
+	choice(zddmscTDM_0,"Time of arrival")
+	choice(zddmscTDM_1,"Time over threshold")
+}
+
+menu(zddmMODE) {
+	choice(zddmscMODE_0,"Framing")
+	choice(zddmscMODE_1,"Continuous")
+}
+
+recordtype(zDDM) {
+	include "dbCommon.dbd"
+	field(VERS,DBF_FLOAT) {
+		prompt("Code Version")
+		special(SPC_NOMOD)
+	}
+
+	field(VAL,DBF_ULONG) {
+                prompt("Value")
+                promptgroup(GUI_COMMON)
+                interest(1)
+        }
+
+	field(MCA,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           mca")
+	}        
+
+        field(PMCA,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pmca")
+        }
+
+	field(TDC,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           tdc")
+	}        
+
+        field(PTDC,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           ptdc")
+        }
+
+	field(SPCT,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           spct")
+	}        
+
+        field(PSPCT,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pspct")
+        }
+
+
+	field(EXSIZE,DBF_ULONG) {
+                prompt("Display X size")
+                promptgroup(GUI_COMMON)
+		initial("4096")
+                interest(1)
+        }
+	
+	field(EYSIZE,DBF_ULONG) {
+                prompt("Display Y size")
+                promptgroup(GUI_COMMON)
+		initial("384")
+                interest(1)
+        }
+
+	field(TXSIZE,DBF_ULONG) {
+                prompt("Display X size")
+                promptgroup(GUI_COMMON)
+		initial("1024")
+                interest(1)
+        }
+	
+	field(TYSIZE,DBF_ULONG) {
+                prompt("Display Y size")
+                promptgroup(GUI_COMMON)
+		initial("384")
+                interest(1)
+        }
+
+	field(FNAM,DBF_STRING) {
+		prompt("Filename")
+		promptgroup(GUI_COMMON)
+		interest(1)
+		size(64)
+	}
+
+	field(CALF,DBF_STRING) {
+		prompt("Calib. Filename")
+		promptgroup(GUI_COMMON)
+		interest(1)
+		size(64)
+	}
+
+
+        field(RPVT,DBF_NOACCESS) {
+                prompt("Record Private")
+                special(SPC_NOMOD)
+                interest(4)
+                size(4)
+                extra("void *rpvt")
+        }
+
+        field(FREQ,DBF_DOUBLE) {
+                prompt("Time base freq")
+                promptgroup(GUI_COMMON)
+                interest(1)
+        }
+
+        field(CNT,DBF_MENU) {
+                prompt("Count")
+                special(SPC_MOD)
+                pp(TRUE)
+                interest(1)
+                menu(zddmCNT)
+        }
+
+        field(PCNT, DBF_MENU) {
+                prompt("Prev Count")
+                special(SPC_NOMOD)
+                interest(1)
+                menu(zddmCNT)
+        }
+
+        field(OUT,DBF_OUTLINK) {
+                prompt("Output Specification")
+                promptgroup(GUI_COMMON)
+                special(SPC_NOMOD)
+                interest(1)
+        }
+
+        field(RATE,DBF_FLOAT) {
+                prompt("Display Rate (Hz.)")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                initial("2")
+        }
+
+        field(RAT1,DBF_FLOAT) {
+                prompt("Auto Display Rate (Hz.)")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+        }
+
+        field(DLY,DBF_FLOAT) {
+                prompt("Delay")
+                promptgroup(GUI_COMMON)
+        }
+
+         field(DLY1,DBF_FLOAT) {
+                prompt("Auto-mode Delay")
+                promptgroup(GUI_COMMON)
+        }
+
+        field(TP,DBF_DOUBLE) {
+                prompt("Time Preset")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+        }
+
+        field(TP1,DBF_DOUBLE) {
+                prompt("Auto Time Preset")
+                promptgroup(GUI_COMMON)
+                interest(1)
+                initial("1")
+        }
+
+        field(PR1,DBF_ULONG) {
+                prompt("Preset")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+        }
+
+        field(SS,DBF_SHORT) {
+                prompt("Scaler state")
+                special(SPC_NOMOD)
+                interest(4)
+        }
+
+        field(US,DBF_SHORT) {
+                prompt("User state")
+                special(SPC_NOMOD)
+                interest(4)
+        }
+
+        field(CONT,DBF_MENU) {
+                prompt("OneShot/AutoCount")
+                special(SPC_MOD)
+                pp(TRUE)
+                interest(1)
+                menu(zddmCONT)
+        }
+
+        field(MODE,DBF_MENU) {
+                prompt("Timed/Continuous mode")
+                special(SPC_MOD)
+                pp(TRUE)
+                interest(1)
+                menu(zddmMODE)
+        }
+
+ 	field(RUNNO,DBF_ULONG) {
+                prompt("Run Number")
+                promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+                pp(TRUE)
+                interest(1)
+	}
+	
+        field(T,DBF_DOUBLE) {
+                prompt("Timer")
+                special(SPC_NOMOD)
+                interest(1)
+        }
+
+
+	field(FVER,DBF_ULONG) {
+                prompt("Firmware version")
+                promptgroup(GUI_COMMON)
+                special(SPC_NOMOD)
+                interest(1)
+        }
+
+	field(NELM,DBF_ULONG) {
+                prompt("Number of Elements")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+                initial("384")
+        }
+
+        field(NCH,DBF_ULONG) {
+                prompt("No. channels")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+        }
+
+         field(CHAN,DBF_ULONG) {
+                prompt("Channel in chip")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+        }
+
+       field(CHIP,DBF_ULONG) {
+                prompt("Selected chip")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+        }
+
+	field(INP,DBF_INLINK) {
+		prompt("Input Specification")
+		promptgroup(GUI_COMMON)
+		special(SPC_NOMOD)
+		interest(1)
+	}
+	
+	field(CARD,DBF_SHORT) {
+		prompt("Card Number")
+		special(SPC_NOMOD)
+		interest(3)
+	}
+	
+	field(NCHIPS,DBF_SHORT) {
+		prompt("Number of Chips")
+		special(SPC_NOMOD)
+		interest(1)
+		initial("12")
+	}
+
+	field(SHPT,DBF_MENU) {
+		prompt("Shaping time")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("1")
+		menu(zddmshapeT)
+	}	
+
+	field(GAIN,DBF_MENU) {
+		prompt("Gain")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		menu(zddmGain)
+	}
+
+	field(GMON,DBF_MENU) {
+		prompt("Monitor mode")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		menu(zddmGMON)
+	}        
+
+
+	field(MONCH,DBF_SHORT) {
+		prompt("Monitor Channel")
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+	}
+
+	field(PUEN, DBF_MENU) {
+		prompt("Pileup rejection enable")
+		pp(TRUE)
+		special(SPC_MOD)
+		interest(1)
+		menu(zddmPUEN)
+	}
+
+	field(EBLK, DBF_MENU) {
+		prompt("Enable input bias current")
+		pp(TRUE)
+		special(SPC_MOD)
+		interest(1)
+		menu(zddmLeak)
+	}
+
+	field(CHEN,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           chen")
+	}        
+
+        field(PCHEN,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pchen")
+        }
+	field(SLP,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           slp")
+	}        
+
+        field(PSLP,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pslp")
+        }
+	field(OFFS,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           offs")
+	}        
+
+        field(POFFS,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           poffs")
+        }
+
+	field(TSEN,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           tsen")
+	}        
+
+        field(PTSEN,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           ptsen")
+        }
+
+	field(PUTR,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           putr")
+	}        
+
+        field(PPUTR,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pputr")
+        }
+
+
+	field(LOAO,DBF_MENU) {
+		prompt("Value")
+		special(SPC_MOD)
+		menu(zddmLOAO)
+		interest (4)
+	}        
+
+
+	field(EGU,DBF_STRING) {
+		prompt("Units Name")
+		promptgroup(GUI_COMMON)
+		interest(1)
+		size(16)
+	}
+
+	field(PREC,DBF_SHORT) {
+		prompt("Display Precision")
+		promptgroup(GUI_COMMON)
+		interest(1)
+	}
+	
+	field(MFS, DBF_MENU){
+		prompt("Comparator multi-fire suppr.")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(4)
+		initial("0")
+		menu(zddmMFS)
+		}
+
+
+	field(TDS, DBF_MENU){
+		prompt("TDC slope")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		menu(zddmTDS)
+		}
+
+	field(TDM, DBF_MENU){
+		prompt("TDC mode")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		menu(zddmTDM)
+		}
+
+
+	field(THTR, DBF_NOACCESS){		
+		prompt("Threshold trim")
+		promptgroup(GUI_COMMON)
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           thtr")
+		interest(4)
+		}
+                
+        field(PTHTR,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+		special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pthtr")
+		}
+		
+	field(THRSH, DBF_NOACCESS){
+		prompt("Threshold")
+		promptgroup(GUI_COMMON)
+		special(SPC_DBADDR)
+		interest(4)
+		extra("void *           thrsh")
+		}
+	field(PTHRSH, DBF_NOACCESS){
+		prompt("Threshold")
+		promptgroup(GUI_COMMON)
+		special(SPC_NOMOD)
+		interest(4)
+		extra("void *           pthrsh")
+		}
+
+	field(TPAMP, DBF_ULONG){
+		prompt("Test pulse amplitude")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		}
+	field(TPFRQ, DBF_ULONG){
+		prompt("Test pulse frequency")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		}
+	field(TPCNT, DBF_ULONG){
+		prompt("Number of est pulse")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		}
+	field(TPENB, DBF_MENU){
+		prompt("Start test pulses")
+		promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		interest(1)
+		initial("0")
+		menu(zddmTPENB)
+		}
+		
+
+        field(COUT,DBF_OUTLINK) {
+                prompt("CNT Output link")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+        }
+
+        field(COUTP,DBF_OUTLINK) {
+                prompt("CNT Output Prompt")
+                promptgroup(GUI_COMMON)
+                special(SPC_MOD)
+                interest(1)
+	}
+	
+}

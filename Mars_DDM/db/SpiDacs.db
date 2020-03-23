@@ -1,0 +1,99 @@
+record(ao, "$(user):ao0") {
+  field(DESC, "Thresh.")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S0 @12, 0") 
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+
+record(ao, "$(user):ao1") {
+  field(DESC, "Vl_1")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S1 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+record(ao, "$(user):ao2") {
+  field(DESC, "Vh_1")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S2 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+record(ao, "$(user):ao3") {
+  field(DESC, "Vl_2")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S3 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+record(ao, "$(user):ao4") {
+  field(DESC, "Vh_2")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S4 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+record(ao, "$(user):ao5") {
+  field(DESC, "BLN")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S5 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+record(ao, "$(user):ao6") {
+  field(DESC, "BDAC")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S6 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+record(ao, "$(user):ao7") {
+  field(DESC, "BLK")
+  field(DTYP, "SPI D-A Converter")
+  field(OUT,"#C1 S7 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"3.0")
+  field(EGUL,"0.0")
+  field(HOPR,"3.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+
+

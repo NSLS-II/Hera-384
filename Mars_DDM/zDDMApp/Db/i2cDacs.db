@@ -1,0 +1,38 @@
+record(ao, "det1:HV") {
+  field(DESC, "HV")
+  field(DTYP, "I2C D-A Converter")
+  field(OUT,"#C0 S5 @12, 0") 
+  field(LINR,"LINEAR")
+  field(EGUF,"500.0")
+  field(EGUL,"0.0")
+  field(HOPR,"300.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+
+record(ao, "E:UL1-SP") {
+  field(DESC, "Window high")
+  field(DTYP, "I2C D-A Converter")
+  field(OUT,"#C0 S1 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"5.0")
+  field(EGUL,"0.0")
+  field(HOPR,"5.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+record(ao, "E:LL1-SP") {
+  field(DESC, "Window low")
+  field(DTYP, "I2C D-A Converter")
+  field(OUT,"#C0 S2 @12, 0")
+  field(LINR,"LINEAR")
+  field(EGUF,"5.0")
+  field(EGUL,"0.0")
+  field(HOPR,"5.0")
+  field(LOPR,"0.0")
+  field(PREC,"3")
+  field(EGU,"Volts")
+}
+

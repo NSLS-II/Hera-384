@@ -463,9 +463,9 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
                 evttot = 0; 
        }
         
-	db_post_events(psr,&psr->mca,DBE_VALUE);
-	db_post_events(psr,&psr->tdc,DBE_VALUE);
-	db_post_events(psr,&psr->spct,DBE_VALUE);
+//	db_post_events(psr,psr->pmca,DBE_VALUE);
+//	db_post_events(psr,psr->ptdc,DBE_VALUE);
+//	db_post_events(psr,psr->pspct,DBE_VALUE);
 	
 	usleep(2000);
 

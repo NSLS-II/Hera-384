@@ -591,11 +591,11 @@ static long init_record(zDDMRecord *pscal, int pass)
                 db_post_events(pscal,&(pscal->tp),DBE_VALUE);
                 Debug(3, "init_record: .PR1/.FREQ != 0, so .TP set to %f\n", pscal->tp);
         }
-//	db_post_events(pscal,&pscal->mca,DBE_VALUE);
-//	db_post_events(pscal,&pscal->tdc,DBE_VALUE);
-//	db_post_events(pscal,&pscal->spct,DBE_VALUE);
-//	db_post_events(pscal,&pscal->chen,DBE_VALUE);
-//	db_post_events(pscal,&pscal->tsen,DBE_VALUE);
+	db_post_events(pscal,pscal->pmca,DBE_VALUE);
+	db_post_events(pscal,pscal->ptdc,DBE_VALUE);
+	db_post_events(pscal,pscal->pspct,DBE_VALUE);
+	db_post_events(pscal,pscal->pchen,DBE_VALUE);
+	db_post_events(pscal,pscal->ptsen,DBE_VALUE);
 	return(0);
 }
 
@@ -716,9 +716,9 @@ static long process(zDDMRecord *pscal)
                 monitor(pscal);
                 if ((pscal->pcnt==0) && (pscal->us == USER_STATE_IDLE)) {
                         if (prev_scaler_state == zDDM_STATE_COUNTING) {
-                                db_post_events(pscal,&pscal->mca,DBE_VALUE);
-				db_post_events(pscal,&pscal->tdc,DBE_VALUE);
-				db_post_events(pscal,&pscal->spct,DBE_VALUE);
+                                db_post_events(pscal,pscal->pmca,DBE_VALUE);
+				db_post_events(pscal,pscal->ptdc,DBE_VALUE);
+				db_post_events(pscal,pscal->pspct,DBE_VALUE);
                         }
                         recGblFwdLink(pscal);
                 }
@@ -766,11 +766,11 @@ static long process(zDDMRecord *pscal)
 
         pscal->pact = FALSE;
 	pscal->runno=fpgabase[FRAME_NO];
-//	db_post_events(pscal,&(pscal->runno),DBE_VALUE);
-//	db_post_events(pscal,&(pscal->mca),DBE_VALUE);
-//	db_post_events(pscal,&(pscal->tdc),DBE_VALUE);
-//	db_post_events(pscal,&(pscal->spct),DBE_VALUE);
-	db_post_events(pscal,NULL,0xf);
+        db_post_events(pscal,&(pscal->runno),DBE_VALUE);
+        db_post_events(pscal,pscal->pmca,DBE_VALUE);
+        db_post_events(pscal,pscal->ptdc,DBE_VALUE);
+        db_post_events(pscal,pscal->pspct,DBE_VALUE);
+//	db_post_events(pscal,NULL,0xf);
         Debug(5, "process:Mutex unlocked\nScaler state=%d\n",pscal->ss);
         Debug(5, "process:Mutex unlocked\nUser state=%d\n",pscal->us);
         epicsMutexUnlock(prpvt->updateMutex);
@@ -830,9 +830,9 @@ static void updateCounts(zDDMRecord *pscal)
 			spct[i]=mca[4096*pscal->monch+i];
 			}
 		}
-                        db_post_events(pscal,&pscal->mca,DBE_VALUE);
-			db_post_events(pscal,&pscal->tdc,DBE_VALUE);
-			db_post_events(pscal,&pscal->spct,DBE_VALUE);
+                        db_post_events(pscal,pscal->pmca,DBE_VALUE);
+			db_post_events(pscal,pscal->ptdc,DBE_VALUE);
+			db_post_events(pscal,pscal->pspct,DBE_VALUE);
         
         /* convert clock ticks to time. Note device support may have changed freq. */
 	/* freq is fixed in this device, so skip this bit */
@@ -1037,7 +1037,7 @@ static long special(dbAddr *paddr, int after)
 		  mars_modified=1;
 		  }
 		db_post_events(pscal,&(pscal->monch),DBE_VALUE);
-		db_post_events(pscal,&pscal->spct,DBE_VALUE);
+		db_post_events(pscal,pscal->pspct,DBE_VALUE);
 		break;
 
 	case zDDMRecordLOAO: /* set channel monitor to leakage or pulse */
@@ -1117,26 +1117,26 @@ static long special(dbAddr *paddr, int after)
 		
 	case zDDMRecordCHEN: /* load 'channel-disabled' array */ 
 		mars_modified=1;
-		db_post_events(pscal,&pscal->chen,DBE_VALUE);/* post change */
+		db_post_events(pscal,pscal->pchen,DBE_VALUE);/* post change */
 		Debug(2, "special: CHEN %i\n", 0);
 		break;
 		
 	case zDDMRecordTSEN: /* load 'test pulse input enabled' array */
 		mars_modified=1;
 		Debug(2, "special: TSEN %i\n", 0);
-		db_post_events(pscal,&pscal->tsen,DBE_VALUE);
+		db_post_events(pscal,pscal->ptsen,DBE_VALUE);
 		break;
 		
 	case zDDMRecordTHTR:  /* array of NCHAN trim DAC values */
 		mars_modified=1;
 		Debug(2, "special: THTR %i\n", 0);
-		db_post_events(pscal,&pscal->thtr,DBE_VALUE);
+		db_post_events(pscal,pscal->pthtr,DBE_VALUE);
 		break;
 
 	case zDDMRecordPUTR:  /* array of NCHAN pileup threshold trim values */
 		mars_modified=1;
 		Debug(2, "special: PUTR %i\n", 0);
-		db_post_events(pscal,&pscal->putr,DBE_VALUE);
+		db_post_events(pscal,pscal->pputr,DBE_VALUE);
 		break;
 
 	case zDDMRecordPUEN: /* Pileup Rejection enable */
@@ -1210,7 +1210,7 @@ static long special(dbAddr *paddr, int after)
 	case zDDMRecordTHRSH: /* Threshold */
 		mars_modified=1;
 		Debug(2, "special: THRSH %i\n", 0);
-		db_post_events(pscal,&(pscal->thrsh),DBE_VALUE);
+		db_post_events(pscal,pscal->pthrsh,DBE_VALUE);
 		break;
 		
 	default:
@@ -1222,7 +1222,7 @@ static long special(dbAddr *paddr, int after)
 		stuff_mars(pscal);
 		}
 //	db_post_events(pscal,NULL,0xf);		
-	scanOnce((void *)pscal);
+//	scanOnce((void *)pscal);
 	return(0);
 }
 

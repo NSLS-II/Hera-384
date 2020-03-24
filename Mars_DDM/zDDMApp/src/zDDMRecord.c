@@ -565,37 +565,37 @@ static long init_record(zDDMRecord *pscal, int pass)
 			return (status);
 		}
 		pscal->card = pscal->inp.value.vmeio.card;
-		db_post_events(pscal,&(pscal->card),DBE_VALUE);
+		db_post_events(pscal,&(pscal->card),DBE_VALUE|DBE_ARCHIVE);
 	}
         /* default clock freq */
         if (pscal->freq == 0.0) {
                 pscal->freq = 1.0e6;
-                db_post_events(pscal,&(pscal->freq),DBE_VALUE);
+                db_post_events(pscal,&(pscal->freq),DBE_VALUE|DBE_ARCHIVE);
         }
 
         /* default count time */
         if ((pscal->tp == 0.0) && (pscal->pr1 == 0)) {
                 pscal->tp = 1.0;
-                db_post_events(pscal,&(pscal->pr1),DBE_VALUE);
+                db_post_events(pscal,&(pscal->pr1),DBE_VALUE|DBE_ARCHIVE);
         }
 
         /* convert between time and clock ticks */
         if (pscal->tp) {
                 /* convert time to clock ticks */
                 pscal->pr1 = (unsigned long) (pscal->tp * pscal->freq);
-                db_post_events(pscal,&(pscal->pr1),DBE_VALUE);
+                db_post_events(pscal,&(pscal->pr1),DBE_VALUE|DBE_ARCHIVE);
                 Debug(3, "init_record: .TP != 0, so .PR1 set to %ld\n", (unsigned long)pscal->pr1);
         } else if (pscal->pr1 && pscal->freq) {
                 /* convert clock ticks to time */
                 pscal->tp = (double)(pscal->pr1 / pscal->freq);
-                db_post_events(pscal,&(pscal->tp),DBE_VALUE);
+                db_post_events(pscal,&(pscal->tp),DBE_VALUE|DBE_ARCHIVE);
                 Debug(3, "init_record: .PR1/.FREQ != 0, so .TP set to %f\n", pscal->tp);
         }
-	db_post_events(pscal,pscal->pmca,DBE_VALUE);
-	db_post_events(pscal,pscal->ptdc,DBE_VALUE);
-	db_post_events(pscal,pscal->pspct,DBE_VALUE);
-	db_post_events(pscal,pscal->pchen,DBE_VALUE);
-	db_post_events(pscal,pscal->ptsen,DBE_VALUE);
+	db_post_events(pscal,pscal->pmca,DBE_VALUE|DBE_ARCHIVE);
+	db_post_events(pscal,pscal->ptdc,DBE_VALUE|DBE_ARCHIVE);
+	db_post_events(pscal,pscal->pspct,DBE_VALUE|DBE_ARCHIVE);
+	db_post_events(pscal,pscal->pchen,DBE_VALUE|DBE_ARCHIVE);
+	db_post_events(pscal,pscal->ptsen,DBE_VALUE|DBE_ARCHIVE);
 	return(0);
 }
 
@@ -637,7 +637,7 @@ static long process(zDDMRecord *pscal)
                 if (pscal->us == USER_STATE_COUNTING) {
                         Debug(5, "Setting CNT to 0 %d\n",0);
                         pscal->cnt = 0;
-                        db_post_events(pscal,&pscal->cnt,DBE_VALUE);
+                        db_post_events(pscal,&pscal->cnt,DBE_VALUE|DBE_ARCHIVE);
                         pscal->us = USER_STATE_IDLE;
 
                         Debug(5, "USER_STATE_IDLE %d\n",0);
@@ -686,7 +686,7 @@ static long process(zDDMRecord *pscal)
                 if (handled) {
                         pscal->pcnt = pscal->cnt;
                         Debug(5, "process:handled: pcnt=%d -> cnt\n",pscal->pcnt);
-			db_post_events(pscal,&pscal->cnt,DBE_VALUE);	
+			db_post_events(pscal,&pscal->cnt,DBE_VALUE|DBE_ARCHIVE);	
                 }
         }
 
@@ -716,9 +716,9 @@ static long process(zDDMRecord *pscal)
                 monitor(pscal);
                 if ((pscal->pcnt==0) && (pscal->us == USER_STATE_IDLE)) {
                         if (prev_scaler_state == zDDM_STATE_COUNTING) {
-                                db_post_events(pscal,pscal->pmca,DBE_VALUE);
-				db_post_events(pscal,pscal->ptdc,DBE_VALUE);
-				db_post_events(pscal,pscal->pspct,DBE_VALUE);
+                                db_post_events(pscal,pscal->pmca,DBE_VALUE|DBE_ARCHIVE);
+				db_post_events(pscal,pscal->ptdc,DBE_VALUE|DBE_ARCHIVE);
+				db_post_events(pscal,pscal->pspct,DBE_VALUE|DBE_ARCHIVE);
                         }
                         recGblFwdLink(pscal);
                 }
@@ -766,11 +766,10 @@ static long process(zDDMRecord *pscal)
 
         pscal->pact = FALSE;
 	pscal->runno=fpgabase[FRAME_NO];
-        db_post_events(pscal,&(pscal->runno),DBE_VALUE);
-        db_post_events(pscal,pscal->pmca,DBE_VALUE);
-        db_post_events(pscal,pscal->ptdc,DBE_VALUE);
-        db_post_events(pscal,pscal->pspct,DBE_VALUE);
-//	db_post_events(pscal,NULL,0xf);
+        db_post_events(pscal,&(pscal->runno),DBE_VALUE|DBE_ARCHIVE);
+        db_post_events(pscal,pscal->pmca,DBE_VALUE|DBE_ARCHIVE);
+        db_post_events(pscal,pscal->ptdc,DBE_VALUE|DBE_ARCHIVE);
+        db_post_events(pscal,pscal->pspct,DBE_VALUE|DBE_ARCHIVE);
         Debug(5, "process:Mutex unlocked\nScaler state=%d\n",pscal->ss);
         Debug(5, "process:Mutex unlocked\nUser state=%d\n",pscal->us);
         epicsMutexUnlock(prpvt->updateMutex);
@@ -830,9 +829,9 @@ static void updateCounts(zDDMRecord *pscal)
 			spct[i]=mca[4096*pscal->monch+i];
 			}
 		}
-                        db_post_events(pscal,pscal->pmca,DBE_VALUE);
-			db_post_events(pscal,pscal->ptdc,DBE_VALUE);
-			db_post_events(pscal,pscal->pspct,DBE_VALUE);
+                        db_post_events(pscal,pscal->pmca,DBE_VALUE|DBE_ARCHIVE);
+			db_post_events(pscal,pscal->ptdc,DBE_VALUE|DBE_ARCHIVE);
+			db_post_events(pscal,pscal->pspct,DBE_VALUE|DBE_ARCHIVE);
         
         /* convert clock ticks to time. Note device support may have changed freq. */
 	/* freq is fixed in this device, so skip this bit */
@@ -933,25 +932,25 @@ static long special(dbAddr *paddr, int after)
         case zDDMRecordTP:
                 /* convert time to clock ticks */
                 pscal->pr1 = (unsigned long) (pscal->tp * pscal->freq);
-                db_post_events(pscal,&(pscal->pr1),DBE_VALUE);
+                db_post_events(pscal,&(pscal->pr1),DBE_VALUE|DBE_ARCHIVE);
                 break;
 
         case zDDMRecordPR1:
                 /* convert clock ticks to time */
                 pscal->tp = (double)(pscal->pr1 / pscal->freq);
-                db_post_events(pscal,&(pscal->tp),DBE_VALUE);
+                db_post_events(pscal,&(pscal->tp),DBE_VALUE|DBE_ARCHIVE);
                 break;
 
         case zDDMRecordRATE:
                 pscal->rate = MIN(60.,MAX(0.,pscal->rate));
-                db_post_events(pscal,&(pscal->rate),DBE_VALUE);
+                db_post_events(pscal,&(pscal->rate),DBE_VALUE|DBE_ARCHIVE);
                 break;
 
         case zDDMRecordRUNNO:
                 /* Get frame number */
                 fpgabase[FRAME_NO]=pscal->runno;
 		Debug(2, "special: RUNNO %i\n", pscal->runno);
-               db_post_events(pscal,&(pscal->runno),DBE_VALUE);
+               db_post_events(pscal,&(pscal->runno),DBE_VALUE|DBE_ARCHIVE);
                 break;
 
         case zDDMRecordMODE:
@@ -964,7 +963,7 @@ static long special(dbAddr *paddr, int after)
 		  }		
 		Debug(5, "special: COUNT_MODE %i\n", pscal->mode);
 		Debug(5, "special: hardware COUNT_MODE %i\n", fpgabase[COUNT_MODE]);
-                db_post_events(pscal,&(pscal->mode),DBE_VALUE);
+                db_post_events(pscal,&(pscal->mode),DBE_VALUE|DBE_ARCHIVE);
                 break;
 
 	case zDDMRecordGMON: /* set switch for channel monitors or others */
@@ -1014,7 +1013,7 @@ static long special(dbAddr *paddr, int after)
 		Debug(2, "special: GMON %i\n", pscal->gmon);
 		/* bits set by device support. Tell record to write hardware */
 		mars_modified=1;
-		db_post_events(pscal,&(pscal->gmon),DBE_VALUE);
+		db_post_events(pscal,&(pscal->gmon),DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordMONCH: /* set channel which has monitor out enabled */
@@ -1036,8 +1035,8 @@ static long special(dbAddr *paddr, int after)
 		  channelstr[pscal->monch].sel=pscal->loao;
 		  mars_modified=1;
 		  }
-		db_post_events(pscal,&(pscal->monch),DBE_VALUE);
-		db_post_events(pscal,pscal->pspct,DBE_VALUE);
+		db_post_events(pscal,&(pscal->monch),DBE_VALUE|DBE_ARCHIVE);
+		db_post_events(pscal,pscal->pspct,DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordLOAO: /* set channel monitor to leakage or pulse */
@@ -1045,7 +1044,7 @@ static long special(dbAddr *paddr, int after)
 		/* write hardware */
 		channelstr[pscal->monch].sel=pscal->loao;
 		mars_modified=1; 
-		db_post_events(pscal,&(pscal->loao),DBE_VALUE);
+		db_post_events(pscal,&(pscal->loao),DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordEBLK: /* Enable on-chip bias current generator */
@@ -1055,7 +1054,7 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[chip].sl=pscal->eblk;
 		    }
 		mars_modified=1; 
-		db_post_events(pscal,&(pscal->eblk),DBE_VALUE);
+		db_post_events(pscal,&(pscal->eblk),DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordTPAMP: /* Set test pulse amplitude */
@@ -1065,7 +1064,7 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[chip].pb=pscal->tpamp;
 		    }
 		mars_modified=1; 
-		db_post_events(pscal,&(pscal->tpamp),DBE_VALUE);
+		db_post_events(pscal,&(pscal->tpamp),DBE_VALUE|DBE_ARCHIVE);
 		break;
 	case zDDMRecordTPFRQ: /* Set test pulse frequency */
 		Debug(2, "special: TPFRQ\n %i", pscal->eblk);
@@ -1073,14 +1072,14 @@ static long special(dbAddr *paddr, int after)
 		fpgabase[CALPULSE_RATE]=25000000/pscal->tpfrq/2;
 		fpgabase[CALPULSE_WIDTH]=25000000/pscal->tpfrq/2;
 		mars_modified=1; 
-		db_post_events(pscal,&(pscal->tpfrq),DBE_VALUE);
+		db_post_events(pscal,&(pscal->tpfrq),DBE_VALUE|DBE_ARCHIVE);
 		break;
 	case zDDMRecordTPCNT: /* Set test pulse count */
 		Debug(2, "special: TPCNT\n %i", pscal->eblk);
 		/* write hardware. Do all or nothing for now. */
 		fpgabase[CALPULSE_CNT]=pscal->tpcnt;
 		mars_modified=1; 
-		db_post_events(pscal,&(pscal->tpcnt),DBE_VALUE);
+		db_post_events(pscal,&(pscal->tpcnt),DBE_VALUE|DBE_ARCHIVE);
 		break;
 	case zDDMRecordTPENB: /* Enable test pulses */
 		Debug(2, "special: TPENB\n %i", pscal->eblk);
@@ -1094,7 +1093,7 @@ static long special(dbAddr *paddr, int after)
 		  fpgabase[CALPULSE_MODE]=0;
 		  }
 		mars_modified=1; 
-		db_post_events(pscal,&(pscal->tpenb),DBE_VALUE);
+		db_post_events(pscal,&(pscal->tpenb),DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordSHPT: /* set shaping time */
@@ -1103,7 +1102,7 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[chip].ts=pscal->shpt;
 		    }
 		mars_modified=1;
-		db_post_events(pscal,&(pscal->shpt),DBE_VALUE);
+		db_post_events(pscal,&(pscal->shpt),DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordGAIN: /* set gain */
@@ -1112,31 +1111,31 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[chip].g=pscal->gain;
 		    }
 		mars_modified=1;
-		db_post_events(pscal,&(pscal->gain),DBE_VALUE);
+		db_post_events(pscal,&(pscal->gain),DBE_VALUE|DBE_ARCHIVE);
 		break;
 		
 	case zDDMRecordCHEN: /* load 'channel-disabled' array */ 
 		mars_modified=1;
-		db_post_events(pscal,pscal->pchen,DBE_VALUE);/* post change */
+		db_post_events(pscal,pscal->pchen,DBE_VALUE|DBE_ARCHIVE);/* post change */
 		Debug(2, "special: CHEN %i\n", 0);
 		break;
 		
 	case zDDMRecordTSEN: /* load 'test pulse input enabled' array */
 		mars_modified=1;
 		Debug(2, "special: TSEN %i\n", 0);
-		db_post_events(pscal,pscal->ptsen,DBE_VALUE);
+		db_post_events(pscal,pscal->ptsen,DBE_VALUE|DBE_ARCHIVE);
 		break;
 		
 	case zDDMRecordTHTR:  /* array of NCHAN trim DAC values */
 		mars_modified=1;
 		Debug(2, "special: THTR %i\n", 0);
-		db_post_events(pscal,pscal->pthtr,DBE_VALUE);
+		db_post_events(pscal,pscal->pthtr,DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordPUTR:  /* array of NCHAN pileup threshold trim values */
 		mars_modified=1;
 		Debug(2, "special: PUTR %i\n", 0);
-		db_post_events(pscal,pscal->pputr,DBE_VALUE);
+		db_post_events(pscal,pscal->pputr,DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordPUEN: /* Pileup Rejection enable */
@@ -1145,7 +1144,7 @@ static long special(dbAddr *paddr, int after)
 		    }
 		mars_modified=1;
 		Debug(2, "special: PUEN %i\n", pscal->puen);
-		db_post_events(pscal,&(pscal->puen),DBE_VALUE);
+		db_post_events(pscal,&(pscal->puen),DBE_VALUE|DBE_ARCHIVE);
 		break;
 						
 	case zDDMRecordMFS: /* Multi-fire suppression */
@@ -1154,7 +1153,7 @@ static long special(dbAddr *paddr, int after)
 		    }
 		mars_modified=1;
 		Debug(2, "special: MFS %i\n", pscal->mfs);
-		db_post_events(pscal,&(pscal->mfs),DBE_VALUE);
+		db_post_events(pscal,&(pscal->mfs),DBE_VALUE|DBE_ARCHIVE);
 		break;
 
         case zDDMRecordTDS: /* set time detector slope */
@@ -1195,7 +1194,7 @@ static long special(dbAddr *paddr, int after)
 
 		mars_modified=1;
 	        Debug(2, "special: TDS %i\n", pscal->tds);
-	        db_post_events(pscal,&(pscal->tds),DBE_VALUE);
+	        db_post_events(pscal,&(pscal->tds),DBE_VALUE|DBE_ARCHIVE);
 	        break;
 
 	case zDDMRecordTDM: /* set TDC mode */
@@ -1204,13 +1203,13 @@ static long special(dbAddr *paddr, int after)
 		    }	
 		mars_modified=1;
 		Debug(2, "special: TDM %i\n", 0);
-		db_post_events(pscal,&(pscal->tdm),DBE_VALUE);
+		db_post_events(pscal,&(pscal->tdm),DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordTHRSH: /* Threshold */
 		mars_modified=1;
 		Debug(2, "special: THRSH %i\n", 0);
-		db_post_events(pscal,pscal->pthrsh,DBE_VALUE);
+		db_post_events(pscal,pscal->pthrsh,DBE_VALUE|DBE_ARCHIVE);
 		break;
 		
 	default:
@@ -1262,7 +1261,7 @@ zDDMRecord *pscal;
 
 	monitor_mask = recGblResetAlarms(pscal);
 
-	monitor_mask|=(DBE_VALUE|DBE_LOG);
+	monitor_mask|=(DBE_VALUE|DBE_ARCHIVE|DBE_LOG);
 
 	/* check all value fields for changes */
 	return;

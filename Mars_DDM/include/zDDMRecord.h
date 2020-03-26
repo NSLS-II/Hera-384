@@ -10,29 +10,10 @@
 #include "epicsTime.h"
 
 typedef enum {
-    leak_1                          /* Off */,
-    leak_2                          /* 2pA */,
-    leak_3                          /* 8pA */
-} zddmLeak;
-#define zddmLeak_NUM_CHOICES 3
-
-typedef enum {
-    scalerCNT_Done                  /* Done */,
-    scalerCNT_Count                 /* Count */
-} zddmCNT;
-#define zddmCNT_NUM_CHOICES 2
-
-typedef enum {
-    zddmscTPENB_0                   /* Off */,
-    zddmscTPENB_1                   /* On */
-} zddmTPENB;
-#define zddmTPENB_NUM_CHOICES 2
-
-typedef enum {
-    scalerCONT_OneShot              /* OneShot */,
-    scalerCONT_AutoCount            /* AutoCount */
-} zddmCONT;
-#define zddmCONT_NUM_CHOICES 2
+    zddmscMODE_0                    /* Framing */,
+    zddmscMODE_1                    /* Continuous */
+} zddmMODE;
+#define zddmMODE_NUM_CHOICES 2
 
 typedef enum {
     zddmscTOS_0                     /* 1us */,
@@ -46,14 +27,6 @@ typedef enum {
 #define zddmTDS_NUM_CHOICES 7
 
 typedef enum {
-    shapeT_1                        /* 0.25us */,
-    shapeT_2                        /* 0.5us */,
-    shapeT_3                        /* 1us */,
-    shapeT_4                        /* 2us */
-} zddmshapeT;
-#define zddmshapeT_NUM_CHOICES 4
-
-typedef enum {
     zddmGMON_0                      /* Off */,
     zddmGMON_1                      /* Temperature */,
     zddmGMON_2                      /* Baseline */,
@@ -64,10 +37,23 @@ typedef enum {
 #define zddmGMON_NUM_CHOICES 6
 
 typedef enum {
-    zddmscTDM_0                     /* Time of arrival */,
-    zddmscTDM_1                     /* Time over threshold */
-} zddmTDM;
-#define zddmTDM_NUM_CHOICES 2
+    zddmscTPENB_0                   /* Off */,
+    zddmscTPENB_1                   /* On */
+} zddmTPENB;
+#define zddmTPENB_NUM_CHOICES 2
+
+typedef enum {
+    scalerCNT_Done                  /* Done */,
+    scalerCNT_Count                 /* Count */
+} zddmCNT;
+#define zddmCNT_NUM_CHOICES 2
+
+typedef enum {
+    leak_1                          /* Off */,
+    leak_2                          /* 2pA */,
+    leak_3                          /* 8pA */
+} zddmLeak;
+#define zddmLeak_NUM_CHOICES 3
 
 typedef enum {
     zddmscPUEN_0                    /* Disable */,
@@ -76,16 +62,32 @@ typedef enum {
 #define zddmPUEN_NUM_CHOICES 2
 
 typedef enum {
+    shapeT_1                        /* 0.25us */,
+    shapeT_2                        /* 0.5us */,
+    shapeT_3                        /* 1us */,
+    shapeT_4                        /* 2us */
+} zddmshapeT;
+#define zddmshapeT_NUM_CHOICES 4
+
+typedef enum {
     zddmscLOAO_0                    /* Pulse */,
     zddmscLOAO_1                    /* Leakage */
 } zddmLOAO;
 #define zddmLOAO_NUM_CHOICES 2
 
 typedef enum {
-    zddmscMODE_0                    /* Framing */,
-    zddmscMODE_1                    /* Continuous */
-} zddmMODE;
-#define zddmMODE_NUM_CHOICES 2
+    gain_0                          /* 75keV */,
+    gain_1                          /* 37.5keV */,
+    gain_2                          /* 25keV */,
+    gain_3                          /* 12.5keV */
+} zddmGain;
+#define zddmGain_NUM_CHOICES 4
+
+typedef enum {
+    scalerCONT_OneShot              /* OneShot */,
+    scalerCONT_AutoCount            /* AutoCount */
+} zddmCONT;
+#define zddmCONT_NUM_CHOICES 2
 
 typedef enum {
     zddmscMFS_0                     /* Off */,
@@ -97,12 +99,10 @@ typedef enum {
 #define zddmMFS_NUM_CHOICES 5
 
 typedef enum {
-    gain_0                          /* 75keV */,
-    gain_1                          /* 37.5keV */,
-    gain_2                          /* 25keV */,
-    gain_3                          /* 12.5keV */
-} zddmGain;
-#define zddmGain_NUM_CHOICES 4
+    zddmscTDM_0                     /* Time of arrival */,
+    zddmscTDM_1                     /* Time over threshold */
+} zddmTDM;
+#define zddmTDM_NUM_CHOICES 2
 
 typedef struct zDDMRecord {
     char                name[61];   /* Record Name */

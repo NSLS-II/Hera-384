@@ -462,11 +462,7 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
                 printf("Total Events in Frame=%d\t Rate=%.1f\n",evttot,evtrate); 
                 evttot = 0; 
        }
-        
-//	db_post_events(psr,psr->pmca,DBE_VALUE);
-//	db_post_events(psr,psr->ptdc,DBE_VALUE);
-//	db_post_events(psr,psr->pspct,DBE_VALUE);
-	
+        	
 	usleep(2000);
 
     }   
@@ -618,13 +614,13 @@ int i,j;
 	       spct[i] = 0;
 	       }
     /* clear mca array */
-    for (i=0; i<384; i++){
+    for (i=0; i<zDDM_NCHAN; i++){
 	 for (j=0; j<4096;j++){
 	    mca[4096*i+j]=0;
 	    }
 	}
     /* clear tdc array */
-    for (i=0; i<384; i++){
+    for (i=0; i<zDDM_NCHAN; i++){
 	 for (j=0; j<1024;j++){
 	    tdc[1024*i+j]=0;
 	    }

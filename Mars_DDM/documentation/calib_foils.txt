@@ -1,0 +1,6 @@
+Set of energy calibration foils for MARS-based detectors.
+
+12.5keV range: Ti, Se
+25keV range: Fe, Ag
+37.5keV range: Fe, I
+75keV range: Cu, Au

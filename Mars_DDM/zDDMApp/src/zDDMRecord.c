@@ -238,7 +238,7 @@ struct dbAddr *paddr;
    switch(index){
    case zDDMRecordMCA:{
       paddr->pfield = (void *)(pzDDM->pmca);
-      paddr->no_elements = 1572864; /* = 384 x 4096, Energy spectra accumulated for real-time display */
+      paddr->no_elements = zDDM_NCHAN * 4096; /*1572864;  = 384 x 4096, Energy spectra accumulated for real-time display */
       paddr->field_type = DBF_LONG;
       paddr->field_size = sizeof(int);
       paddr->dbr_field_type = DBR_LONG;
@@ -246,7 +246,7 @@ struct dbAddr *paddr;
       }
    case zDDMRecordTDC:{
       paddr->pfield = (void *)(pzDDM->ptdc);
-      paddr->no_elements = 393216; /* = 384 x 1024, TDC spectra accumulated for real-time display */
+      paddr->no_elements = zDDM_NCHAN * 1024; /* 393216; = 384 x 1024, TDC spectra accumulated for real-time display */
       paddr->field_type = DBF_LONG;
       paddr->field_size = sizeof(int);
       paddr->dbr_field_type = DBR_LONG;
@@ -471,6 +471,9 @@ static long init_record(zDDMRecord *pscal, int pass)
 		mca=pscal->pmca;
 		tdc=pscal->ptdc;
 		spct=pscal->pspct; 
+		
+		pscal->tysize = pscal->nelm;
+		pscal->eysize = pscal->nelm;
 		
 		for(i=0;i<pscal->nelm;i++){
 		   for(j=0;j<4096;j++){
@@ -815,7 +818,7 @@ static void updateCounts(zDDMRecord *pscal)
 	       spct[i] = 0;
 	       }
 	       /* clear mca array */
-	       for (i=0; i<384; i++){
+	       for (i=0; i<zDDM_NCHAN; i++){
 	         for (j=0; j<4096;j++){
 		   mca[4096*i+j]=0;
 		   }

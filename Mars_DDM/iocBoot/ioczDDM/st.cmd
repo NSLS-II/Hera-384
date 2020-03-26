@@ -12,7 +12,7 @@ dbLoadDatabase "dbd/zDDM.dbd"
 zDDM_registerRecordDeviceDriver pdbbase
 devI2CConfig(0,1,8)
 ##devSPIConfig(0,1,8)
-devzDDMConfig(1,1,384)
+devzDDMConfig(1,1,192)
 
 
 ## Load record instances

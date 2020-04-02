@@ -260,7 +260,15 @@ struct dbAddr *paddr;
       paddr->dbr_field_type = DBR_LONG;
       break;
       }
-    case zDDMRecordCHEN:{
+    case zDDMRecordSPCTX:{
+      paddr->pfield = (void *)(pzDDM->pspctx);
+      paddr->no_elements = 4096; /*Calibrated X-axis values for real-time display */
+      paddr->field_type = DBF_FLOAT;
+      paddr->field_size = sizeof(int);
+      paddr->dbr_field_type = DBR_FLOAT;
+      break;
+      }
+   case zDDMRecordCHEN:{
       paddr->pfield = (void *)(pzDDM->pchen);
       paddr->no_elements = pzDDM->nelm;
       paddr->field_type = DBF_CHAR;
@@ -354,7 +362,13 @@ static long get_array_info(DBADDR *paddr, long *no_elements, long *offset)
       printf("get_array_info: SPCT\n");
       break;
       }
-    case zDDMRecordCHEN:{
+    case zDDMRecordSPCTX:{
+      *no_elements =  4096;
+      *offset = 0;
+      printf("get_array_info: SPCTX\n");
+      break;
+      }
+   case zDDMRecordCHEN:{
       *no_elements =  pzDDM->nelm;
       *offset = 0;
       printf("get_array_info: CHEN\n");
@@ -416,7 +430,7 @@ static long init_record(zDDMRecord *pscal, int pass)
 	int i,j, nchips;
 	unsigned int *mca, *tdc, *spct;
 	int *thrsh;
-	float *slp, *offs;
+	float *slp, *offs, *spctx;
 	char *thtr, *chen, *tsen, *putr;
 	
 	det_DSET *pdset = (det_DSET *)(pscal->dset);
@@ -445,6 +459,7 @@ static long init_record(zDDMRecord *pscal, int pass)
 		pscal->pmca = (unsigned int *)calloc(pscal->nelm*4096,sizeof(int));
 		pscal->ptdc = (unsigned int *)calloc(pscal->nelm*1024,sizeof(int));
 		pscal->pspct = (unsigned int *)calloc(4096,sizeof(int));
+		pscal->pspctx = (float *)calloc(4096,sizeof(float));
 
 		pscal->vers = VERSION;
 		pscal->fver=fpgabase[VERSIONREG];
@@ -470,7 +485,8 @@ static long init_record(zDDMRecord *pscal, int pass)
 		thrsh=pscal->pthrsh;
 		mca=pscal->pmca;
 		tdc=pscal->ptdc;
-		spct=pscal->pspct; 
+		spct=pscal->pspct;
+		spctx=pscal->pspctx; 
 		
 		pscal->tysize = pscal->nelm;
 		pscal->eysize = pscal->nelm;
@@ -491,10 +507,12 @@ static long init_record(zDDMRecord *pscal, int pass)
 
 		for(j=0;j<4096;j++){
 		   spct[j] = j; /* gray ramp */
+		   spctx[j]=j;
 		   }
 		printf("Initialized SPCT counts\n");
 		
 		pscal->monch=0;
+		pscal->pol=0;
 		
 		for(i=0;i<pscal->nchips;i++){
 			thrsh[i]=300;
@@ -862,6 +880,7 @@ static long special(dbAddr *paddr, int after)
 	int j, rt, chip;
 	int mars_modified;
 	unsigned int *mca, *spct;
+	float *spctx, *slp, *offs;
         struct rpvtStruct *prpvt = (struct rpvtStruct *)pscal->rpvt;	
         CALLBACK *pcallbacks = prpvt->pcallbacks;
         CALLBACK *pdelayCallback = (CALLBACK *)&(pcallbacks[1]);
@@ -869,6 +888,9 @@ static long special(dbAddr *paddr, int after)
 	double dly=0.0;
 	mca=pscal->pmca;
 	spct=pscal->pspct;
+	spctx=pscal->pspctx;
+	slp=pscal->pslp;
+	offs=pscal->poffs;
 
 	Debug(5, "special: entry; after=%d\n", after);
 	if (!after) return (0);
@@ -1025,9 +1047,13 @@ static long special(dbAddr *paddr, int after)
 		pscal->chip=pscal->monch/32;
 		pscal->chan=pscal->monch%32;
                 for(i=0;i<4096;i++){     
-                     spct[i]=mca[4096*pscal->monch+i]; 
+                     spct[i]=mca[4096*pscal->monch+i];
 		     }
- 		printf("SPCT updated\n");
+		printf("SPCT updated\n");
+		for(i=0;i<4096;i++){
+		     spctx[i]=(float)i* slp[pscal->monch]+offs[pscal->monch];
+		     }
+ 		printf("SPCTX updated\n");
 		if(pscal->gmon==5){
 		  for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
@@ -1040,6 +1066,14 @@ static long special(dbAddr *paddr, int after)
 		  }
 		db_post_events(pscal,&(pscal->monch),DBE_VALUE|DBE_ARCHIVE);
 		db_post_events(pscal,pscal->pspct,DBE_VALUE|DBE_ARCHIVE);
+		db_post_events(pscal,pscal->pspctx,DBE_VALUE|DBE_ARCHIVE);
+		break;
+
+	case zDDMRecordPOL: /* set input polarity */
+	        for(chip=0;chip<12;chip++){
+		   globalstr[chip].sp=pscal->pol;
+		   }
+		mars_modified=1;
 		break;
 
 	case zDDMRecordLOAO: /* set channel monitor to leakage or pulse */

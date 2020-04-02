@@ -81,6 +81,12 @@ menu(zddmMODE) {
 	choice(zddmscMODE_1,"Continuous")
 }
 
+menu(zddmPOL) {
+	choice(zddmscPOL_0,"Negative")
+	choice(zddmscPOL_1,"Positive")
+}
+
+
 recordtype(zDDM) {
 	include "dbCommon.dbd"
 	field(VERS,DBF_FLOAT) {
@@ -134,6 +140,20 @@ recordtype(zDDM) {
                 special(SPC_NOMOD)
                 interest(4)
                 extra("void *           pspct")
+        }
+
+	field(SPCTX,DBF_NOACCESS) {
+		prompt("Value")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           spctx")
+	}        
+
+        field(PSPCTX,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pspctx")
         }
 
 
@@ -201,6 +221,15 @@ recordtype(zDDM) {
                 interest(1)
                 menu(zddmCNT)
         }
+
+        field(POL,DBF_MENU) {
+                prompt("Polarity")
+                special(SPC_MOD)
+                pp(TRUE)
+                interest(1)
+                menu(zddmPOL)
+        }
+
 
         field(PCNT, DBF_MENU) {
                 prompt("Prev Count")

@@ -10,10 +10,11 @@
 #include "epicsTime.h"
 
 typedef enum {
-    zddmscMODE_0                    /* Framing */,
-    zddmscMODE_1                    /* Continuous */
-} zddmMODE;
-#define zddmMODE_NUM_CHOICES 2
+    leak_1                          /* Off */,
+    leak_2                          /* 2pA */,
+    leak_3                          /* 8pA */
+} zddmLeak;
+#define zddmLeak_NUM_CHOICES 3
 
 typedef enum {
     zddmscTOS_0                     /* 1us */,
@@ -27,33 +28,22 @@ typedef enum {
 #define zddmTDS_NUM_CHOICES 7
 
 typedef enum {
-    zddmGMON_0                      /* Off */,
-    zddmGMON_1                      /* Temperature */,
-    zddmGMON_2                      /* Baseline */,
-    zddmGMON_3                      /* Threshold */,
-    zddmGMON_4                      /* Test pulse */,
-    zddmGMON_5                      /* Channel monitor */
-} zddmGMON;
-#define zddmGMON_NUM_CHOICES 6
-
-typedef enum {
-    zddmscTPENB_0                   /* Off */,
-    zddmscTPENB_1                   /* On */
-} zddmTPENB;
-#define zddmTPENB_NUM_CHOICES 2
-
-typedef enum {
     scalerCNT_Done                  /* Done */,
     scalerCNT_Count                 /* Count */
 } zddmCNT;
 #define zddmCNT_NUM_CHOICES 2
 
 typedef enum {
-    leak_1                          /* Off */,
-    leak_2                          /* 2pA */,
-    leak_3                          /* 8pA */
-} zddmLeak;
-#define zddmLeak_NUM_CHOICES 3
+    zddmscPOL_0                     /* Negative */,
+    zddmscPOL_1                     /* Positive */
+} zddmPOL;
+#define zddmPOL_NUM_CHOICES 2
+
+typedef enum {
+    zddmscTDM_0                     /* Time of arrival */,
+    zddmscTDM_1                     /* Time over threshold */
+} zddmTDM;
+#define zddmTDM_NUM_CHOICES 2
 
 typedef enum {
     zddmscPUEN_0                    /* Disable */,
@@ -62,12 +52,20 @@ typedef enum {
 #define zddmPUEN_NUM_CHOICES 2
 
 typedef enum {
-    shapeT_1                        /* 0.25us */,
-    shapeT_2                        /* 0.5us */,
-    shapeT_3                        /* 1us */,
-    shapeT_4                        /* 2us */
-} zddmshapeT;
-#define zddmshapeT_NUM_CHOICES 4
+    scalerCONT_OneShot              /* OneShot */,
+    scalerCONT_AutoCount            /* AutoCount */
+} zddmCONT;
+#define zddmCONT_NUM_CHOICES 2
+
+typedef enum {
+    zddmGMON_0                      /* Off */,
+    zddmGMON_1                      /* Temperature */,
+    zddmGMON_2                      /* Baseline */,
+    zddmGMON_3                      /* Threshold */,
+    zddmGMON_4                      /* Test pulse */,
+    zddmGMON_5                      /* Channel monitor */
+} zddmGMON;
+#define zddmGMON_NUM_CHOICES 6
 
 typedef enum {
     zddmscLOAO_0                    /* Pulse */,
@@ -84,10 +82,16 @@ typedef enum {
 #define zddmGain_NUM_CHOICES 4
 
 typedef enum {
-    scalerCONT_OneShot              /* OneShot */,
-    scalerCONT_AutoCount            /* AutoCount */
-} zddmCONT;
-#define zddmCONT_NUM_CHOICES 2
+    zddmscTPENB_0                   /* Off */,
+    zddmscTPENB_1                   /* On */
+} zddmTPENB;
+#define zddmTPENB_NUM_CHOICES 2
+
+typedef enum {
+    zddmscMODE_0                    /* Framing */,
+    zddmscMODE_1                    /* Continuous */
+} zddmMODE;
+#define zddmMODE_NUM_CHOICES 2
 
 typedef enum {
     zddmscMFS_0                     /* Off */,
@@ -99,10 +103,12 @@ typedef enum {
 #define zddmMFS_NUM_CHOICES 5
 
 typedef enum {
-    zddmscTDM_0                     /* Time of arrival */,
-    zddmscTDM_1                     /* Time over threshold */
-} zddmTDM;
-#define zddmTDM_NUM_CHOICES 2
+    shapeT_1                        /* 0.25us */,
+    shapeT_2                        /* 0.5us */,
+    shapeT_3                        /* 1us */,
+    shapeT_4                        /* 2us */
+} zddmshapeT;
+#define zddmshapeT_NUM_CHOICES 4
 
 typedef struct zDDMRecord {
     char                name[61];   /* Record Name */
@@ -157,6 +163,8 @@ typedef struct zDDMRecord {
     void *           ptdc;          /* Buffer Pointer */
     void *           spct;          /* Value */
     void *           pspct;         /* Buffer Pointer */
+    void *           spctx;         /* Value */
+    void *           pspctx;        /* Buffer Pointer */
     epicsUInt32         exsize;     /* Display X size */
     epicsUInt32         eysize;     /* Display Y size */
     epicsUInt32         txsize;     /* Display X size */
@@ -166,6 +174,7 @@ typedef struct zDDMRecord {
     void *rpvt;                     /* Record Private */
     epicsFloat64        freq;       /* Time base freq */
     epicsEnum16         cnt;        /* Count */
+    epicsEnum16         pol;        /* Polarity */
     epicsEnum16         pcnt;       /* Prev Count */
     DBLINK              out;        /* Output Specification */
     epicsFloat32        rate;       /* Display Rate (Hz.) */
@@ -276,70 +285,73 @@ typedef enum {
 	zDDMRecordPTDC = 49,
 	zDDMRecordSPCT = 50,
 	zDDMRecordPSPCT = 51,
-	zDDMRecordEXSIZE = 52,
-	zDDMRecordEYSIZE = 53,
-	zDDMRecordTXSIZE = 54,
-	zDDMRecordTYSIZE = 55,
-	zDDMRecordFNAM = 56,
-	zDDMRecordCALF = 57,
-	zDDMRecordRPVT = 58,
-	zDDMRecordFREQ = 59,
-	zDDMRecordCNT = 60,
-	zDDMRecordPCNT = 61,
-	zDDMRecordOUT = 62,
-	zDDMRecordRATE = 63,
-	zDDMRecordRAT1 = 64,
-	zDDMRecordDLY = 65,
-	zDDMRecordDLY1 = 66,
-	zDDMRecordTP = 67,
-	zDDMRecordTP1 = 68,
-	zDDMRecordPR1 = 69,
-	zDDMRecordSS = 70,
-	zDDMRecordUS = 71,
-	zDDMRecordCONT = 72,
-	zDDMRecordMODE = 73,
-	zDDMRecordRUNNO = 74,
-	zDDMRecordT = 75,
-	zDDMRecordFVER = 76,
-	zDDMRecordNELM = 77,
-	zDDMRecordNCH = 78,
-	zDDMRecordCHAN = 79,
-	zDDMRecordCHIP = 80,
-	zDDMRecordINP = 81,
-	zDDMRecordCARD = 82,
-	zDDMRecordNCHIPS = 83,
-	zDDMRecordSHPT = 84,
-	zDDMRecordGAIN = 85,
-	zDDMRecordGMON = 86,
-	zDDMRecordMONCH = 87,
-	zDDMRecordPUEN = 88,
-	zDDMRecordEBLK = 89,
-	zDDMRecordCHEN = 90,
-	zDDMRecordPCHEN = 91,
-	zDDMRecordSLP = 92,
-	zDDMRecordPSLP = 93,
-	zDDMRecordOFFS = 94,
-	zDDMRecordPOFFS = 95,
-	zDDMRecordTSEN = 96,
-	zDDMRecordPTSEN = 97,
-	zDDMRecordPUTR = 98,
-	zDDMRecordPPUTR = 99,
-	zDDMRecordLOAO = 100,
-	zDDMRecordEGU = 101,
-	zDDMRecordPREC = 102,
-	zDDMRecordMFS = 103,
-	zDDMRecordTDS = 104,
-	zDDMRecordTDM = 105,
-	zDDMRecordTHTR = 106,
-	zDDMRecordPTHTR = 107,
-	zDDMRecordTHRSH = 108,
-	zDDMRecordPTHRSH = 109,
-	zDDMRecordTPAMP = 110,
-	zDDMRecordTPFRQ = 111,
-	zDDMRecordTPCNT = 112,
-	zDDMRecordTPENB = 113,
-	zDDMRecordCOUT = 114,
-	zDDMRecordCOUTP = 115
+	zDDMRecordSPCTX = 52,
+	zDDMRecordPSPCTX = 53,
+	zDDMRecordEXSIZE = 54,
+	zDDMRecordEYSIZE = 55,
+	zDDMRecordTXSIZE = 56,
+	zDDMRecordTYSIZE = 57,
+	zDDMRecordFNAM = 58,
+	zDDMRecordCALF = 59,
+	zDDMRecordRPVT = 60,
+	zDDMRecordFREQ = 61,
+	zDDMRecordCNT = 62,
+	zDDMRecordPOL = 63,
+	zDDMRecordPCNT = 64,
+	zDDMRecordOUT = 65,
+	zDDMRecordRATE = 66,
+	zDDMRecordRAT1 = 67,
+	zDDMRecordDLY = 68,
+	zDDMRecordDLY1 = 69,
+	zDDMRecordTP = 70,
+	zDDMRecordTP1 = 71,
+	zDDMRecordPR1 = 72,
+	zDDMRecordSS = 73,
+	zDDMRecordUS = 74,
+	zDDMRecordCONT = 75,
+	zDDMRecordMODE = 76,
+	zDDMRecordRUNNO = 77,
+	zDDMRecordT = 78,
+	zDDMRecordFVER = 79,
+	zDDMRecordNELM = 80,
+	zDDMRecordNCH = 81,
+	zDDMRecordCHAN = 82,
+	zDDMRecordCHIP = 83,
+	zDDMRecordINP = 84,
+	zDDMRecordCARD = 85,
+	zDDMRecordNCHIPS = 86,
+	zDDMRecordSHPT = 87,
+	zDDMRecordGAIN = 88,
+	zDDMRecordGMON = 89,
+	zDDMRecordMONCH = 90,
+	zDDMRecordPUEN = 91,
+	zDDMRecordEBLK = 92,
+	zDDMRecordCHEN = 93,
+	zDDMRecordPCHEN = 94,
+	zDDMRecordSLP = 95,
+	zDDMRecordPSLP = 96,
+	zDDMRecordOFFS = 97,
+	zDDMRecordPOFFS = 98,
+	zDDMRecordTSEN = 99,
+	zDDMRecordPTSEN = 100,
+	zDDMRecordPUTR = 101,
+	zDDMRecordPPUTR = 102,
+	zDDMRecordLOAO = 103,
+	zDDMRecordEGU = 104,
+	zDDMRecordPREC = 105,
+	zDDMRecordMFS = 106,
+	zDDMRecordTDS = 107,
+	zDDMRecordTDM = 108,
+	zDDMRecordTHTR = 109,
+	zDDMRecordPTHTR = 110,
+	zDDMRecordTHRSH = 111,
+	zDDMRecordPTHRSH = 112,
+	zDDMRecordTPAMP = 113,
+	zDDMRecordTPFRQ = 114,
+	zDDMRecordTPCNT = 115,
+	zDDMRecordTPENB = 116,
+	zDDMRecordCOUT = 117,
+	zDDMRecordCOUTP = 118
 } zDDMFieldIndex;
 
 #ifdef GEN_SIZE_OFFSET
@@ -353,7 +365,7 @@ static int zDDMRecordSizeOffset(dbRecordType *prt)
 {
     zDDMRecord *prec = 0;
 
-    assert(prt->no_fields == 116);
+    assert(prt->no_fields == 119);
     prt->papFldDes[zDDMRecordNAME]->size = sizeof(prec->name);
     prt->papFldDes[zDDMRecordDESC]->size = sizeof(prec->desc);
     prt->papFldDes[zDDMRecordASG]->size = sizeof(prec->asg);
@@ -406,6 +418,8 @@ static int zDDMRecordSizeOffset(dbRecordType *prt)
     prt->papFldDes[zDDMRecordPTDC]->size = sizeof(prec->ptdc);
     prt->papFldDes[zDDMRecordSPCT]->size = sizeof(prec->spct);
     prt->papFldDes[zDDMRecordPSPCT]->size = sizeof(prec->pspct);
+    prt->papFldDes[zDDMRecordSPCTX]->size = sizeof(prec->spctx);
+    prt->papFldDes[zDDMRecordPSPCTX]->size = sizeof(prec->pspctx);
     prt->papFldDes[zDDMRecordEXSIZE]->size = sizeof(prec->exsize);
     prt->papFldDes[zDDMRecordEYSIZE]->size = sizeof(prec->eysize);
     prt->papFldDes[zDDMRecordTXSIZE]->size = sizeof(prec->txsize);
@@ -415,6 +429,7 @@ static int zDDMRecordSizeOffset(dbRecordType *prt)
     prt->papFldDes[zDDMRecordRPVT]->size = sizeof(prec->rpvt);
     prt->papFldDes[zDDMRecordFREQ]->size = sizeof(prec->freq);
     prt->papFldDes[zDDMRecordCNT]->size = sizeof(prec->cnt);
+    prt->papFldDes[zDDMRecordPOL]->size = sizeof(prec->pol);
     prt->papFldDes[zDDMRecordPCNT]->size = sizeof(prec->pcnt);
     prt->papFldDes[zDDMRecordOUT]->size = sizeof(prec->out);
     prt->papFldDes[zDDMRecordRATE]->size = sizeof(prec->rate);
@@ -522,6 +537,8 @@ static int zDDMRecordSizeOffset(dbRecordType *prt)
     prt->papFldDes[zDDMRecordPTDC]->offset = (unsigned short)((char *)&prec->ptdc - (char *)prec);
     prt->papFldDes[zDDMRecordSPCT]->offset = (unsigned short)((char *)&prec->spct - (char *)prec);
     prt->papFldDes[zDDMRecordPSPCT]->offset = (unsigned short)((char *)&prec->pspct - (char *)prec);
+    prt->papFldDes[zDDMRecordSPCTX]->offset = (unsigned short)((char *)&prec->spctx - (char *)prec);
+    prt->papFldDes[zDDMRecordPSPCTX]->offset = (unsigned short)((char *)&prec->pspctx - (char *)prec);
     prt->papFldDes[zDDMRecordEXSIZE]->offset = (unsigned short)((char *)&prec->exsize - (char *)prec);
     prt->papFldDes[zDDMRecordEYSIZE]->offset = (unsigned short)((char *)&prec->eysize - (char *)prec);
     prt->papFldDes[zDDMRecordTXSIZE]->offset = (unsigned short)((char *)&prec->txsize - (char *)prec);
@@ -531,6 +548,7 @@ static int zDDMRecordSizeOffset(dbRecordType *prt)
     prt->papFldDes[zDDMRecordRPVT]->offset = (unsigned short)((char *)&prec->rpvt - (char *)prec);
     prt->papFldDes[zDDMRecordFREQ]->offset = (unsigned short)((char *)&prec->freq - (char *)prec);
     prt->papFldDes[zDDMRecordCNT]->offset = (unsigned short)((char *)&prec->cnt - (char *)prec);
+    prt->papFldDes[zDDMRecordPOL]->offset = (unsigned short)((char *)&prec->pol - (char *)prec);
     prt->papFldDes[zDDMRecordPCNT]->offset = (unsigned short)((char *)&prec->pcnt - (char *)prec);
     prt->papFldDes[zDDMRecordOUT]->offset = (unsigned short)((char *)&prec->out - (char *)prec);
     prt->papFldDes[zDDMRecordRATE]->offset = (unsigned short)((char *)&prec->rate - (char *)prec);

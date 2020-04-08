@@ -1,0 +1,20 @@
+ The debug header has the mars digital signals on them.   You can control which mars chip you are looking at by  writing to the leds register.
+
+
+chipnum <= conv_integer(signed(iobus_leds(3 downto 0)));
+
+dbg(2) <= mars_cs(chipnum);
+dbg(3) <= mars_rwck(chipnum);
+dbg(4) <= mars_flg(chipnum);
+dbg(5) <= mars_en(chipnum);
+dbg(6) <= mars_tpck(chipnum);
+dbg(7) <= mars_rw(chipnum);
+dbg(8) <= latadc_pdtd(chipnum);
+dbg(9) <= mars_da0(chipnum); 
+
+ the pin mapping is:
+dbg(2) => pin 5
+dbg(3) => pin 7
+dbg(4) => pin 9
+etc.
+

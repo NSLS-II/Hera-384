@@ -1,0 +1,3 @@
+epicsEnvSet("IOC","ioczDDM")
+epicsEnvSet("TOP","/home/peter/Hera-384/Mars_DDM")
+epicsEnvSet("EPICS_BASE","/home/peter/epics/base")

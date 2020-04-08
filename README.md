@@ -58,6 +58,7 @@ RUNNO: 0: Running counter of frames
 SHPT: 0.5us: Shaping time         
 SLP: Energy calibration slope
 SPCT: Spectrum of currently monitored channel
+SPCTX: Calibrated X-axis for plot
 TDC: Spectrum of timing signal          
 TDM: Timing signal function, ToT or ToA          
 TDS: Slope of timing ramp

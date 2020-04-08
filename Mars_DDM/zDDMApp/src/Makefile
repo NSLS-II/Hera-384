@@ -19,11 +19,12 @@ DBDINC += zDDMRecord
 zDDMSupport_SRCS += devzDDM.c
 zDDMSupport_SRCS += zDDMRecord.c
 zDDMSupport_SRCS += devI2C.c
+zDDMSupport_SRCS += devZtemp.c
 #zDDMSupport_SRCS += devSPIdac.c
 zDDMSupport_SRCS += pl_lib.c
 zDDMSupport_LIBS += $(EPICS_BASE_IOC_LIBS)
 zDDM_SYS_LIBS += readline
-zDDM_SYS_LIBS += zmq
+#zDDM_SYS_LIBS += zmq
 
 #=============================
 # build an ioc application

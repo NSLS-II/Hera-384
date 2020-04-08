@@ -7,6 +7,7 @@ include $(TOP)/configure/CONFIG
 DB += det1.db
 DB += i2cDacs.db
 DB += SpiDacs.db
+DB += ZTMPAdcs.db
 #DB += user.substitutions
 
 # If <anyname>.db template is not named <anyname>*.template add

@@ -138,7 +138,7 @@ extern int zDDM_NCHIPS;
 #define FRAME_NO  54
 #define COUNT_MODE 55
 
-#define SIMUL 1 /* For testing without hardware, define SIMUL */
+/* #define SIMUL 1 */ /* For testing without hardware, define SIMUL */
 
 #ifdef SIMUL
 static unsigned int fpga_data[1024];
@@ -443,9 +443,11 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
 		  pxl=32*chipnum+channel;
 		  mca[pxl*4096+pd]+=1;
 		  tdc[pxl*1024+td]+=1;
-                  if (ts > ts_prev + 19)
+		  if(devzDDMdebug>=6){
+                   if (ts > ts_prev + 19)
                     printf("\n");
-                  printf("ASIC: %4d   Chan: %4d   PD: %4d   TD: %4d   Timestamp: %d\n",chipnum,channel,pd,td,ts);
+	 	    printf("ASIC: %4d   Chan: %4d   PD: %4d   TD: %4d   Timestamp: %d\n",chipnum,channel,pd,td,ts);
+			}
                   }
               }
            }
@@ -458,8 +460,9 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
 		for(i=0;i<4096;i++){
 		   spct[i]=mca[monch*4096+i];
 		   }
-                
+               if(devzDDMdebug>=6){ 
                 printf("Total Events in Frame=%d\t Rate=%.1f\n",evttot,evtrate); 
+		}
                 evttot = 0; 
        }
         	

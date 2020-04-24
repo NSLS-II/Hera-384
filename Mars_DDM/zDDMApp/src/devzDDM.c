@@ -164,7 +164,7 @@ STATIC long zDDM_reset(struct zDDMRecord *pscal);
 //STATIC long zDDM_read(void *pscal);
 #define zDDM_read NULL
 STATIC long zDDM_write_preset(zDDMRecord *psr, int val);
-STATIC long zDDM_arm(void *pscal, int val);
+STATIC long zDDM_arm(struct zDDMRecord *pscal, int val);
 STATIC long zDDM_done(zDDMRecord *pscal);
 
 det_DSET devzDDM = {
@@ -590,12 +590,16 @@ return(0);
 }
 
 
-STATIC long zDDM_arm(void *psscal, int val)
+STATIC long zDDM_arm(struct zDDMRecord *pscal, int val)
 {    
   Debug(2, "scaler_arm(): entry, val = %d\n\r", val); 
+  if(pscal->mode==0){
     FASTLOCK(&fpga_write_lock);
     fpgabase[TRIG]=val;
     FASTUNLOCK(&fpga_write_lock);
+    }
+  if(pscal->mode==1){
+    }
   return(0);
 }
 
@@ -609,9 +613,11 @@ int i,j;
     tdc=pscal->ptdc;
     spct=pscal->pspct; 
 
+    if(pscal->mode==0){
     FASTLOCK(&fpga_write_lock);
     fpgabase[TRIG]=0;
     FASTUNLOCK(&fpga_write_lock);
+    }
     /* clear monitor spectrum */
     for (i=0; i<4096; i++) {
 	       spct[i] = 0;

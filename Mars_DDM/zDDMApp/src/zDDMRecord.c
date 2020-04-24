@@ -746,8 +746,7 @@ static long process(zDDMRecord *pscal)
         }
 
         /* Are we in auto-count mode and not already counting? */
-        if (pscal->us == USER_STATE_IDLE && pscal->cont &&
-                pscal->ss != zDDM_STATE_COUNTING) {
+        if (pscal->us == USER_STATE_IDLE && pscal->cont && pscal->ss != zDDM_STATE_COUNTING) {
         double dly_sec=pscal->dly1;  /* seconds to delay */
 
                 if (justFinishedUserCount) dly_sec = MAX(pscal->dly1, zDDM_wait_time);
@@ -879,9 +878,11 @@ static long special(dbAddr *paddr, int after)
 	int status, i=0;
 	int j, rt, chip;
 	int mars_modified;
+	static int pmode;
 	unsigned int *mca, *spct;
 	float *spctx, *slp, *offs;
-        struct rpvtStruct *prpvt = (struct rpvtStruct *)pscal->rpvt;	
+        struct rpvtStruct *prpvt = (struct rpvtStruct *)pscal->rpvt;
+	devPVT *pPvt = (devPVT *)pscal->dpvt;	
         CALLBACK *pcallbacks = prpvt->pcallbacks;
         CALLBACK *pdelayCallback = (CALLBACK *)&(pcallbacks[1]);
         int fieldIndex = dbGetFieldIndex(paddr);
@@ -979,16 +980,24 @@ static long special(dbAddr *paddr, int after)
                 break;
 
         case zDDMRecordMODE:
-                /* Continuous acquisition */
+                /* framing mode */
 		if(pscal->mode==0){
-		  fpgabase[COUNT_MODE]=0;
-		  }
+		     fpgabase[COUNT_MODE]=0;
+		     if(pmode==1){
+		       frame_done(1); /* simulate end-of-count interrupt */
+		       pscal->cnt=0;
+		       pmode=0;
+		       }
+		     }
+		/* Continuous acquisition */
 		if(pscal->mode==1){
-		  fpgabase[COUNT_MODE]=1;
-		  }		
+		    fpgabase[COUNT_MODE]=1;
+		    pmode=1;
+		    }		
 		Debug(5, "special: COUNT_MODE %i\n", pscal->mode);
 		Debug(5, "special: hardware COUNT_MODE %i\n", fpgabase[COUNT_MODE]);
                 db_post_events(pscal,&(pscal->mode),DBE_VALUE|DBE_ARCHIVE);
+		db_post_events(pscal,&(pscal->cnt),DBE_VALUE|DBE_ARCHIVE);
                 break;
 
 	case zDDMRecordGMON: /* set switch for channel monitors or others */

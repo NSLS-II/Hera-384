@@ -138,7 +138,7 @@ extern int zDDM_NCHIPS;
 #define FRAME_NO  54
 #define COUNT_MODE 55
 
-/* #define SIMUL 1 */ /* For testing without hardware, define SIMUL */
+ #define SIMUL 1  /* For testing without hardware, define SIMUL */
 
 #ifdef SIMUL
 static unsigned int fpga_data[1024];
@@ -685,277 +685,687 @@ extern int zDDM_NCHAN, zDDM_NCHIPS;
 * Routines to assemble SPI strings from arrays, and to talk to 
 * ASIC via SPI port.
 *******************************************************************/
+unsigned int reverseBits(int nobits, unsigned int num) 
+{  
+//	unsigned int reverse_num = 0; 
+//	int i; 
+//	for (i = 0; i < nobits; i++) 
+//	{ 
+//		if((num & (1 << i))) 
+//		reverse_num |= 1 << ((nobits - 1) - i); 
+//	} 
+//	return reverse_num;
+	return num; 
+} 
 
 int wrap(void *pscal){
-    int index, chip, tmp, chan;
+    int index, chip, tmp, chan, j, chn;
     int NCHIPS;
     NCHIPS=zDDM_NCHIPS;
+    unsigned int tword,tword2;
 
-for(chip=0;chip<NCHIPS;chip++){
-       index=0;
-       chan=0;
-       tmp=0;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)     <<31) /* chan 0 */
-             |((channelstr[chip*32+chan].sm&0x1)   <<30)
-             |((channelstr[chip*32+chan].sel&0x1)  <<28)
-             |((channelstr[chip*32+chan].da&0x7)   <<25)
-             |((channelstr[chip*32+chan].dp&0xf)   <<20);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)   <<19) /* chan 1 */
-             |((channelstr[chip*32+chan].sm&0x1)   <<18)
-             |((channelstr[chip*32+chan].sel&0x1)  <<16)
-             |((channelstr[chip*32+chan].da&0x7)   <<13)
-             |((channelstr[chip*32+chan].dp&0xf)   <<8);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)            <<7) /* chan 2 */
-             |((channelstr[chip*32+chan].sm&0x1)           <<6)
-             |((channelstr[chip*32+chan].sel&0x1)          <<4)
-             |((channelstr[chip*32+chan].da&0x7)        <<1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;
-      tmp=tmp|((channelstr[chip*32+chan].dp&0xf)          <<28);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)         <<27) /* chan 3 */
-             |((channelstr[chip*32+chan].sm&0x1)       <<26)
-             |((channelstr[chip*32+chan].sel&0x1)      <<24)
-             |((channelstr[chip*32+chan].da&0x7)       <<21)
-             |((channelstr[chip*32+chan].dp&0xf)       <<16);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	  <<15) /* chan 4 */
-             |((channelstr[chip*32+chan].sm&0x1)	  <<14)
-             |((channelstr[chip*32+chan].sel&0x1)	  <<12)
-             |((channelstr[chip*32+chan].da&0x7)	  <<9)
-             |((channelstr[chip*32+chan].dp&0xf)	  <<4);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)       <<3) /* chan 5 */
-             |((channelstr[chip*32+chan].sm&0x1)     <<2)
-             |(channelstr[chip*32+chan].sel&0x1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;             
-    tmp = tmp|((channelstr[chip*32+chan].da&0x7)         <<29)
-             |((channelstr[chip*32+chan].dp&0xf)          <<24);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	   <<23) /* chan 6 */
-             |((channelstr[chip*32+chan].sm&0x1)	   <<22)
-             |((channelstr[chip*32+chan].sel&0x1)	   <<20)
-             |((channelstr[chip*32+chan].da&0x7)	   <<17)
-             |((channelstr[chip*32+chan].dp&0xf)	   <<12);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	 <<11) /* chan 7 */
-             |((channelstr[chip*32+chan].sm&0x1)	 <<10)
-             |((channelstr[chip*32+chan].sel&0x1)	 <<8)
-             |((channelstr[chip*32+chan].da&0x7)	 <<5)
-             |(channelstr[chip*32+chan].dp&0xf);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;             
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	<<31) /* chan 8 */
-             |((channelstr[chip*32+chan].sm&0x1)	<<30)
-             |((channelstr[chip*32+chan].sel&0x1)	<<28)
-             |((channelstr[chip*32+chan].da&0x7)	<<25)
-             |((channelstr[chip*32+chan].dp&0xf)	<<20);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)       <<19) /* chan 9 */
-             |((channelstr[chip*32+chan].sm&0x1)       <<18)
-             |((channelstr[chip*32+chan].sel&0x1)       <<16)
-             |((channelstr[chip*32+chan].da&0x7)       <<13)
-             |((channelstr[chip*32+chan].dp&0xf)       <<8);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)     <<7) /* chan 10 */
-             |((channelstr[chip*32+chan].sm&0x1)         <<6)
-             |((channelstr[chip*32+chan].sel&0x1)       <<4)
-             |((channelstr[chip*32+chan].da&0x7)         <<1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;
-    tmp = tmp|((channelstr[chip*32+chan].dp&0xf)          <<28);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	    <<27) /* chan 11 */
-             |((channelstr[chip*32+chan].sm&0x1)	    <<26)
-             |((channelstr[chip*32+chan].sel&0x1)	    <<24)
-             |((channelstr[chip*32+chan].da&0x7)	    <<21)
-             |((channelstr[chip*32+chan].dp&0xf)	    <<16);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)       <<15) /* chan 12 */
-             |((channelstr[chip*32+chan].sm&0x1)       <<14)
-             |((channelstr[chip*32+chan].sel&0x1)       <<12)
-             |((channelstr[chip*32+chan].da&0x7)       <<9)
-             |((channelstr[chip*32+chan].dp&0xf)       <<4);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)     <<3) /* chan 13 */
-             |((channelstr[chip*32+chan].sm&0x1)        <<2)
-             |(channelstr[chip*32+chan].sel&0x1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;             
-    tmp = tmp|((channelstr[chip*32+chan].da&0x7)        <<29)
-             |((channelstr[chip*32+chan].dp&0xf)          <<24);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)      <<23) /* chan 14 */
-             |((channelstr[chip*32+chan].sm&0x1)      <<22)
-             |((channelstr[chip*32+chan].sel&0x1)      <<20)
-             |((channelstr[chip*32+chan].da&0x7)      <<17)
-             |((channelstr[chip*32+chan].dp&0xf)      <<12);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	   <<11) /* chan 15 */
-             |((channelstr[chip*32+chan].sm&0x1)	   <<10)
-             |((channelstr[chip*32+chan].sel&0x1)	   <<8)
-             |((channelstr[chip*32+chan].da&0x7)	   <<5)
-             |(channelstr[chip*32+chan].dp&0xf);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;             
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	<<31) /* chan 16 */
-             |((channelstr[chip*32+chan].sm&0x1)	<<30)
-             |((channelstr[chip*32+chan].sel&0x1)	<<28)
-             |((channelstr[chip*32+chan].da&0x7)	<<25)
-             |((channelstr[chip*32+chan].dp&0xf)	<<20);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	<<19) /* chan 17 */
-             |((channelstr[chip*32+chan].sm&0x1)	<<18)
-             |((channelstr[chip*32+chan].sel&0x1)	<<16)
-             |((channelstr[chip*32+chan].da&0x7)	<<13)
-             |((channelstr[chip*32+chan].dp&0xf)	<<8);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)     <<7) /* chan 18 */
-             |((channelstr[chip*32+chan].sm&0x1)       <<6)
-             |((channelstr[chip*32+chan].sel&0x1)      <<4)
-             |((channelstr[chip*32+chan].da&0x7)           <<1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;
-    tmp = tmp|((channelstr[chip*32+chan].dp&0xf)          <<28);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	 <<27) /* chan 19 */
-             |((channelstr[chip*32+chan].sm&0x1)	 <<26)
-             |((channelstr[chip*32+chan].sel&0x1)	 <<24)
-             |((channelstr[chip*32+chan].da&0x7)	 <<21)
-             |((channelstr[chip*32+chan].dp&0xf)	 <<16);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	<<15) /* chan 20 */
-             |((channelstr[chip*32+chan].sm&0x1)	<<14)
-             |((channelstr[chip*32+chan].sel&0x1)	<<12)
-             |((channelstr[chip*32+chan].da&0x7)	<<9)
-             |((channelstr[chip*32+chan].dp&0xf)	<<4);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)     <<3) /* chan 21 */
-             |((channelstr[chip*32+chan].sm&0x1)        <<2)
-             |(channelstr[chip*32+chan].sel&0x1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;             
-    tmp = tmp|((channelstr[chip*32+chan].da&0x7)          <<29)
-             |((channelstr[chip*32+chan].dp&0xf)          <<24);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	<<23) /* chan 22 */
-             |((channelstr[chip*32+chan].sm&0x1)	<<22)
-             |((channelstr[chip*32+chan].sel&0x1)	<<20)
-             |((channelstr[chip*32+chan].da&0x7)	<<17)
-             |((channelstr[chip*32+chan].dp&0xf)	<<12);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	   <<11) /* chan 23 */
-             |((channelstr[chip*32+chan].sm&0x1)	   <<10)
-             |((channelstr[chip*32+chan].sel&0x1)	   <<8)
-             |((channelstr[chip*32+chan].da&0x7)	   <<5)
-             |(channelstr[chip*32+chan].dp&0xf);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;             
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)       <<31) /* chan 24 */
-             |((channelstr[chip*32+chan].sm&0x1)       <<30)
-             |((channelstr[chip*32+chan].sel&0x1)       <<28)
-             |((channelstr[chip*32+chan].da&0x7)       <<25)
-             |((channelstr[chip*32+chan].dp&0xf)       <<20);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	<<19) /* chan 25 */
-             |((channelstr[chip*32+chan].sm&0x1)	<<18)
-             |((channelstr[chip*32+chan].sel&0x1)	<<16)
-             |((channelstr[chip*32+chan].da&0x7)	<<13)
-             |((channelstr[chip*32+chan].dp&0xf)	<<8);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)     <<7) /* chan 26 */
-             |((channelstr[chip*32+chan].sm&0x1)      <<6)
-             |((channelstr[chip*32+chan].sel&0x1)      <<4)
-             |((channelstr[chip*32+chan].da&0x7)          <<1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;
-    tmp = tmp|((channelstr[chip*32+chan].dp&0xf)          <<28);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)       <<27) /* chan 27 */
-             |((channelstr[chip*32+chan].sm&0x1)       <<26)
-             |((channelstr[chip*32+chan].sel&0x1)       <<24)
-             |((channelstr[chip*32+chan].da&0x7)       <<21)
-             |((channelstr[chip*32+chan].dp&0xf)       <<16);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)      <<15) /* chan 28 */
-             |((channelstr[chip*32+chan].sm&0x1)      <<14)
-             |((channelstr[chip*32+chan].sel&0x1)      <<12)
-             |((channelstr[chip*32+chan].da&0x7)      <<9)
-             |((channelstr[chip*32+chan].dp&0xf)      <<4);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)     <<3) /* chan 29 */
-             |((channelstr[chip*32+chan].sm&0x1)        <<2)
-             |(channelstr[chip*32+chan].sel&0x1);
-          channels[chip][index]=tmp;
-          index++;
-          tmp=0;             
-    tmp = tmp|((channelstr[chip*32+chan].da&0x7)         <<29)
-             |((channelstr[chip*32+chan].dp&0xf)         <<24);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)       <<23) /* chan 30 */
-             |((channelstr[chip*32+chan].sm&0x1)       <<22)
-             |((channelstr[chip*32+chan].sel&0x1)       <<20)
-             |((channelstr[chip*32+chan].da&0x7)       <<17)
-             |((channelstr[chip*32+chan].dp&0xf)       <<12);
-       chan++;
-    tmp = tmp|((channelstr[chip*32+chan].st&0x1)	   <<11) /* chan 31 */
-             |((channelstr[chip*32+chan].sm&0x1)	   <<10)
-             |((channelstr[chip*32+chan].sel&0x1)	   <<8)
-             |((channelstr[chip*32+chan].da&0x7)	   <<5)
-             |(channelstr[chip*32+chan].dp&0xf);
-          channels[chip][index]=tmp;
-       printf("Chip = %i, Channel # %i, Index = %i\n",chip,chan,index);
+    for(chip=0;chip<NCHIPS;chip++){
 
-/* globals */
+	/* do globals first */
+	j=0;
+	tword=0;
+	tword=globalstr[chip].tm &1;  /*
+/*1 */	j++;	
+	tword=tword<<1|globalstr[chip].sbm &1;
+/*2 */ 	j++;
+	tword=tword<<1|globalstr[chip].saux &1;
+/*3 */	j++;
+	tword=tword<<1|globalstr[chip].sp &1;
+/*4 */	j++;
+	tword=tword<<1|globalstr[chip].slh &1;
+/*5 */	j++;
+	tword=tword<<2|reverseBits(2,globalstr[chip].g);
+/*7 */	j+=2;
+	tword=tword<<5|reverseBits(5,globalstr[chip].c);
+/*12 */	j+=5;
+	tword=tword<<2|reverseBits(2,globalstr[chip].ss);
+/*14 */	j+=2;
+	tword=tword<<2|reverseBits(2,globalstr[chip].tr);
+/*16 */	j+=2;
+	tword=tword<<1|globalstr[chip].sse &1;
+/*17 */	j++;
+	tword=tword<<1|globalstr[chip].spur &1;
+/*18 */	j++;
+	tword=tword<<1|globalstr[chip].rt &1;
+/*19 */	j++;
+	tword=tword<<2|reverseBits(2,globalstr[chip].ts);
+/*21 */	j+=2;
+	tword=tword<<1|globalstr[chip].sl &1;
+/*22 */	j++;
+	tword=tword<<1|globalstr[chip].sb &1;
+/*23 */	j++;
+	tword=tword<<1|globalstr[chip].sbn &1;
+/*24 */	j++;
+	tword=tword<<1|globalstr[chip].m1 &1;
+/*25 */	j++;
+	tword=tword<<1|globalstr[chip].m0 &1;
+/*26 */	j++;
+	tword=tword<<1|globalstr[chip].senfl2 &1;
+/*27 */	j++;
+	tword=tword<<1|globalstr[chip].senfl1 &1;
+/*28 */	j++;
+	tword=tword<<1|globalstr[chip].rm &1;
+/*29 */	j++;
+	tmp=reverseBits(10,globalstr[chip].pb);
+	tword=tword<<3|((tmp>>7));
+/*32 */	j+=3;
+	
+	printf("# bits=%i   tword=%x\n",j, tword);
+	loads[chip][0]=tword;
+	tword2=0;
+	j=0;
+	tword2=tword2|(tmp & 0x7f);
+/*7 */	j+=7;
+	tword2=tword2<<10|reverseBits(10,globalstr[chip].pa);
+/*17 */	j+=10;
 
-        tmp=0;
-        index=0;
-        tmp = tmp|((globalstr[chip].tm &0x1)<<31)
-                |((globalstr[chip].sbm &0x01)<<30)
-                |((globalstr[chip].saux &0x01)<<29)
-                |((globalstr[chip].sp &0x01)<<28)
-                |((globalstr[chip].slh &0x01)<<27)
-                |((globalstr[chip].g &0x03)<<25)
-                |((globalstr[chip].c &0x1f)<<20)
-                |((globalstr[chip].ss &0x03)<<18)
-                |((globalstr[chip].tr &0x03)<<16)
-                |((globalstr[chip].sse &0x01)<<15)
-                |((globalstr[chip].spur &0x01)<<14)
-                |((globalstr[chip].rt &0x01)<<13)
-                |((globalstr[chip].ts &0x03)<<11)
-                |((globalstr[chip].sl &0x01)<<10)
-                |((globalstr[chip].sb &0x03)<<9)
-                |((globalstr[chip].m1 &0x01)<<7)
-                |((globalstr[chip].m0 &0x01)<<6)
-                |((globalstr[chip].senfl2 &0x01)<<5)
-		|((globalstr[chip].senfl1 &0x01)<<3)
-                |((globalstr[chip].rm &0x01)<<3)
-                |((globalstr[chip].pb &0x3ff)>>7);
-       globals[chip][0]=tmp;
-        tmp=0;
-         tmp=tmp|((globalstr[chip].pb &0x3ff)<<25)
-                |((globalstr[chip].pa&0x3ff)<<15);
-        globals[chip][1]=tmp;
+	chn=31;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*18 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*19 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*20 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*21 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*24 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*25 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*29 */	j+=4;
+	
+	chn=30;	
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*30 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*31 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*32 */	j++;
 
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][1]=tword2;
+	tword2=0;
+
+	j=0;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*1 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*4 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*5 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*9 */	j+=4;
+
+	chn=29;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*10 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*11 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*12 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*13 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*16 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*17 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*21 */	j+=4;
+
+	chn=28;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*22 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*23 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*24 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*25 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*28 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*29 */	j++;
+	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<3|(tmp >>1);
+/*32 */	j+=3;
+	loads[chip][2]=tword2;
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+
+	tword2=0;
+	j=0;
+	tword2=tword2|(tmp &0x1);
+/*1 */	j++;
+	chn=27;
+
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*2 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*3 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*4 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*5 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*8 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*9 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*13 */	j+=4;
+
+	chn=26;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*14 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*15 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*16 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*17 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*20 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*21 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*25 */	j+=4;
+
+	chn=25;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*26 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*27 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*28 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*29 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*32 */	j+=3;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][3]=tword2;
+
+	j=0;
+
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*1 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*5 */	j+=4;
+
+	chn=24;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*6 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*7 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*8 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*9 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*12 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*13 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*17 */	j+=4;
+
+	chn=23;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*18 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*19 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*20 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*21 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*24 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*25 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*29 */	j+=4;
+
+	chn=22;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*30 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*31 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*32 */	j++;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][4]=tword2;
+	tword2=0;
+	j=0;
+
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*1 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*4 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*5 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*9 */	j+=4;
+
+	chn=21;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*10 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*11 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*12 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*13 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*16 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*17 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*21 */	j+=4;
+
+	chn=20;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*22 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*23 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*24 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*25 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*28 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*29 */	j++;
+	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<3|(tmp>>1);
+/*32 */	j+=3;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][5]=tword2;
+	tword2=0;
+	j=0;
+	tword2=tword2|(tmp&1);
+/*1 */	j++;
+	chn=19;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*2 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*3 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*4 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*5 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*8 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*9 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*13 */	j+=4;
+
+	chn=18;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*14 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*15 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*16 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*17 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*20 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*21 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*25 */	j+=4;
+
+	chn=17;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*26 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*27 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*28 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*29 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*32 */	j+=3;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][6]=tword2;
+	tword2=0;
+	j=0;
+
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*1 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*5 */	j+=4;
+
+	chn=16;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*6 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*7 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*8 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*9 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*12 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*13 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*17 */	j+=4;
+
+	chn=15;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*18 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*19 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*20 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*21 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*24 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*25 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*29 */	j+=4;
+	
+	chn=14;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*30 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*31 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*32 */	j++;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][7]=tword2;
+	tword2=0;
+	j=0;
+
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*1 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*4 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*5 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*9 */	j+=4;
+
+	chn=13;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*10 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*11 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*12 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*13 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*16 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*17 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*21 */	j+=4;
+
+	chn=12;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*22 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*23 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*24 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*25 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*28 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*29 */	j++;
+	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<3|(tmp>>1);
+/*32 */	j+=3;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][8]=tword2;
+	tword2=0;
+	j=0;
+
+	tword2=tword2|(tmp&1);
+/*1 */	j+=1;
+
+	chn=11;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*2 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*3 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*4 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*5 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*8 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*9 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*13 */	j+=4;
+
+	chn=10;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*14 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*15 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*16 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*17 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*20 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*21 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*25 */	j+=4;
+
+	chn=9;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*26 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*27 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*28 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*29 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*32 */	j+=3;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][9]=tword2;
+	tword2=0;
+	j=0;
+
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*1 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*5 */	j+=4;
+	
+	chn=8;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*6 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*7 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*8 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*9 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*12 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*13 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*17 */	j+=4;
+
+	chn=7;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*18 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*19 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*20 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*21 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*24 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*25 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*29 */	j+=4;
+
+	chn=6;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*30 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*31 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*32 */	j++;
+
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][10]=tword2;
+	tword2=0;
+	j=0;
+	
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*1 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*4 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*5 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*9 */	j+=4;
+
+
+	chn=5;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*10 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*11 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*12 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*13 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*16 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*17 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*21 */	j+=4;
+
+ 	chn=4;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*22 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*23 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*24 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*25 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*28 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*29 */	j++;
+	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<3|(tmp>>1);
+/*32 */	j+=3;
+
+ 	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][11]=tword2;
+	tword2=0;
+	j=0;
+
+	tword2=tword2|(tmp&1);
+/*1 */	j++;
+	chn=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*2 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*3 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*4 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*5 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*8 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*9 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*13 */	j+=4;
+
+	chn=2;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*14 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*15 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*16 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*17 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*20 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*21 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*25 */	j+=4;
+
+	chn=1;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*26 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*27 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*28 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*29 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*32 */	j+=3;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][12]=tword2;
+	tword2=0;
+	j=0;
+
+	tword2=tword2|channelstr[chip*32+chn].nc1;
+/*1 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*5 */	j+=4;
+
+	chn=0;
+	tword2=tword2<<1|channelstr[chip*32+chn].st;
+/*6 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+/*7 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+/*8 */	j++;
+	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+/*9 */	j++;
+	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+/*12 */	j+=3;
+	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+/*13 */	j++;
+	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+/*17 */	j+=4;
+	tword2=tword2<<15;
+/*32 */	j+=15;
+
+	printf("# bits=%i   tword2=%x\n",j, tword2);
+	loads[chip][13]=tword2;
     }
 return(0);
 }
+
 
 STATIC long zDDM_done(zDDMRecord *psr)
 {

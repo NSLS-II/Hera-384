@@ -185,6 +185,15 @@ recordtype(zDDM) {
                 interest(1)
         }
 
+	field(IPADDR,DBF_STRING) {
+                prompt("Fast data IP")
+                promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+		initial("172.16.0.215")
+                interest(1)
+		size(64)
+        }
+
 	field(FNAM,DBF_STRING) {
 		prompt("Filename")
 		promptgroup(GUI_COMMON)
@@ -198,7 +207,6 @@ recordtype(zDDM) {
 		interest(1)
 		size(64)
 	}
-
 
         field(RPVT,DBF_NOACCESS) {
                 prompt("Record Private")

@@ -37,6 +37,7 @@ extern epicsTimerQueueId	zDDMWdTimerQ;
 
 #include	<stdio.h>
 #include	<stdlib.h>
+#include	<string.h>
 #include	<alarm.h>
 #include	<callback.h>
 #include	<dbDefs.h>
@@ -92,6 +93,7 @@ extern epicsTimerQueueId	zDDMWdTimerQ;
 #define DMA_BUFLEN 36
 #define DMA_CURADDR 37
 #define DMA_THROTTLE 38
+#define UDP_IP_ADDR 40
 #define DMA_IRQ_THROTTLE 48
 #define DMA_IRQ_ENABLE 49
 #define DMA_IRQ_COUNT 50
@@ -165,8 +167,8 @@ rset zDDMRSET = {
 };
 epicsExportAddress(rset,zDDMRSET);
 
-extern void *context;
-extern void *requester;
+//extern void *context;
+//extern void *requester;
 
 extern int *fpgabase;
 
@@ -449,13 +451,13 @@ static long init_record(zDDMRecord *pscal, int pass)
 	
 		if(pscal->nelm<32) pscal->nelm=32; /* Minimum system is 1 chip, 32 channels */
 		if(nchips<=0) nchips=1;
-		pscal->pchen = (char *)calloc(pscal->nelm,sizeof(char));
-		pscal->ptsen = (char *)calloc(pscal->nelm,sizeof(char));
+		pscal->pchen = (unsigned char *)calloc(pscal->nelm,sizeof(char));
+		pscal->ptsen = (unsigned char *)calloc(pscal->nelm,sizeof(char));
 		pscal->pslp = (float *)calloc(pscal->nelm,sizeof(float));
 		pscal->poffs = (float *)calloc(pscal->nelm,sizeof(float));
-		pscal->pthtr = (int *)calloc(pscal->nelm,sizeof(int));
-		pscal->pthrsh = (int *)calloc(pscal->nchips,sizeof(int));
-		pscal->pputr = (char *)calloc(pscal->nelm,sizeof(char));
+		pscal->pthtr = (unsigned int *)calloc(pscal->nelm,sizeof(char));
+		pscal->pthrsh = (unsigned int *)calloc(pscal->nchips,sizeof(int));
+		pscal->pputr = (unsigned char *)calloc(pscal->nelm,sizeof(char));
 		pscal->pmca = (unsigned int *)calloc(pscal->nelm*4096,sizeof(int));
 		pscal->ptdc = (unsigned int *)calloc(pscal->nelm*1024,sizeof(int));
 		pscal->pspct = (unsigned int *)calloc(4096,sizeof(int));
@@ -515,9 +517,16 @@ static long init_record(zDDMRecord *pscal, int pass)
 		pscal->pol=0;
 		
 		for(i=0;i<pscal->nchips;i++){
-			thrsh[i]=300;
-			globalstr[i].pa = 300;
+			
+			globalstr[i].pa = 0x3fe;
+			thrsh[i]=globalstr[i].pa;
+			globalstr[i].pb = 0x3fe;
+			pscal->tpamp=0x3fe;
 			printf("Thresh[%i]=%i\n",i,thrsh[i]);
+			globalstr[i].sbn=1;
+			globalstr[i].sb=1;
+			globalstr[i].rm=0;
+			globalstr[i].sbm=1;
 			}
 		for(i=0;i<pscal->nelm;i++){
 			channelstr[i].sm = 0; 
@@ -526,10 +535,10 @@ static long init_record(zDDMRecord *pscal, int pass)
 			tsen[i]=0;
 			channelstr[i].sel = 0;
 			pscal->loao=0;
-			channelstr[i].da = 4; /* 3-bits, mid-scale*/
-			thtr[i]=4; 
-			channelstr[i].dp = 8; /* 4-bits, mid-scale*/
-			putr[i]=8;
+			channelstr[i].da = 3; /* 3-bits, mid-scale*/
+			thtr[i]=channelstr[i].da; 
+			channelstr[i].dp = 7; /* 4-bits, mid-scale*/
+			putr[i]=channelstr[i].dp;
 			slp[i]=1.0;
 			offs[i]=0.0;
 			}
@@ -876,10 +885,13 @@ static long special(dbAddr *paddr, int after)
 	
 	zDDMRecord *pscal = (zDDMRecord *)(paddr->precord);
 	int status, i=0;
-	int j, rt, chip;
+	int j, rt, chip, chan;
 	int mars_modified;
+	char ip[64];
+	unsigned int addr, tok[4];
 	static int pmode;
-	unsigned int *mca, *spct;
+	unsigned int *mca, *spct, *thrsh;
+	unsigned char *chen, *tsen, *thtr, *putr;
 	float *spctx, *slp, *offs;
         struct rpvtStruct *prpvt = (struct rpvtStruct *)pscal->rpvt;
 	devPVT *pPvt = (devPVT *)pscal->dpvt;	
@@ -892,6 +904,11 @@ static long special(dbAddr *paddr, int after)
 	spctx=pscal->pspctx;
 	slp=pscal->pslp;
 	offs=pscal->poffs;
+	chen=pscal->pchen;
+	tsen=pscal->ptsen;
+	thtr=pscal->pthtr;
+	putr=pscal->pputr;
+	thrsh=pscal->pthrsh;
 
 	Debug(5, "special: entry; after=%d\n", after);
 	if (!after) return (0);
@@ -1005,44 +1022,54 @@ static long special(dbAddr *paddr, int after)
 		    for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
+		    globalstr[chip].saux=0;
 		    }
 		   }
 		 if(pscal->gmon==1){/* All off except this chip temp. M0=0 C0-C4=00100*/
 		    for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
+		    globalstr[chip].saux=0;
 		    }
 		    globalstr[pscal->chip].c=4;
+		    globalstr[pscal->chip].saux=1;
 		  }
 		 if(pscal->gmon==2){/* All off except this chip base M0=0 C0-C4=10100 */
  		    for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
+		    globalstr[chip].saux=0;
 		    }
 		    globalstr[pscal->chip].c=5;
+		    globalstr[pscal->chip].saux=1; 
 		 }
 		 if(pscal->gmon==3){/* All off except this chip thresh M0=0 C0-C4=01100*/
  		    for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
+		    globalstr[chip].saux=0;
 		    }
 		    globalstr[pscal->chip].c=6;
+		    globalstr[pscal->chip].saux=1;
 		 }
 		 if(pscal->gmon==4){/* All off except this chip test pulse M0=0 C0-C4=11100*/
  		    for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
+		    globalstr[chip].saux=0;
 		    }
 		    globalstr[pscal->chip].c=7;
-
+		    globalstr[pscal->chip].saux=1;
 		 }
 		 if(pscal->gmon==5){/* All off except this chip channel monitor M0=1; channel number to C0-C4*/
 		    for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
+		    globalstr[chip].saux=0;
 		    }
 		 globalstr[pscal->chip].c=pscal->chan;
 		 globalstr[pscal->chip].m0=1;
+		 globalstr[pscal->chip].saux=1;
 		 }
 		Debug(2, "special: GMON %i\n", pscal->gmon);
 		/* bits set by device support. Tell record to write hardware */
@@ -1067,9 +1094,11 @@ static long special(dbAddr *paddr, int after)
 		  for(chip=0;chip<12;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
+		    globalstr[chip].saux=0;
 		    }
 		  globalstr[pscal->chip].c=pscal->chan;
 		  globalstr[pscal->chip].m0=1;
+		  globalstr[pscal->chip].saux=1;
 		  channelstr[pscal->monch].sel=pscal->loao;
 		  mars_modified=1;
 		  }
@@ -1104,7 +1133,7 @@ static long special(dbAddr *paddr, int after)
 		break;
 
 	case zDDMRecordTPAMP: /* Set test pulse amplitude */
-		Debug(2, "special: TPAMP\n %i", pscal->eblk);
+		Debug(2, "special: TPAMP\n %i", pscal->tpamp);
 		/* write hardware. Do all or nothing for now. */
 		  for(chip=0;chip<12;chip++){
 		    globalstr[chip].pb=pscal->tpamp;
@@ -1113,7 +1142,7 @@ static long special(dbAddr *paddr, int after)
 		db_post_events(pscal,&(pscal->tpamp),DBE_VALUE|DBE_ARCHIVE);
 		break;
 	case zDDMRecordTPFRQ: /* Set test pulse frequency */
-		Debug(2, "special: TPFRQ\n %i", pscal->eblk);
+		Debug(2, "special: TPFRQ\n %i", pscal->tpfrq);
 		/* write hardware. Do all or nothing for now. */
 		fpgabase[CALPULSE_RATE]=25000000/pscal->tpfrq/2;
 		fpgabase[CALPULSE_WIDTH]=25000000/pscal->tpfrq/2;
@@ -1121,14 +1150,14 @@ static long special(dbAddr *paddr, int after)
 		db_post_events(pscal,&(pscal->tpfrq),DBE_VALUE|DBE_ARCHIVE);
 		break;
 	case zDDMRecordTPCNT: /* Set test pulse count */
-		Debug(2, "special: TPCNT\n %i", pscal->eblk);
+		Debug(2, "special: TPCNT\n %i", pscal->tpcnt);
 		/* write hardware. Do all or nothing for now. */
 		fpgabase[CALPULSE_CNT]=pscal->tpcnt;
 		mars_modified=1; 
 		db_post_events(pscal,&(pscal->tpcnt),DBE_VALUE|DBE_ARCHIVE);
 		break;
 	case zDDMRecordTPENB: /* Enable test pulses */
-		Debug(2, "special: TPENB\n %i", pscal->eblk);
+		Debug(2, "special: TPENB\n %i", pscal->tpenb);
 		/* write hardware. Do all or nothing for now. */
 		if(pscal->tpenb==1){
 		  fpgabase[MARS_CALPULSE]=0xFFF;
@@ -1167,18 +1196,27 @@ static long special(dbAddr *paddr, int after)
 		break;
 		
 	case zDDMRecordTSEN: /* load 'test pulse input enabled' array */
+		for(chan=0;chan<pscal->nelm;chan++){
+		   channelstr[chan].st=tsen[chan];
+		   }
 		mars_modified=1;
 		Debug(2, "special: TSEN %i\n", 0);
 		db_post_events(pscal,pscal->ptsen,DBE_VALUE|DBE_ARCHIVE);
 		break;
 		
 	case zDDMRecordTHTR:  /* array of NCHAN trim DAC values */
+		for(chan=0;chan<pscal->nelm;chan++){
+		   channelstr[chan].da=thtr[chan];
+		   }
 		mars_modified=1;
 		Debug(2, "special: THTR %i\n", 0);
 		db_post_events(pscal,pscal->pthtr,DBE_VALUE|DBE_ARCHIVE);
 		break;
 
 	case zDDMRecordPUTR:  /* array of NCHAN pileup threshold trim values */
+		for(chan=0;chan<pscal->nelm;chan++){
+		   channelstr[chan].dp=putr[chan];
+		   }
 		mars_modified=1;
 		Debug(2, "special: PUTR %i\n", 0);
 		db_post_events(pscal,pscal->pputr,DBE_VALUE|DBE_ARCHIVE);
@@ -1253,9 +1291,31 @@ static long special(dbAddr *paddr, int after)
 		break;
 
 	case zDDMRecordTHRSH: /* Threshold */
+		for(chip=0;chip<12;chip++){
+		    globalstr[chip].pa=pscal->thrsh;
+		    }	
 		mars_modified=1;
 		Debug(2, "special: THRSH %i\n", 0);
 		db_post_events(pscal,pscal->pthrsh,DBE_VALUE|DBE_ARCHIVE);
+		break;
+
+	case zDDMRecordIPADDR: /* Fast channel IP address */
+		Debug(2, "special: IPADDR %s\n", pscal->ipaddr);
+		strcpy(ip,pscal->ipaddr);
+			addr=0;
+		// Returns first token 
+		char* token = strtok(ip, "."); 
+//		printf("%s\n", token); 
+		tok[0]=atoi(token);
+		for(i=0;i<3;i++) {  
+			token = strtok(NULL, "."); 
+//			printf("%s\n", token); 
+			tok[i+1]=atoi(token);
+			} 
+		addr=tok[0]*16777216+tok[1]*65536+tok[2]*256+tok[3];
+		fpgabase[UDP_IP_ADDR] = addr;
+		Debug(2, "special: decimal address %i\n", addr);
+		db_post_events(pscal,pscal->ipaddr,DBE_VALUE|DBE_ARCHIVE);
 		break;
 		
 	default:

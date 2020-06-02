@@ -77,7 +77,7 @@
                         { printf("%s(%d):",__FILE__,__LINE__); \
                           printf(FMT,V); } }
 
-FAST_LOCK       ZTMP_lock;
+/* FAST_LOCK       ZTMP_lock; */
 volatile int  devZTMPDebug = 0;
 epicsExportAddress(int, devZTMPDebug);
 
@@ -110,7 +110,7 @@ epicsExportAddress(dset,devAiZTMP);
 int devZTMPConfig(card)
 {
 
-      FASTLOCKINIT(&(ZTMP_lock));  /* Init the board lock */      
+/*      FASTLOCKINIT(&(ZTMP_lock)); */ /* Init the board lock */      
 
   return(OK);
 }

@@ -138,7 +138,7 @@ extern int zDDM_NCHIPS;
 #define FRAME_NO  54
 #define COUNT_MODE 55
 
- #define SIMUL 1  /* For testing without hardware, define SIMUL */
+/* #define SIMUL 1 */ /* For testing without hardware, define SIMUL */
 
 #ifdef SIMUL
 static unsigned int fpga_data[1024];
@@ -183,7 +183,7 @@ epicsExportAddress(dset, devzDDM);
 
 
 STATIC det_state zDDM_state;
-STATIC int channels[12][12];
+//STATIC int channels[12][12];
 STATIC unsigned int globals[MAX_NCHIPS][2];
 unsigned char glb;
 unsigned int dacs[5];
@@ -404,11 +404,12 @@ int fifo_getdata(int len, int *data)
 EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
 {
 
-    int i, chipnum, channel, pd, td, ts, ts_prev, addr, newaddr;
+    int i, chipnum, channel, pd, td, ts, ts_prev;
     int numwords, prevframestat, framestat, pxl;
     float evtrate, framelen;
-    unsigned int *mca, *tdc, *spct;
+    unsigned int *mca, *tdc, *spct, *intens;
     int monch;
+    unsigned int intensity[384];
     printf("Starting Data Thread...\n");
     framestat = 0;
     evttot = 0;
@@ -416,6 +417,7 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
     tdc=psr->ptdc;
     spct=psr->pspct; 
     monch=psr->monch;
+    intens=psr->pintens;
 
     while (1) {
         prevframestat = framestat;
@@ -441,11 +443,13 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
                   ts_prev = ts;
                   ts = (databuf[i+1] & 0x1FFFFFFF);
 		  pxl=32*chipnum+channel;
+		  intensity[pxl]+=1;
 		  mca[pxl*4096+pd]+=1;
 		  tdc[pxl*1024+td]+=1;
 		  if(devzDDMdebug>=6){
-                   if (ts > ts_prev + 19)
+                   if (ts > ts_prev + 19){
                     printf("\n");
+		    }
 	 	    printf("ASIC: %4d   Chan: %4d   PD: %4d   TD: %4d   Timestamp: %d\n",chipnum,channel,pd,td,ts);
 			}
                   }
@@ -457,16 +461,20 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
                 printf("Frame Complete...\n");
                 framelen = get_framelen(); 
                 evtrate = evttot / framelen;
+		for(i=0;i<psr->nelm;i++){
+		   intens[i]=intensity[i];
+		   intensity[i]=0;
+		   }
 		for(i=0;i<4096;i++){
 		   spct[i]=mca[monch*4096+i];
 		   }
                if(devzDDMdebug>=6){ 
-                printf("Total Events in Frame=%d\t Rate=%.1f\n",evttot,evtrate); 
+                printf("Total Events in Frame=%d\t Rate=%.1f\n",evttot,evtrate);
 		}
                 evttot = 0; 
        }
         	
-	usleep(2000);
+	usleep(1000);
 
     }   
 }
@@ -505,8 +513,15 @@ STATIC long zDDM_init(int after)
  	Debug0(3,"zDDMWdTimerQ created\n\r");
 
         FASTLOCK(&fpga_write_lock);
-	ad9252_cnfg(22,8); /* clock skew adjust */
-	ad9252_cnfg(255,1); /* latch regs */
+	
+	ad9252_cnfg(1,22,8); /* clock skew adjust */
+	ad9252_cnfg(1,255,1); /* latch regs */
+	ad9252_cnfg(2,22,8); /* clock skew adjust */
+	ad9252_cnfg(2,255,1); /* latch regs */
+	ad9252_cnfg(3,22,8); /* clock skew adjust */
+	ad9252_cnfg(3,255,1); /* latch regs */
+	fpgabase[MARS_RDOUT_ENB]=0x8fff; /* Enable all ASIC outputs to FPGA */
+	
 	FASTUNLOCK(&fpga_write_lock);
 	Debug(3,"zDDM_init: zDDM %i initialized\n\r",0);
 	return(0);
@@ -595,7 +610,15 @@ STATIC long zDDM_arm(struct zDDMRecord *pscal, int val)
   Debug(2, "scaler_arm(): entry, val = %d\n\r", val); 
   if(pscal->mode==0){
     FASTLOCK(&fpga_write_lock);
-    fpgabase[TRIG]=val;
+	if(val==1){
+	   fifo_reset(); /* disable fifo and reset it */
+	   fifo_enable(); /* enable fifo */
+	   fpgabase[TRIG]=val; /* start count */
+	   }
+	if(val==0){
+	   fifo_disable(); /* disable fifo */
+	   fpgabase[TRIG]=val; /* stop count */
+	   }
     FASTUNLOCK(&fpga_write_lock);
     }
   if(pscal->mode==1){
@@ -615,6 +638,7 @@ int i,j;
 
     if(pscal->mode==0){
     FASTLOCK(&fpga_write_lock);
+    fifo_disable();
     fpgabase[TRIG]=0;
     FASTUNLOCK(&fpga_write_lock);
     }
@@ -699,438 +723,445 @@ unsigned int reverseBits(int nobits, unsigned int num)
 } 
 
 int wrap(void *pscal){
-    int index, chip, tmp, chan, j, chn;
+    int chip, tmp, j, chn;
     int NCHIPS;
     NCHIPS=zDDM_NCHIPS;
     unsigned int tword,tword2;
-
     for(chip=0;chip<NCHIPS;chip++){
-
+    printf("wrap: NCHIPS=%i chip=%i\n",NCHIPS, chip);
 	/* do globals first */
 	j=0;
 	tword=0;
-	tword=globalstr[chip].tm &1;  /*
+	tword=globalstr[chip].tm &1;
 /*1 */	j++;	
-	tword=tword<<1|globalstr[chip].sbm &1;
+	tword=tword<<1|(globalstr[chip].sbm &1);
 /*2 */ 	j++;
-	tword=tword<<1|globalstr[chip].saux &1;
+	tword=tword<<1|(globalstr[chip].saux &1);
 /*3 */	j++;
-	tword=tword<<1|globalstr[chip].sp &1;
+	tword=tword<<1|(globalstr[chip].sp &1);
 /*4 */	j++;
-	tword=tword<<1|globalstr[chip].slh &1;
+	tword=tword<<1|(globalstr[chip].slh &1);
 /*5 */	j++;
-	tword=tword<<2|reverseBits(2,globalstr[chip].g);
+	tword=tword<<2|(globalstr[chip].g&3);
 /*7 */	j+=2;
-	tword=tword<<5|reverseBits(5,globalstr[chip].c);
+	tword=tword<<5|(globalstr[chip].c&0x1f);
 /*12 */	j+=5;
-	tword=tword<<2|reverseBits(2,globalstr[chip].ss);
+	tword=tword<<2|(globalstr[chip].ss&3);
 /*14 */	j+=2;
-	tword=tword<<2|reverseBits(2,globalstr[chip].tr);
+	tword=tword<<2|(globalstr[chip].tr&3);
 /*16 */	j+=2;
-	tword=tword<<1|globalstr[chip].sse &1;
+	tword=tword<<1|(globalstr[chip].sse &1);
 /*17 */	j++;
-	tword=tword<<1|globalstr[chip].spur &1;
+	tword=tword<<1|(globalstr[chip].spur &1);
 /*18 */	j++;
-	tword=tword<<1|globalstr[chip].rt &1;
+	tword=tword<<1|(globalstr[chip].rt &1);
 /*19 */	j++;
-	tword=tword<<2|reverseBits(2,globalstr[chip].ts);
+	tword=tword<<2|(globalstr[chip].ts&3);
 /*21 */	j+=2;
-	tword=tword<<1|globalstr[chip].sl &1;
+	tword=tword<<1|(globalstr[chip].sl &1);
 /*22 */	j++;
-	tword=tword<<1|globalstr[chip].sb &1;
+	tword=tword<<1|(globalstr[chip].sb &1);
 /*23 */	j++;
-	tword=tword<<1|globalstr[chip].sbn &1;
+	tword=tword<<1|(globalstr[chip].sbn &1);
 /*24 */	j++;
-	tword=tword<<1|globalstr[chip].m1 &1;
+	tword=tword<<1|(globalstr[chip].m1 &1);
 /*25 */	j++;
-	tword=tword<<1|globalstr[chip].m0 &1;
+	tword=tword<<1|(globalstr[chip].m0 &1);
 /*26 */	j++;
-	tword=tword<<1|globalstr[chip].senfl2 &1;
+	tword=tword<<1|(globalstr[chip].senfl2 &1);
 /*27 */	j++;
-	tword=tword<<1|globalstr[chip].senfl1 &1;
+	tword=tword<<1|(globalstr[chip].senfl1 &1);
 /*28 */	j++;
-	tword=tword<<1|globalstr[chip].rm &1;
+	tword=tword<<1|(globalstr[chip].rm &1);
 /*29 */	j++;
-	tmp=reverseBits(10,globalstr[chip].pb);
-	tword=tword<<3|((tmp>>7));
+	tmp=globalstr[chip].pb;
+	tword=tword<<3|((tmp>>7)&7);
 /*32 */	j+=3;
 	
-	printf("# bits=%i   tword=%x\n",j, tword);
+	if(devzDDMdebug>5){ printf("# bits=%i   tword=%x\n",j, tword);
+	   }
 	loads[chip][0]=tword;
 	tword2=0;
 	j=0;
 	tword2=tword2|(tmp & 0x7f);
 /*7 */	j+=7;
-	tword2=tword2<<10|reverseBits(10,globalstr[chip].pa);
+	tword2=tword2<<10|(globalstr[chip].pa&0x3ff);
 /*17 */	j+=10;
 
 	chn=31;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*18 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*19 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*20 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*21 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*24 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*25 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*29 */	j+=4;
 	
 	chn=30;	
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*30 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*31 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*32 */	j++;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){ printf("# bits=%i   tword2=%x\n",j, tword2);
+	   }
 	loads[chip][1]=tword2;
 	tword2=0;
 
 	j=0;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*1 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*4 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*5 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*9 */	j+=4;
 
 	chn=29;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*10 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*11 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*12 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*13 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*16 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*17 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*21 */	j+=4;
 
 	chn=28;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*22 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*23 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*24 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*25 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*28 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*29 */	j++;
-	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
-	tword2=tword2<<3|(tmp >>1);
+	tmp=(channelstr[chip*32+chn].dp&15);
+	tword2=tword2<<3|((tmp >>1)&7);
 /*32 */	j+=3;
 	loads[chip][2]=tword2;
-	printf("# bits=%i   tword2=%x\n",j, tword2);
-
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	}
 	tword2=0;
 	j=0;
 	tword2=tword2|(tmp &0x1);
 /*1 */	j++;
 	chn=27;
 
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*2 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*3 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*4 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*5 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*8 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*9 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*13 */	j+=4;
 
 	chn=26;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*14 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*15 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*16 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*17 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*20 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*21 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*25 */	j+=4;
 
 	chn=25;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*26 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*27 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*28 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*29 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*32 */	j+=3;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][3]=tword2;
 
 	j=0;
 
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*1 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*5 */	j+=4;
 
 	chn=24;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*6 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*7 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*8 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*9 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*12 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*13 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*17 */	j+=4;
 
 	chn=23;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*18 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*19 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*20 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*21 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*24 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*25 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*29 */	j+=4;
 
 	chn=22;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*30 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*31 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*32 */	j++;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][4]=tword2;
 	tword2=0;
 	j=0;
 
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*1 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*4 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*5 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*9 */	j+=4;
 
 	chn=21;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*10 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*11 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*12 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*13 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*16 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*17 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*21 */	j+=4;
 
 	chn=20;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*22 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*23 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*24 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*25 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*28 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*29 */	j++;
-	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
+	tmp=(channelstr[chip*32+chn].dp&15);
 	tword2=tword2<<3|(tmp>>1);
 /*32 */	j+=3;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][5]=tword2;
 	tword2=0;
 	j=0;
 	tword2=tword2|(tmp&1);
 /*1 */	j++;
 	chn=19;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*2 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*3 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*4 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*5 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*8 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*9 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*13 */	j+=4;
 
 	chn=18;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*14 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*15 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*16 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*17 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*20 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*21 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*25 */	j+=4;
 
 	chn=17;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*26 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*27 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*28 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*29 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*32 */	j+=3;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][6]=tword2;
 	tword2=0;
 	j=0;
 
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*1 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*5 */	j+=4;
 
 	chn=16;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*6 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*7 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*8 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*9 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*12 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*13 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*17 */	j+=4;
 
 	chn=15;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*18 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*19 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*20 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*21 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*24 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*25 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*29 */	j+=4;
 	
 	chn=14;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*30 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*31 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*32 */	j++;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][7]=tword2;
 	tword2=0;
 	j=0;
 
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*1 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*4 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*5 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*9 */	j+=4;
 
 	chn=13;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*10 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*11 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*12 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*13 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*16 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*17 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*21 */	j+=4;
 
 	chn=12;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*22 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*23 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*24 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*25 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*28 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*29 */	j++;
-	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
+	tmp=(channelstr[chip*32+chn].dp&15);
 	tword2=tword2<<3|(tmp>>1);
 /*32 */	j+=3;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][8]=tword2;
 	tword2=0;
 	j=0;
@@ -1139,149 +1170,152 @@ int wrap(void *pscal){
 /*1 */	j+=1;
 
 	chn=11;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*2 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*3 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*4 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*5 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*8 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*9 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*13 */	j+=4;
 
 	chn=10;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*14 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*15 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*16 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*17 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*20 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*21 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*25 */	j+=4;
 
 	chn=9;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*26 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*27 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*28 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*29 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*32 */	j+=3;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][9]=tword2;
 	tword2=0;
 	j=0;
 
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*1 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*5 */	j+=4;
 	
 	chn=8;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*6 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*7 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*8 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*9 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*12 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*13 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*17 */	j+=4;
 
 	chn=7;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*18 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*19 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*20 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*21 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*24 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*25 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*29 */	j+=4;
 
 	chn=6;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*30 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*31 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*32 */	j++;
 
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][10]=tword2;
 	tword2=0;
 	j=0;
 	
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*1 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*4 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*5 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*9 */	j+=4;
 
 
 	chn=5;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*10 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*11 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*12 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*13 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*16 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*17 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*21 */	j+=4;
 
  	chn=4;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*22 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*23 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*24 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*25 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*28 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*29 */	j++;
-	tmp=reverseBits(4,channelstr[chip*32+chn].dp);
+	tmp=(channelstr[chip*32+chn].dp&15);
 	tword2=tword2<<3|(tmp>>1);
 /*32 */	j+=3;
 
- 	printf("# bits=%i   tword2=%x\n",j, tword2);
+ 	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][11]=tword2;
 	tword2=0;
 	j=0;
@@ -1289,78 +1323,80 @@ int wrap(void *pscal){
 	tword2=tword2|(tmp&1);
 /*1 */	j++;
 	chn=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*2 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*3 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*4 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*5 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*8 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*9 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*13 */	j+=4;
 
 	chn=2;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*14 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*15 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*16 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*17 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*20 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*21 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*25 */	j+=4;
 
 	chn=1;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*26 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*27 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*28 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*29 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*32 */	j+=3;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){  printf("# bits=%i   tword2=%x\n",j, tword2);
+	  }
 	loads[chip][12]=tword2;
 	tword2=0;
 	j=0;
 
-	tword2=tword2|channelstr[chip*32+chn].nc1;
+	tword2=tword2|(channelstr[chip*32+chn].nc1&1);
 /*1 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*5 */	j+=4;
 
 	chn=0;
-	tword2=tword2<<1|channelstr[chip*32+chn].st;
+	tword2=tword2<<1|(channelstr[chip*32+chn].st&1);
 /*6 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sm;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sm&1);
 /*7 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc2;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc2&1);
 /*8 */	j++;
-	tword2=tword2<<1|channelstr[chip*32+chn].sel;
+	tword2=tword2<<1|(channelstr[chip*32+chn].sel&1);
 /*9 */	j++;
-	tword2=tword2<<3|reverseBits(3,channelstr[chip*32+chn].da);
+	tword2=tword2<<3|(channelstr[chip*32+chn].da&7);
 /*12 */	j+=3;
-	tword2=tword2<<1|channelstr[chip*32+chn].nc1;
+	tword2=tword2<<1|(channelstr[chip*32+chn].nc1&1);
 /*13 */	j++;
-	tword2=tword2<<4|reverseBits(4,channelstr[chip*32+chn].dp);
+	tword2=tword2<<4|(channelstr[chip*32+chn].dp&15);
 /*17 */	j+=4;
 	tword2=tword2<<15;
 /*32 */	j+=15;
 
-	printf("# bits=%i   tword2=%x\n",j, tword2);
+	if(devzDDMdebug>5){ printf("# bits=%i  chip=%i tword2=%x\n",j, chip, tword2);
+	   }
 	loads[chip][13]=tword2;
     }
 return(0);
@@ -1379,32 +1415,6 @@ STATIC long zDDM_done(zDDMRecord *psr)
     }
 }
 
-/*****************************************
-* Send out an SPI bit to fast ADC config.
-* SPI Register 
-*   bit 0 = data
-*   bit 1 = clk
-******************************************/
-void ad_send_spi_bit(int val)
-{
-
-   int sda;
- 
-   sda = val & 0x1;
-   Debug(5,"SPI bit: %i\n",val);
-  
-   //set sclk low  
-   fpgabase[ADC_SPI] = 0;
-   //set data with clock low
-   fpgabase[ADC_SPI] = sda;
-   //set clk high 
-   fpgabase[ADC_SPI] =  0x2 | sda;
-   //set clk low
-   fpgabase[ADC_SPI] =  sda;
-   //set data low
-   fpgabase[ADC_SPI] = 0;
-
-}
 
 void latch_conf(void){
    /* toggle load flag */
@@ -1417,74 +1427,128 @@ void latch_conf(void){
 int stuff_mars(void *pscal){ /* stuff structs into chp */
 int i, j;
 
-  wrap(pscal); /* set up all bits and regs in channels[] and globals{} arrays */
-/* send them out */
+  wrap(pscal); /* set up all bits and regs in loads[][] array */
 
+/* send them out */
 FASTLOCK(&fpga_write_lock);
 
+for(i=0;i<12;i++){
 fpgabase[MARS_CONF_LOAD]=4; /* Reset config FIFO */
 fpgabase[MARS_CONF_LOAD]=0;
-for(i=0;i<12;i++){
-   fpgabase[MARS_CONFIG]=globals[i][0];
+ for(j=0;j<14;j++){
+   fpgabase[MARS_CONFIG]=loads[i][j];
    latch_conf();
-   usleep(100);
-   fpgabase[MARS_CONFIG]=globals[i][1];
-   latch_conf();
-   usleep(100);
-   for(j=0;j<12;j++){
-     fpgabase[MARS_CONFIG]=channels[i][j];
-     latch_conf();
-     usleep(100);
-     }
-}
-fpgabase[MARS_CONF_LOAD]=0x0FFF0000; /* configure all chips */
-
+   usleep(1000);
+   }
+ switch(i){
+   case 0: fpgabase[MARS_CONF_LOAD]=0x00010000;
+      break;
+   case 1:fpgabase[MARS_CONF_LOAD]=0x00020000;
+      break;
+   case 2: fpgabase[MARS_CONF_LOAD]=0x00040000;
+      break;
+   case 3: fpgabase[MARS_CONF_LOAD]=0x00080000;
+      break;
+   case 4: fpgabase[MARS_CONF_LOAD]=0x00100000;
+      break;
+   case 5: fpgabase[MARS_CONF_LOAD]=0x00200000;
+      break;
+   case 6: fpgabase[MARS_CONF_LOAD]=0x00400000;
+      break;
+   case 7: fpgabase[MARS_CONF_LOAD]=0x00800000;
+      break;
+   case 8: fpgabase[MARS_CONF_LOAD]=0x01000000;
+      break;
+   case 9: fpgabase[MARS_CONF_LOAD]=0x02000000;
+      break;
+   case 10: fpgabase[MARS_CONF_LOAD]=0x04000000;
+      break;
+   case 11: fpgabase[MARS_CONF_LOAD]=0x08000000;
+      break;
+   } 
+   fpgabase[MARS_CONF_LOAD]=0;
+   usleep(1000);
+ }
 FASTUNLOCK(&fpga_write_lock);
-
 return(0);
 }
 
+/*****************************************
+* Send out an SPI bit to fast ADC config.
+* SPI Register 
+*   bit 0 = data
+*   bit 1 = clk
+******************************************/
+void send_spi_bit(int chipSel, int val)
+{
+   int sda;
 
-int load_ad9252reg(int addr, int data)
+   sda = val & 0x1;
+   //printf("%d ",(val & 0x1));
+
+   //set sclk low  
+   fpgabase[ADC_SPI] = chipSel | 0;
+   //set data with clock low
+   fpgabase[ADC_SPI] = chipSel | sda;
+   //set clk high 
+   fpgabase[ADC_SPI] =  chipSel | 0x2 | sda;
+   //set clk low
+   fpgabase[ADC_SPI] =  chipSel | sda;
+   //set data low
+   fpgabase[ADC_SPI] = chipSel | 0;
+
+
+}
+
+int load_ad9252reg(int chipSel, int addr, int data)
 {
 
     int i,j,k;
-   
-   FASTLOCK(&fpga_write_lock);
-   
+
    // small delay
    for (k=0;k<100;k++);
   
    // Read/Write bit 
-   ad_send_spi_bit(0); 
+   send_spi_bit(chipSel,0); 
 
    // W1=W0=0 (word length = 1 byte)
-   for (i=1;i>=0;i--) ad_send_spi_bit(0);
+   for (i=1;i>=0;i--) send_spi_bit(chipSel,0);
    
    // address 
-   for (j=12;j>=0;j--)  ad_send_spi_bit(addr >> j);
+   for (j=12;j>=0;j--)  send_spi_bit(chipSel,addr >> j);
    
     // data   
-    for (j=7;j>=0;j--)  ad_send_spi_bit(data >> j);
-    
-    FASTUNLOCK(&fpga_write_lock);
+    for (j=7;j>=0;j--)  send_spi_bit(chipSel,data >> j);
 
    // small delay 
    for (k=0;k<100;k++);
    return(0);
+
 }
 
-int ad9252_cnfg(int addr, int data){
+int ad9252_cnfg(int chipNum, int addr, int data){
 
+int chipSel;
+
+  //chipSel is defined as: bit2=ADC0, bit3=ADC1, bit4=ADC2
+   if (chipNum == 1)        chipSel = 0b11000;
+   else if (chipNum == 2)   chipSel = 0b10100;
+   else if (chipNum == 3)   chipSel = 0b01100;
+   else                     chipSel = 0b00000;
+
+
+       //Assert CSB
        printf("Writing Register...\n"); 
-       load_ad9252reg(addr,data);
-       printf("Value Written...\n");
-       return 0; 
+       fpgabase[ADC_SPI] = chipSel;
+       load_ad9252reg(chipSel,addr,data);
+       fpgabase[ADC_SPI] = 0b11100;
+       printf("Value Written...\n"); 
+   return(0); 
 }
 
 int ldaddrlkup(){
 int lkuptbl[512];
-int val, i;
+int i;
 int indx[384]={25, 24, 31, 23, 30, 22, 29, 21, 28, 20, 27,\
      19, 26, 18, 17, 16, 15, 14, 13, 5, 12, 4, 11,\
      3, 10, 2, 9, 1, 8, 0, 7, 6, 57, 56, 63, 55, 62,\
@@ -1531,7 +1595,7 @@ int indx[384]={25, 24, 31, 23, 30, 22, 29, 21, 28, 20, 27,\
        }
    
    for (i=0;i<512;i++) {
-       val = (lkuptbl[i]<<16)+i;
+//       val = (lkuptbl[i]<<16)+i;
 //       fpgabase[LKUPADDRREG] = val;
 //       printf("%d\t%d\t%x\n",i,lkuptbl[i],val);
        }
@@ -1610,13 +1674,14 @@ void registerpoke(void){
 
 epicsExportRegistrar(registerpoke);
 
-int Bits(int chan){
-  int chip, chn;
+int bits(int chan){
+  int chip, chn, i;
 
 	chip=chan/32;
 	chn=chan%32; 
 
-	printf("Settings for channel %i\n\n",chan);
+	printf("Settings for channel %i, chip %i\n\n",chn,chip);
+	
 	printf("pa=%x\n",globalstr[chip].pa);   
 	printf("pb=%x\n",globalstr[chip].pb);   
 	printf("rm=%x\n",globalstr[chip].rm);   
@@ -1647,23 +1712,26 @@ int Bits(int chan){
 	printf("sel=%x\n",channelstr[chip*32+chn].sel);
 	printf("nc2=%x\n",0);
 	printf("sm=%x\n",channelstr[chip*32+chn].sm); 
-	printf("st=%x\n",channelstr[chip*32+chn].st); 
+	printf("st=%x\n",channelstr[chip*32+chn].st);
+	for(i=0;i<14;i++){
+	  printf("%x\n",loads[chip][i]);
+	  }
 	return(0);
 	} 
 
-static const iocshArg BitsArg0 = {"Channel #", iocshArgInt};
-static const iocshArg * const BitsArgs[1] = {&BitsArg0};
+static const iocshArg bitsArg0 = {"Channel #", iocshArgInt};
+static const iocshArg * const bitsArgs[1] = {&bitsArg0};
 
-static const iocshFuncDef BitsFuncDef={"Bits",1,BitsArgs};
-static void BitsCallFunc(const iocshArgBuf *args)
+static const iocshFuncDef bitsFuncDef={"bits",1,bitsArgs};
+static void bitsCallFunc(const iocshArgBuf *args)
 {
- Bits((int) args[0].ival);
+ bits((int) args[0].ival);
 }
 
-void registerBits(void){
-        iocshRegister(&BitsFuncDef,&BitsCallFunc);
+void registerbits(void){
+        iocshRegister(&bitsFuncDef,&bitsCallFunc);
         }
 
-epicsExportRegistrar(registerBits); 
+epicsExportRegistrar(registerbits); 
 
 

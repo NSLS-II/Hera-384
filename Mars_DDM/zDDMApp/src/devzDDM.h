@@ -103,7 +103,7 @@ typedef struct{
 
 volatile chanstr channelstr[MAX_CHANNELS];
 volatile chipstr globalstr[MAX_NCHIPS];
-unsigned int loads[12][14];
+volatile unsigned int loads[12][14];
 
 
 /*epicsMutexId  SPI_lock;  */     /* SPI is shared resource; lock accesses */

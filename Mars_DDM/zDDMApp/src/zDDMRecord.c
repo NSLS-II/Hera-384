@@ -266,7 +266,7 @@ struct dbAddr *paddr;
       paddr->pfield = (void *)(pzDDM->pspctx);
       paddr->no_elements = 4096; /*Calibrated X-axis values for real-time display */
       paddr->field_type = DBF_FLOAT;
-      paddr->field_size = sizeof(int);
+      paddr->field_size = sizeof(float);
       paddr->dbr_field_type = DBR_FLOAT;
       break;
       }
@@ -279,7 +279,16 @@ struct dbAddr *paddr;
       paddr->special = SPC_MOD;
       break;
       }
-    case zDDMRecordSLP:{
+    case zDDMRecordINTENS:{
+      paddr->pfield = (void *)(pzDDM->pintens);
+      paddr->no_elements = pzDDM->nelm;
+      paddr->field_type = DBF_LONG;
+      paddr->field_size = sizeof(int);
+      paddr->dbr_field_type = DBR_LONG;
+      paddr->special = SPC_MOD;
+      break;
+      }
+   case zDDMRecordSLP:{
       paddr->pfield = (void *)(pzDDM->pslp);
       paddr->no_elements = pzDDM->nelm;
       paddr->field_type = DBF_FLOAT;
@@ -376,6 +385,12 @@ static long get_array_info(DBADDR *paddr, long *no_elements, long *offset)
       printf("get_array_info: CHEN\n");
       break;
       }
+   case zDDMRecordINTENS:{
+      *no_elements =  pzDDM->nelm;
+      *offset = 0;
+      printf("get_array_info: INTENS\n");
+      break;
+      }
     case zDDMRecordSLP:{
       *no_elements =  pzDDM->nelm;
       *offset = 0;
@@ -400,7 +415,13 @@ static long get_array_info(DBADDR *paddr, long *no_elements, long *offset)
       printf("get_array_info: THTR\n");    
       break;
       }
-    case zDDMRecordTHRSH:{
+     case zDDMRecordPUTR:{
+      *no_elements =  pzDDM->nelm;
+      *offset = 0;
+      printf("get_array_info: PUTR\n");    
+      break;
+      }   
+      case zDDMRecordTHRSH:{
       *no_elements =  pzDDM->nchips;
       *offset = 0;
       printf("get_array_info: THRSH\n");
@@ -431,9 +452,9 @@ static long init_record(zDDMRecord *pscal, int pass)
 	long status;
 	int i,j, nchips;
 	unsigned int *mca, *tdc, *spct;
-	int *thrsh;
+	unsigned int *thrsh, *intens;
 	float *slp, *offs, *spctx;
-	char *thtr, *chen, *tsen, *putr;
+	unsigned char *thtr, *chen, *tsen, *putr;
 	
 	det_DSET *pdset = (det_DSET *)(pscal->dset);
 	CALLBACK *pcallbacks, *pupdateCallback, *pdelayCallback, *pautoCallback, *pdeviceCallback;
@@ -455,8 +476,9 @@ static long init_record(zDDMRecord *pscal, int pass)
 		pscal->ptsen = (unsigned char *)calloc(pscal->nelm,sizeof(char));
 		pscal->pslp = (float *)calloc(pscal->nelm,sizeof(float));
 		pscal->poffs = (float *)calloc(pscal->nelm,sizeof(float));
-		pscal->pthtr = (unsigned int *)calloc(pscal->nelm,sizeof(char));
+		pscal->pthtr = (unsigned char *)calloc(pscal->nelm,sizeof(char));
 		pscal->pthrsh = (unsigned int *)calloc(pscal->nchips,sizeof(int));
+		pscal->pintens = (unsigned int *)calloc(pscal->nelm,sizeof(int));
 		pscal->pputr = (unsigned char *)calloc(pscal->nelm,sizeof(char));
 		pscal->pmca = (unsigned int *)calloc(pscal->nelm*4096,sizeof(int));
 		pscal->ptdc = (unsigned int *)calloc(pscal->nelm*1024,sizeof(int));
@@ -485,6 +507,7 @@ static long init_record(zDDMRecord *pscal, int pass)
 		thtr=pscal->pthtr;
 		putr=pscal->pputr;
 		thrsh=pscal->pthrsh;
+		intens=pscal->pintens;
 		mca=pscal->pmca;
 		tdc=pscal->ptdc;
 		spct=pscal->pspct;
@@ -514,33 +537,47 @@ static long init_record(zDDMRecord *pscal, int pass)
 		printf("Initialized SPCT counts\n");
 		
 		pscal->monch=0;
-		pscal->pol=0;
+		
+		pscal->pldel=72; /* ADC setup and FPGA data alignment */
+		fpgabase[MARS_PIPE_DELAY]=pscal->pldel;
+		pscal->rodel=15;
+		fpgabase[TD_CAL]=pscal->rodel;
+		pscal->eblk=1; /* 2pA default setting */
 		
 		for(i=0;i<pscal->nchips;i++){
-			
-			globalstr[i].pa = 0x3fe;
+			printf("Init_record: chip: %i\n",i);
+			globalstr[i].pa = 380;
 			thrsh[i]=globalstr[i].pa;
-			globalstr[i].pb = 0x3fe;
-			pscal->tpamp=0x3fe;
-			printf("Thresh[%i]=%i\n",i,thrsh[i]);
+			globalstr[i].pb = 102;
+			pscal->tpamp=globalstr[i].pb;
 			globalstr[i].sbn=1;
 			globalstr[i].sb=1;
-			globalstr[i].rm=0;
+			globalstr[i].rm=1;
+			globalstr[i].senfl1=0;
+			globalstr[i].senfl2=1;
 			globalstr[i].sbm=1;
+			globalstr[i].sl=0; /* make 2pA default */
+			globalstr[i].slh=0;
+			
+			printf("Aux buffer[%i]=%i\n",i,globalstr[i].sbm);
+			globalstr[i].saux=0;
+			globalstr[i].sp=1;
+			pscal->pol=globalstr[i].sp;
 			}
 		for(i=0;i<pscal->nelm;i++){
 			channelstr[i].sm = 0; 
 			chen[i]=0;
 			channelstr[i].st = 0;
 			tsen[i]=0;
-			channelstr[i].sel = 0;
-			pscal->loao=0;
+			channelstr[i].sel = 1;
+			pscal->loao=channelstr[i].sel;
 			channelstr[i].da = 3; /* 3-bits, mid-scale*/
 			thtr[i]=channelstr[i].da; 
 			channelstr[i].dp = 7; /* 4-bits, mid-scale*/
 			putr[i]=channelstr[i].dp;
 			slp[i]=1.0;
 			offs[i]=0.0;
+			intens[i]=0;
 			}
 			
 		stuff_mars(pscal);
@@ -810,10 +847,12 @@ static void updateCounts(zDDMRecord *pscal)
         unsigned int *mca;
 	unsigned int *tdc;
 	unsigned int *spct;
+	unsigned int *intens;
 
         mca=pscal->pmca;
         tdc=pscal->ptdc;
 	spct=pscal->pspct;
+	intens=pscal->pintens;
 
 
         int i, j, called_by_process;
@@ -861,7 +900,8 @@ static void updateCounts(zDDMRecord *pscal)
                         db_post_events(pscal,pscal->pmca,DBE_VALUE|DBE_ARCHIVE);
 			db_post_events(pscal,pscal->ptdc,DBE_VALUE|DBE_ARCHIVE);
 			db_post_events(pscal,pscal->pspct,DBE_VALUE|DBE_ARCHIVE);
-        
+        		db_post_events(pscal,pscal->pintens,DBE_VALUE|DBE_ARCHIVE);
+
         /* convert clock ticks to time. Note device support may have changed freq. */
 	/* freq is fixed in this device, so skip this bit */
 	
@@ -996,6 +1036,20 @@ static long special(dbAddr *paddr, int after)
                db_post_events(pscal,&(pscal->runno),DBE_VALUE|DBE_ARCHIVE);
                 break;
 
+        case zDDMRecordPLDEL:
+                /* Set pipeline delay */
+                fpgabase[MARS_PIPE_DELAY]=pscal->pldel;
+		Debug(2, "special: PLDEL %i\n", pscal->pldel);
+               db_post_events(pscal,&(pscal->pldel),DBE_VALUE|DBE_ARCHIVE);
+                break;
+ 
+        case zDDMRecordRODEL:
+                /* Set readout delay */
+                fpgabase[TD_CAL]=pscal->rodel;
+		Debug(2, "special: RODEL %i\n", pscal->rodel);
+               db_post_events(pscal,&(pscal->rodel),DBE_VALUE|DBE_ARCHIVE);
+                break;
+
         case zDDMRecordMODE:
                 /* framing mode */
 		if(pscal->mode==0){
@@ -1126,7 +1180,15 @@ static long special(dbAddr *paddr, int after)
 		Debug(2, "special: EBLK\n %i", pscal->eblk);
 		/* write hardware. Do all or nothing for now. */
 		  for(chip=0;chip<12;chip++){
-		    globalstr[chip].sl=pscal->eblk;
+		   switch(pscal->eblk){
+		     case 0: globalstr[chip].sl=1;
+		        break;
+		     case 1:globalstr[chip].sl=0;
+		        break;
+		     case 2:globalstr[chip].sl=0;
+		            globalstr[chip].slh=1;
+		        break;
+			}
 		    }
 		mars_modified=1; 
 		db_post_events(pscal,&(pscal->eblk),DBE_VALUE|DBE_ARCHIVE);
@@ -1190,6 +1252,9 @@ static long special(dbAddr *paddr, int after)
 		break;
 		
 	case zDDMRecordCHEN: /* load 'channel-disabled' array */ 
+		for(chan=0;chan<pscal->nelm;chan++){
+		   channelstr[chan].sm=chen[chan];
+		   }
 		mars_modified=1;
 		db_post_events(pscal,pscal->pchen,DBE_VALUE|DBE_ARCHIVE);/* post change */
 		Debug(2, "special: CHEN %i\n", 0);
@@ -1242,31 +1307,31 @@ static long special(dbAddr *paddr, int after)
 
         case zDDMRecordTDS: /* set time detector slope */
 		switch(pscal->tds){
-		   case 1:
+		   case 0:
 		     j=0;
 		     rt=0;
 		     break;
-		   case 2:
+		   case 1:
 		     j=1;
+		     rt=0;
+		     break;
+		   case 2:
+		     j=2;
 		     rt=0;
 		     break;
 		   case 3:
-		     j=2;
-		     rt=0;
-		     break;
-		   case 4:
 		     j=3;
 		     rt=0;
 		     break;
-		   case 5:
+		   case 4:
 		     j=1;
 		     rt=1;
 		     break;
-		   case 6:
+		   case 5:
 		     j=2;
 		     rt=1;
 		     break;
-		   case 7:
+		   case 6:
 		     j=3;
 		     rt=1;
 		     break;
@@ -1292,7 +1357,7 @@ static long special(dbAddr *paddr, int after)
 
 	case zDDMRecordTHRSH: /* Threshold */
 		for(chip=0;chip<12;chip++){
-		    globalstr[chip].pa=pscal->thrsh;
+		    globalstr[chip].pa=thrsh[i];
 		    }	
 		mars_modified=1;
 		Debug(2, "special: THRSH %i\n", 0);

@@ -12,12 +12,13 @@ dbLoadDatabase "dbd/zDDM.dbd"
 zDDM_registerRecordDeviceDriver pdbbase
 devI2CConfig(0,1,8)
 ##devSPIConfig(0,1,8)
-devzDDMConfig(1,1,96)
+devzDDMConfig(1,1,384)
 
 ## Load record instances
 #dbLoadTemplate "db/user.substitutions"
 dbLoadRecords "db/det1.db"
 dbLoadRecords "db/i2cDacs.db"
+#dbLoadRecords "db/ZTMPAdcs.db"
 ##dbLoadRecords "db/SpiDacs.db","user=det1"
 
 
@@ -25,9 +26,9 @@ dbLoadRecords "db/i2cDacs.db"
 #var mySubDebug 1
 
 ## Run this to trace the stages of iocInit
-traceIocInit
-var zDDMRecordDebug 5
-var devzDDMdebug 5
+#traceIocInit
+var zDDMRecordDebug 0
+var devzDDMdebug 0
 
 cd "${TOP}/iocBoot/${IOC}"
 epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 7000000

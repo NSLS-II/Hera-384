@@ -16,9 +16,9 @@ menu(zddmGain) {
 }
 
 menu(zddmLeak) {
-	choice(leak_1,"Off")
-	choice(leak_2,"2pA")
-	choice(leak_3,"8pA")
+	choice(leak_0,"Off")
+	choice(leak_1,"2pA")
+	choice(leak_2,"8pA")
 }
 
 
@@ -332,6 +332,22 @@ recordtype(zDDM) {
                 pp(TRUE)
                 interest(1)
 	}
+  	
+	field(PLDEL,DBF_ULONG) {
+                prompt("Pipeline delay")
+                promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+                pp(TRUE)
+                interest(1)
+	}
+	
+	field(RODEL,DBF_ULONG) {
+                prompt("Readout delay")
+                promptgroup(GUI_COMMON)
+		special(SPC_MOD)
+                pp(TRUE)
+                interest(1)
+	}
 	
         field(T,DBF_DOUBLE) {
                 prompt("Timer")
@@ -460,6 +476,21 @@ recordtype(zDDM) {
                 interest(4)
                 extra("void *           pchen")
         }
+
+	field(INTENS,DBF_NOACCESS) {
+		prompt("Intensity")
+		special(SPC_DBADDR)
+		pp(TRUE)
+		extra("void *           intens")
+	}        
+
+        field(PINTENS,DBF_NOACCESS) {
+                prompt("Buffer Pointer")
+                special(SPC_NOMOD)
+                interest(4)
+                extra("void *           pintens")
+        }
+
 	field(SLP,DBF_NOACCESS) {
 		prompt("Value")
 		special(SPC_DBADDR)

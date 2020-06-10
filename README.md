@@ -26,49 +26,49 @@ CNT: 	1= start count frame
 CONT:	Select one-shot or auto-count       
 DESC:   Description of detector                        
 DLY:	Pre-count delay (single-shot mode)    
-DLY1:	Pre-count delay (auto-count mode)
-EBLK:	Enable internal current source to bias amplifier
+DLY1:	Pre-count delay (auto-count mode)     
+EBLK:	Enable internal current source to bias amplifier   
 EXSIZE:	X-axis size for energy spectra plot   
-EYSIZE:	Y-axis size for energy spectra plot
-FNAM:	Filename for fast data storage
-FREQ:	Clock frequency for frame timer
-FVER:	Firmware version
-GAIN:	Gain
+EYSIZE:	Y-axis size for energy spectra plot    
+FNAM:	Filename for fast data storage     
+FREQ:	Clock frequency for frame timer     
+FVER:	Firmware version     
+GAIN:	Gain      
 GMON:	Selector for various debug monitors                 
-INTENS:	Total intensity in each channel, i.e. events.
-IPADDR:	IP address of fast data interface (set by user).
+INTENS:	Total intensity in each channel, i.e. events.    
+IPADDR:	IP address of fast data interface (set by user).     
 LOAO:	Chose to monitor analog pulse or value of detector leakage   
-MCA:	Array of spectra for each channel
-MFS:	Multi-fire suppression enable and time choice
-MODE:	Either time framed or continuous counting.
-MONCH:	Channel to be monitored
-NAME:	Record name
-NCH:	NUmber of channels
-NCHIPS:	Number of chips which supply those channels
-NELM:	Same as NCH
+MCA:	Array of spectra for each channel       
+MFS:	Multi-fire suppression enable and time choice     
+MODE:	Either time framed or continuous counting.    
+MONCH:	Channel to be monitored      
+NAME:	Record name       
+NCH:	NUmber of channels      
+NCHIPS:	Number of chips which supply those channels     
+NELM:	Same as NCH     
 OFFS:	Array of energy offsets after calibration                       
 POL:	Input signal polarity   
-PUEN:	Pileup detector enable
-PUTR:	Pileup detector threshold trim        
-RAT1:	Update frequency of display, one-shot            
-RATE:	Update frequency of display, auto-count
+PUEN:	Pileup detector enable     
+PUTR:	Pileup detector threshold trim            
+RAT1:	Update frequency of display, one-shot               
+RATE:	Update frequency of display, auto-count    
 RUNNO:	count of number of frames acquired.          
-SHPT:	Shaping time of amplifier
-SLP:	Array of energy calibration slope values
-SPCT:	Single spectrum data
-SPCTX:	X-values for single spectrum data  
-TDC:	Time-to-digital converter data array
-TDM:	TDC mode, time-of-arrival or time-over-threshold.
-TDS:	TDC ramp time.
-THRSH:	Array of pulse-height threshold values, one for each chip.
-THTR:	Array of threshold trim values, one for each channel 
-TP:	Time per count frame (in seconds) for one-shot mode
-TP1:	Time per count frame (in seconds) for auto-count mode
-TPAMP:	Amplitude of test pulses
-TPCNT:	Number of test pulses to deliver
-TPENB:	Internal test pulse generator enable.
-TPFRQ:	Test pulse frequency.
+SHPT:	Shaping time of amplifier    
+SLP:	Array of energy calibration slope values    
+SPCT:	Single spectrum data    
+SPCTX:	X-values for single spectrum data      
+TDC:	Time-to-digital converter data array     
+TDM:	TDC mode, time-of-arrival or time-over-threshold.    
+TDS:	TDC ramp time.     
+THRSH:	Array of pulse-height threshold values, one for each chip.     
+THTR:	Array of threshold trim values, one for each channel      
+TP:	Time per count frame (in seconds) for one-shot mode     
+TP1:	Time per count frame (in seconds) for auto-count mode    
+TPAMP:	Amplitude of test pulses     
+TPCNT:	Number of test pulses to deliver     
+TPENB:	Internal test pulse generator enable.    
+TPFRQ:	Test pulse frequency.    
 TSEN:	Array of enable flags for test pulses (one per chanel)         
-TXSIZE:	X-axis size for ToT / ToA spectra plot
-TYSIZE:	Y-axis size for ToT / ToA spectra plot
+TXSIZE:	X-axis size for ToT / ToA spectra plot    
+TYSIZE:	Y-axis size for ToT / ToA spectra plot    
 VERS:	IOC code version             

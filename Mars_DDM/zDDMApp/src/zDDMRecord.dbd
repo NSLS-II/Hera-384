@@ -38,8 +38,8 @@ menu(zddmMFS) {
 }
 
 menu(zddmLOAO) {
-	choice(zddmscLOAO_0,"Pulse")
-	choice(zddmscLOAO_1,"Leakage")
+	choice(zddmscLOAO_0,"Leakage")
+	choice(zddmscLOAO_1,"Pulse")
 }
 
 menu(zddmTPENB) {

@@ -138,7 +138,7 @@ extern int zDDM_NCHIPS;
 #define FRAME_NO  54
 #define COUNT_MODE 55
 
-/* #define SIMUL 1 */ /* For testing without hardware, define SIMUL */
+ #define SIMUL 1  /* For testing without hardware, define SIMUL */
 
 #ifdef SIMUL
 static unsigned int fpga_data[1024];
@@ -426,6 +426,9 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
         if (framestat == 1) {
            if ((prevframestat == 0) && (framestat == 1))           
               printf("Frame Started...\n"); 
+//	      for(i=0;i<384;i++){
+//	        intens[i]=0;
+//		}
            numwords = fifo_numwords();
            if (numwords > 0) {
               if (numwords > 10000)
@@ -443,7 +446,7 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
                   ts_prev = ts;
                   ts = (databuf[i+1] & 0x1FFFFFFF);
 		  pxl=32*chipnum+channel;
-		  intensity[pxl]+=1;
+		  intens[pxl]+=1;
 		  mca[pxl*4096+pd]+=1;
 		  tdc[pxl*1024+td]+=1;
 		  if(devzDDMdebug>=6){
@@ -461,10 +464,6 @@ EPICSTHREADFUNC event_publish (struct zDDMRecord *psr)
                 printf("Frame Complete...\n");
                 framelen = get_framelen(); 
                 evtrate = evttot / framelen;
-		for(i=0;i<psr->nelm;i++){
-		   intens[i]=intensity[i];
-		   intensity[i]=0;
-		   }
 		for(i=0;i<4096;i++){
 		   spct[i]=mca[monch*4096+i];
 		   }
@@ -611,7 +610,8 @@ STATIC long zDDM_arm(struct zDDMRecord *pscal, int val)
   if(pscal->mode==0){
     FASTLOCK(&fpga_write_lock);
 	if(val==1){
-	   fifo_reset(); /* disable fifo and reset it */
+	   fifo_disable();/* disable fifo */
+	   fifo_reset(); /* reset it */
 	   fifo_enable(); /* enable fifo */
 	   fpgabase[TRIG]=val; /* start count */
 	   }

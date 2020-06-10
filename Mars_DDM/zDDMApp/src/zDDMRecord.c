@@ -887,6 +887,7 @@ static void updateCounts(zDDMRecord *pscal)
 	         for (j=0; j<4096;j++){
 		   mca[4096*i+j]=0;
 		   }
+//	         intens[i]=0; /* clear intensity array */
 		}
         }
 

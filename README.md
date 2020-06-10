@@ -20,7 +20,7 @@ The IOC attempts to provide access to all of the features of the ASIC in as simp
 
 Below is an alphabetic list of PVs provided by the zDDM record. This list does not include values which are part of all EPICS records.
 
-CALF:   Name of file containing calibration constants
+CALF:   Name of file containing calibration constants       
 CHEN: 	Array of flags to enable or disable any channel         
 CNT: 	1= start count frame          
 CONT:	Select one-shot or auto-count       

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="34" version="2.0">
+<workbenchAdvisor/>
+<window height="715" width="1161" x="135" y="252">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="file" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="user" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.csstudio.diag.pvmanager.probe.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.csstudio.logbook.ui.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.csstudio.security.toolbar" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="org.csstudio.trends.databrowser.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="48" y="30"/>
+<coolItem id="org.csstudio.opibuilder.actionSet" itemType="typeToolBarContribution" x="48" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.annotationNavigation" itemType="typeToolBarContribution" x="84" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.navigation" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.csstudio.opibuilder.OPIEditor" itemType="typePlaceholder" x="755" y="30"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="UserSeparator" itemType="typeSeparator"/>
+<coolItem id="org.csstudio.opibuilder.OPIRunner" itemType="typeToolBarContribution" x="329" y="30"/>
+</coolbarLayout>
+<page focus="true" label="&lt;Unknown Label&gt; - OPI Runtime">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.csstudio.opibuilder.OPIRunner" name="GeRM.opi" partName="GeRM.opi" title="GeRM.opi" tooltip="GeRM/GeRM.opi" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeRM/GeRM.opi"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator">
+<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
+<filters>&#x0A;<filter element=".*" isEnabled="false"/>
+</filters>
+<expanded>&#x0A;<element path="/GeRM"/>
+</expanded>
+<selection>&#x0A;<element path="/GeRM/GeRM.opi"/>
+</selection>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.csstudio.opibuilder.OPIRunner">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.csstudio.utility.product.CSStudioPerspective" id="org.csstudio.utility.product.CSStudioPerspective" label="CSStudio"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.actionSet"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.editor.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<perspective_action id="org.csstudio.utility.product.CSStudioPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.views.ResourceNavigator"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<fastViewBars/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="left">&#x0A;<folder activePageID="org.eclipse.ui.views.ResourceNavigator" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ResourceNavigator" label="Navigator"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@58622bff" ratio="0.89738625" ratioLeft="927" ratioRight="106" relationship="2" relative="left">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="254" ratioRight="762" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.6592845" ratioLeft="387" ratioRight="200" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.csstudio.opibuilder.runmode.OPIRunnerPerspective" id="org.csstudio.opibuilder.OPIRunner" label="OPI Runtime"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.actionSet"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.editor.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:1LEFT" label="LabelNotFound"/>
+<page content="org.csstudio.opibuilder.opiView:*LEFT" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@639e4576" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="TOP" ratio="0.25" ratioLeft="254" ratioRight="762" relationship="2" relative="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*TOP" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="RIGHT" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="TOP">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*RIGHT" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.24914676" ratioLeft="146" ratioRight="440" relationship="4" relative="TOP"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6b2f5f60" ratio="0.8923077" ratioLeft="522" ratioRight="63" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.csstudio.opibuilder.opiView:*BOTTOM" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.csstudio.opibuilder.editor.OPIEditorPerspective" id="org.csstudio.opibuilder.opieditor" label="OPI Editor"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.actionSet"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.editor.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.help.ui.HelpView"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.csstudio.opibuilder.wizards.newOPIWizard"/>
+<new_wizard_action id="org.csstudio.opibuilder.wizards.newJSWizard"/>
+<new_wizard_action id="org.csstudio.opibuilder.wizards.newPyWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.views.ResourceNavigator"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="left">&#x0A;<folder activePageID="org.eclipse.ui.views.ResourceNavigator" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ResourceNavigator" label="Navigator"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@ddd9bf" ratio="0.74957985" ratioLeft="892" ratioRight="298" relationship="2" relative="left">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.2" ratioLeft="238" ratioRight="952" relationship="2" relative="left"/>
+<info folder="true" part="right" ratio="0.6733524" ratioLeft="705" ratioRight="342" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.search.ui.views.SearchView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="org.csstudio.utility.pvmanager.ui.toolbox.ToolboxView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="bottom" ratio="0.7490566" ratioLeft="397" ratioRight="133" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="leftBottom" ratio="0.7" ratioLeft="371" ratioRight="159" relationship="4" relative="left">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIRunner" path="/GeRM/GeRM.opi"/>
+</editors>
+<item historyLabel="GeRM.opi" index="0"/>
+<item active="true" historyLabel="GeRM.opi" index="0"/>
+</navigationHistory>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="org.csstudio.security.ui.infobar"/>
+</trimArea>
+</trimLayout>
+</window>
+<window height="736" width="614" x="734" y="27">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="file" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="user" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.csstudio.diag.pvmanager.probe.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.csstudio.logbook.ui.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.csstudio.security.toolbar" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="org.csstudio.trends.databrowser.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="48" y="30"/>
+<coolItem id="org.csstudio.opibuilder.actionSet" itemType="typeToolBarContribution" x="48" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.annotationNavigation" itemType="typeToolBarContribution" x="84" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.navigation" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.csstudio.opibuilder.OPIRunner" itemType="typePlaceholder" x="329" y="30"/>
+</coolbarLayout>
+<page focus="true" label="&lt;Unknown Label&gt; - OPI Runtime">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</editorArea>
+</editors>
+<views/>
+<perspectives activePerspective="org.csstudio.opibuilder.OPIRunner">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.csstudio.opibuilder.runmode.OPIRunnerPerspective" id="org.csstudio.opibuilder.OPIRunner" label="OPI Runtime"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.actionSet"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.editor.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*LEFT" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="TOP" ratio="0.25" ratioLeft="254" ratioRight="762" relationship="2" relative="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*TOP" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="RIGHT" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="TOP">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*RIGHT" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.24872231" ratioLeft="146" ratioRight="441" relationship="4" relative="TOP"/>
+<info folder="true" part="BOTTOM" ratio="0.7495741" ratioLeft="440" ratioRight="147" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*BOTTOM" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="org.csstudio.security.ui.infobar"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="GeRM.opi" tooltip="GeRM/GeRM.opi">
+<persistable path="/GeRM/GeRM.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="2_6_1_IntensityGraph.opi" tooltip="BOY Examples/widgets/2_6_1_IntensityGraph.opi">
+<persistable path="/BOY Examples/widgets/2_6_1_IntensityGraph.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="GeRM.opi" tooltip="/GeRM/GeRM.opi">
+<persistable path="/GeRM/GeRM.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name=".project" tooltip="CSS/.project">
+<persistable path="/CSS/.project"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="5_1_GridLayout.opi" tooltip="/BOY Examples/widgets/5_1_GridLayout.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/5_1_GridLayout.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="4_6_1_SashContainer.opi" tooltip="/BOY Examples/widgets/4_6_1_SashContainer.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/4_6_1_SashContainer.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="4_3_TabbedContainer.opi" tooltip="/BOY Examples/widgets/4_3_TabbedContainer.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/4_3_TabbedContainer.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="4_2_LinkingContainer.opi" tooltip="/BOY Examples/widgets/4_2_LinkingContainer.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/4_2_LinkingContainer.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="4_1_GroupingContainer.opi" tooltip="/BOY Examples/widgets/4_1_GroupingContainer.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/4_1_GroupingContainer.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="4_5_Table.opi" tooltip="/BOY Examples/widgets/4_5_Table.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/4_5_Table.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="SymbolWidgets.opi" tooltip="/BOY Examples/widgets/SymbolWidgets.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/SymbolWidgets.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="3_6_ChoiceWidgets.opi" tooltip="/BOY Examples/widgets/3_6_ChoiceWidgets.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/3_6_ChoiceWidgets.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="3_5_Knob_Slider.opi" tooltip="/BOY Examples/widgets/3_5_Knob_Slider.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/3_5_Knob_Slider.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="3_2_1_BoolButton_Switch.opi" tooltip="/BOY Examples/widgets/3_2_1_BoolButton_Switch.opi">
+<persistable macro="&quot;false&quot;,&quot;noisePV=sim://noise&quot;,&quot;my_name=Best OPI Yet&quot;" path="/BOY Examples/widgets/3_2_1_BoolButton_Switch.opi"/>
+</file>
+</mruList>
+</workbench>

@@ -1,0 +1,2592 @@
+!SESSION 2019-10-11 16:07:52.525 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-11 16:08:01.135
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-11 16:22:43.606 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-11 16:22:52.011
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-11 16:29:06.344 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-11 16:29:14.531
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-11 16:31:11.408 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-11 16:31:19.975
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-11 16:32:42.141 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-11 16:32:49.988
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-11 16:36:11.602 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-11 16:36:24.413
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-11 16:44:48.717 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-11 16:44:57.474
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-15 11:51:38.763 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-15 11:51:49.625
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-15 13:24:56.991 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-15 13:25:13.859
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-16 11:42:08.513 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-16 11:42:16.738
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-24 09:26:17.185 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - pbpm_start.opi
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - pbpm_start.opi
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-24 09:26:25.522
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-24 11:47:54.049 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - pbpm_start.opi
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - pbpm_start.opi
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-24 11:48:08.520
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-24 11:48:36.733 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - pbpm_start.opi
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - pbpm_start.opi
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-24 11:48:52.345
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2019-10-24 11:49:10.659
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2019-10-24 11:49:38.207 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - pbpm_start.opi
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - pbpm_start.opi
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-24 11:49:53.275
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2019-10-24 11:50:14.192
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2019-10-24 11:51:29.246 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - pbpm_start.opi
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - pbpm_start.opi
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-24 11:51:43.540
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-24 13:32:11.077 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - pbpm_start.opi
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - pbpm_start.opi
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-24 13:32:47.157
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-10-26 14:10:18.211 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-10-26 14:10:30.809
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2019-11-28 14:24:44.309 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-11-28 14:24:50.192
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.help 4 0 2019-11-28 14:26:46.581
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:49)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:47)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:210)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:199)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:306)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:68)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:123)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:138)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:216)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:75)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:193)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:180)
+	at org.eclipse.equinox.http.servlet.internal.ServletRegistration.service(ServletRegistration.java:61)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.processAlias(ProxyServlet.java:126)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.service(ProxyServlet.java:68)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:317)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:924)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+
+!ENTRY org.eclipse.core.jobs 2 2 2019-11-28 14:29:28.223
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2019-12-24 10:52:38.852 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-12-24 10:52:51.580
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.help 4 0 2019-12-24 10:54:16.306
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:49)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:47)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:210)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:199)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:306)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:68)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:123)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:138)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:216)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:75)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:193)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:180)
+	at org.eclipse.equinox.http.servlet.internal.ServletRegistration.service(ServletRegistration.java:61)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.processAlias(ProxyServlet.java:126)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.service(ProxyServlet.java:68)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:317)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:924)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+
+!ENTRY org.eclipse.help.base 4 4 2019-12-27 14:51:43.655
+!MESSAGE Help documentation could not be indexed completely.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2019-12-27 14:51:43.655
+!MESSAGE Help document /org.csstudio.opibuilder.adl2boy/html/subtopic.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2019-12-27 14:51:43.655
+!MESSAGE Help document /org.csstudio.shift.ui/html/shift.html cannot be opened.
+
+!ENTRY org.eclipse.core.jobs 2 2 2019-12-27 15:01:06.196
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+
+!ENTRY org.eclipse.core.jobs 2 2 2019-12-27 15:01:06.197
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.AnimationManager$1
+!SESSION 2019-12-27 15:01:25.544 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2019-12-27 15:01:37.722
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.help 4 0 2019-12-27 15:42:25.990
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:49)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:47)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:210)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:199)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:306)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:68)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:123)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:138)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:216)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:75)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:193)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:180)
+	at org.eclipse.equinox.http.servlet.internal.ServletRegistration.service(ServletRegistration.java:61)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.processAlias(ProxyServlet.java:126)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.service(ProxyServlet.java:68)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:317)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:924)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+!SESSION 2020-01-21 14:02:24.462 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-01-21 14:02:25.722
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-21 14:02:38.185
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-21 14:08:39.319
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2020-01-21 14:57:37.479 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-21 14:58:00.726
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2020-01-22 10:48:29.621 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-22 10:48:55.239
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2020-01-22 10:53:39.123 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-22 10:53:50.970
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2020-01-22 11:57:34.284 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-22 11:58:04.189
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-22 11:58:32.950
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-22 11:58:32.951
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.AnimationManager$1
+!SESSION 2020-01-22 11:58:44.861 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-22 11:58:55.775
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-01-22 14:30:42.228
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2020-01-23 10:05:54.527 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-01-23 10:05:55.528
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-23 10:06:07.385
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2020-01-23 10:14:04.261 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.5
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/peter/css-workspace -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-01-23 10:14:07.074
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui 1 1 2020-01-23 10:14:07.877
+!MESSAGE Workbench migration started
+
+!ENTRY org.eclipse.ui 1 1 2020-01-23 10:14:08.974
+!MESSAGE Workbench migration finished
+
+!ENTRY org.eclipse.jface 2 0 2020-01-23 10:14:09.410
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-01-23 10:14:09.410
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1fc3df43,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@15130002,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 2 2 2020-01-23 10:14:12.538
+!MESSAGE Perspective with name 'OPI Runtime' and id 'org.csstudio.opibuilder.OPIRunner' has been made into a local copy
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-01-23 10:14:14.659
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-01-23 10:14:42.115 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.5
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/peter/css-workspace -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-01-23 10:14:47.005
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-01-23 10:14:47.005
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5256fbc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@58f50dd0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-01-23 10:14:50.633
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-01-23 10:59:34.070 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.5
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/peter/css-workspace -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-01-23 10:59:39.218
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-01-23 10:59:39.218
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@13b29b34,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@25589735,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-01-23 10:59:46.225
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-01-23 11:18:43.506 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.5
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/peter/css-workspace -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-01-23 11:18:48.598
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-01-23 11:18:48.598
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@a1cb94,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@46d148bd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-01-23 11:18:55.457
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.help 4 0 2020-01-23 11:40:41.666
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:47)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:48)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:214)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:202)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:310)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:71)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:126)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:141)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:240)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:78)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:198)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:50)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:183)
+	at org.eclipse.equinox.http.servlet.internal.HttpServiceRuntimeImpl$LegacyServlet.service(HttpServiceRuntimeImpl.java:1240)
+	at org.eclipse.equinox.http.servlet.internal.registration.EndpointRegistration.service(EndpointRegistration.java:151)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ResponseStateHandler.processRequest(ResponseStateHandler.java:65)
+	at org.eclipse.equinox.http.servlet.internal.context.DispatchTargets.doDispatch(DispatchTargets.java:134)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ProxyServlet.service(ProxyServlet.java:103)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:300)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:867)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:542)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:502)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+!SESSION 2020-01-25 11:14:41.478 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.5
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-01-25 11:14:47.602
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2020-01-25 11:14:49.770
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-01-25 11:14:49.770
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6339e604,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4f8900b0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-01-25 11:14:57.578
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.help 4 0 2020-01-26 10:21:25.757
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:47)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:48)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:214)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:202)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:310)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:71)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:126)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:141)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:240)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:78)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:198)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:50)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:183)
+	at org.eclipse.equinox.http.servlet.internal.HttpServiceRuntimeImpl$LegacyServlet.service(HttpServiceRuntimeImpl.java:1240)
+	at org.eclipse.equinox.http.servlet.internal.registration.EndpointRegistration.service(EndpointRegistration.java:151)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ResponseStateHandler.processRequest(ResponseStateHandler.java:65)
+	at org.eclipse.equinox.http.servlet.internal.context.DispatchTargets.doDispatch(DispatchTargets.java:134)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ProxyServlet.service(ProxyServlet.java:103)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:300)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:867)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:542)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:502)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+!ENTRY org.eclipse.help.base 4 4 2020-01-26 10:22:25.392
+!MESSAGE Help documentation could not be indexed completely.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2020-01-26 10:22:25.392
+!MESSAGE Help document /org.csstudio.opibuilder.adl2boy/html/subtopic.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2020-01-26 10:22:25.392
+!MESSAGE Help document /org.csstudio.shift.ui/html/shift.html cannot be opened.
+!SESSION 2020-01-29 16:22:27.904 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.5
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-01-29 16:22:37.330
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-01-29 16:22:37.330
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3ec7eb5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5534e6f1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-01-29 16:22:44.936
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.help 4 0 2020-01-30 15:03:22.116
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:47)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:48)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:214)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:202)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:310)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:71)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:126)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:141)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:240)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:78)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:198)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:50)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:183)
+	at org.eclipse.equinox.http.servlet.internal.HttpServiceRuntimeImpl$LegacyServlet.service(HttpServiceRuntimeImpl.java:1240)
+	at org.eclipse.equinox.http.servlet.internal.registration.EndpointRegistration.service(EndpointRegistration.java:151)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ResponseStateHandler.processRequest(ResponseStateHandler.java:65)
+	at org.eclipse.equinox.http.servlet.internal.context.DispatchTargets.doDispatch(DispatchTargets.java:134)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ProxyServlet.service(ProxyServlet.java:103)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:300)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:867)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:542)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:502)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+!SESSION 2020-02-04 19:05:28.443 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-02-04 19:05:40.544
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.help 4 0 2020-02-04 19:18:08.782
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:49)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:47)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:210)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:199)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:306)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:68)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:123)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:138)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:216)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:75)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:193)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:180)
+	at org.eclipse.equinox.http.servlet.internal.ServletRegistration.service(ServletRegistration.java:61)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.processAlias(ProxyServlet.java:126)
+	at org.eclipse.equinox.http.servlet.internal.ProxyServlet.service(ProxyServlet.java:68)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:317)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:390)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+	at org.mortbay.jetty.Server.handle(Server.java:326)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:924)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:549)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-02-04 19:41:07.361
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2020-02-04 19:41:42.057 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-02-04 19:41:47.703
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-02-04 19:41:52.429
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2020-02-04 19:42:41.848 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-02-04 19:42:50.921
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-02-04 19:42:50.921
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@795faad,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@17ae13d5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-02-04 19:42:57.910
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-02-11 11:40:46.124 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-02-11 11:40:53.414
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-02-11 11:40:53.414
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2591d23a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6c1f15df,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-02-11 11:40:58.434
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-02-11 11:46:18.561 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-02-11 11:46:32.092
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-02-11 11:46:32.092
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@45311a99,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7037a680,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-02-11 11:46:38.553
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 4 2 2020-02-17 16:35:13.633
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.e4.ui.workbench".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.core.runtime.ListenerList.add(ListenerList.java:118)
+	at org.eclipse.ui.internal.WorkbenchPage.addPartListener(WorkbenchPage.java:1007)
+	at org.eclipse.ui.views.properties.PropertySheetPage.selectionChanged(PropertySheetPage.java:560)
+	at org.eclipse.ui.views.properties.PropertySheet.showSelectionAndDescription(PropertySheet.java:503)
+	at org.eclipse.ui.views.properties.PropertySheet.selectionChanged(PropertySheet.java:483)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:242)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:177)
+	at org.eclipse.ui.internal.WorkbenchPage$E4PartListener.partActivated(WorkbenchPage.java:215)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$3.run(PartServiceImpl.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.firePartActivated(PartServiceImpl.java:250)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:775)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:684)
+	at org.eclipse.e4.ui.internal.workbench.swt.AbstractPartRenderer.activate(AbstractPartRenderer.java:97)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.lambda$0(ContributedPartRenderer.java:63)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5663)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1386)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1412)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1395)
+	at org.eclipse.swt.widgets.Shell.setActiveControl(Shell.java:1928)
+	at org.eclipse.swt.widgets.Control.gtk_button_press_event(Control.java:3305)
+	at org.eclipse.swt.widgets.Control.gtk_button_press_event(Control.java:3225)
+	at org.eclipse.swt.widgets.Composite.gtk_button_press_event(Composite.java:826)
+	at org.eclipse.swt.widgets.Canvas.gtk_button_press_event(Canvas.java:159)
+	at org.eclipse.swt.widgets.Widget.windowProc(Widget.java:1945)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:6298)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5880)
+	at org.eclipse.swt.internal.gtk.GTK._gtk_main_do_event(Native Method)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_main_do_event(GTK.java:3969)
+	at org.eclipse.swt.widgets.Display.eventProc(Display.java:1385)
+	at org.eclipse.swt.internal.gtk.OS._g_main_context_iteration(Native Method)
+	at org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(OS.java:1581)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4470)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:563)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:151)
+	at org.csstudio.utility.product.Workbench.runWorkbench(Workbench.java:99)
+	at org.csstudio.startup.application.Application.startApplication(Application.java:265)
+	at org.csstudio.startup.application.Application.start(Application.java:119)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:595)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1501)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1474)
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2020-02-17 16:35:13.640
+!MESSAGE An exception occurred while notifying part listeners
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.core.runtime.ListenerList.add(ListenerList.java:118)
+	at org.eclipse.ui.internal.WorkbenchPage.addPartListener(WorkbenchPage.java:1007)
+	at org.eclipse.ui.views.properties.PropertySheetPage.selectionChanged(PropertySheetPage.java:560)
+	at org.eclipse.ui.views.properties.PropertySheet.showSelectionAndDescription(PropertySheet.java:503)
+	at org.eclipse.ui.views.properties.PropertySheet.selectionChanged(PropertySheet.java:483)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:242)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:177)
+	at org.eclipse.ui.internal.WorkbenchPage$E4PartListener.partActivated(WorkbenchPage.java:215)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$3.run(PartServiceImpl.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.firePartActivated(PartServiceImpl.java:250)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:775)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:684)
+	at org.eclipse.e4.ui.internal.workbench.swt.AbstractPartRenderer.activate(AbstractPartRenderer.java:97)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.lambda$0(ContributedPartRenderer.java:63)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5663)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1386)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1412)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1395)
+	at org.eclipse.swt.widgets.Shell.setActiveControl(Shell.java:1928)
+	at org.eclipse.swt.widgets.Control.gtk_button_press_event(Control.java:3305)
+	at org.eclipse.swt.widgets.Control.gtk_button_press_event(Control.java:3225)
+	at org.eclipse.swt.widgets.Composite.gtk_button_press_event(Composite.java:826)
+	at org.eclipse.swt.widgets.Canvas.gtk_button_press_event(Canvas.java:159)
+	at org.eclipse.swt.widgets.Widget.windowProc(Widget.java:1945)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:6298)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5880)
+	at org.eclipse.swt.internal.gtk.GTK._gtk_main_do_event(Native Method)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_main_do_event(GTK.java:3969)
+	at org.eclipse.swt.widgets.Display.eventProc(Display.java:1385)
+	at org.eclipse.swt.internal.gtk.OS._g_main_context_iteration(Native Method)
+	at org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(OS.java:1581)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4470)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:563)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:151)
+	at org.csstudio.utility.product.Workbench.runWorkbench(Workbench.java:99)
+	at org.csstudio.startup.application.Application.startApplication(Application.java:265)
+	at org.csstudio.startup.application.Application.start(Application.java:119)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:595)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1501)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1474)
+!SESSION 2020-02-20 19:59:03.600 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-02-20 19:59:10.202
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2020-02-20 19:59:12.425
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-02-20 19:59:12.425
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6adcf059,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7962a746,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-02-20 19:59:17.407
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-02-22 16:33:07.737 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-02-22 16:33:43.556
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2020-02-22 16:33:45.886
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-02-22 16:33:45.886
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@420b55ed,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@f237ae7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-02-22 16:33:50.835
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-02-22 17:56:21.505 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-02-22 17:56:29.765
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-02-22 17:56:29.765
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3ea9a091,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@16f4a3c0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-02-22 17:56:35.087
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-02-22 17:59:07.731 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-02-22 17:59:16.002
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-02-22 17:59:16.002
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@54687fd0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6eaf030c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-02-22 17:59:22.689
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.ui 2 2 2020-02-22 17:59:41.874
+!MESSAGE Perspective with name 'OPI Runtime' and id 'org.csstudio.opibuilder.OPIRunner' has been made into a local copy
+
+!ENTRY org.eclipse.ui 4 0 2020-02-22 17:59:41.889
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.csstudio.perspectives.PerspectiveSaver.persistMPartState(PerspectiveSaver.java:107)
+	at org.csstudio.perspectives.PerspectiveSaver.handleEvent(PerspectiveSaver.java:88)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:236)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:147)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:5807)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:219)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:378)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:347)
+	at org.eclipse.ui.internal.WorkbenchPage.getPerspective(WorkbenchPage.java:4080)
+	at org.eclipse.ui.internal.WorkbenchPage.lambda$3(WorkbenchPage.java:3065)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:236)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:147)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:5807)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:219)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:233)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:132)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:63)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:139)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:1)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$4.widgetSelected(PerspectiveSwitcher.java:545)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5663)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1386)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4931)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4472)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:563)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:151)
+	at org.csstudio.utility.product.Workbench.runWorkbench(Workbench.java:99)
+	at org.csstudio.startup.application.Application.startApplication(Application.java:265)
+	at org.csstudio.startup.application.Application.start(Application.java:119)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:595)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1501)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1474)
+!SESSION 2020-03-16 10:05:58.836 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-03-16 10:06:05.154
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-03-16 10:09:35.089
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2020-03-16 10:10:44.799 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-03-16 10:10:51.363
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-03-16 10:14:53.155
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2020-03-16 10:15:30.364 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-16 10:15:39.501
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-16 10:15:39.501
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@507f47f9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6785df10,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 10:15:47.888
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-16 11:22:24.100 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-16 11:22:32.201
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-16 11:22:32.201
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3f80d8c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2d3b0978,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 11:22:39.782
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.mylyn.monitor.ui 4 0 2020-03-16 14:41:19.551
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.io.IOException: Exception in opening zip file: /home/peter/CSS/cs-studio/plugins/org.eclipse.mylyn.monitor.ui_3.24.2.v20180904-2231.jar
+	at org.eclipse.osgi.framework.util.SecureAction.getZipFile(SecureAction.java:324)
+	at org.eclipse.osgi.storage.bundlefile.ZipBundleFile.getZipFile(ZipBundleFile.java:136)
+	at org.eclipse.osgi.storage.bundlefile.ZipBundleFile.lockOpen(ZipBundleFile.java:83)
+	at org.eclipse.osgi.storage.bundlefile.ZipBundleFile.getEntry(ZipBundleFile.java:290)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathEntry.findEntry(ClasspathEntry.java:195)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findClassImpl(ClasspathManager.java:608)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClassImpl(ClasspathManager.java:594)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClassImpl(ClasspathManager.java:574)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:553)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:331)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:473)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:422)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:414)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:153)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at org.eclipse.mylyn.internal.monitor.ui.ActivityContextManager.stop(ActivityContextManager.java:139)
+	at org.eclipse.mylyn.internal.monitor.ui.MonitorUiPlugin.stop(MonitorUiPlugin.java:161)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:831)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1019)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:362)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:643)
+	at org.eclipse.osgi.container.Module.stop(Module.java:505)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1824)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:195)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:643)
+	at org.eclipse.osgi.container.Module.stop(Module.java:505)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:213)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.nio.file.NoSuchFileException: /home/peter/CSS/cs-studio/plugins/org.eclipse.mylyn.monitor.ui_3.24.2.v20180904-2231.jar
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.readAttributes(UnixFileAttributeViews.java:55)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.readAttributes(UnixFileSystemProvider.java:149)
+	at java.base/sun.nio.fs.LinuxFileSystemProvider.readAttributes(LinuxFileSystemProvider.java:99)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1763)
+	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1225)
+	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:727)
+	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:844)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:247)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:177)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:191)
+	at org.eclipse.osgi.framework.util.SecureAction.getZipFile(SecureAction.java:307)
+	... 34 more
+
+!ENTRY org.eclipse.mylyn.monitor.ui 4 0 2020-03-16 14:41:19.552
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.mylyn.internal.monitor.ui.MonitorUiPlugin.stop() of bundle org.eclipse.mylyn.monitor.ui.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:858)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1019)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:362)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:643)
+	at org.eclipse.osgi.container.Module.stop(Module.java:505)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1824)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:195)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:643)
+	at org.eclipse.osgi.container.Module.stop(Module.java:505)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:213)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NoClassDefFoundError: org/eclipse/mylyn/internal/monitor/ui/ActivityContextManager$5
+	at org.eclipse.mylyn.internal.monitor.ui.ActivityContextManager.stop(ActivityContextManager.java:139)
+	at org.eclipse.mylyn.internal.monitor.ui.MonitorUiPlugin.stop(MonitorUiPlugin.java:161)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:831)
+	... 13 more
+Caused by: java.lang.ClassNotFoundException: org.eclipse.mylyn.internal.monitor.ui.ActivityContextManager$5 cannot be found by org.eclipse.mylyn.monitor.ui_3.24.2.v20180904-2231
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:511)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:422)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:414)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:153)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	... 19 more
+Root exception:
+java.lang.NoClassDefFoundError: org/eclipse/mylyn/internal/monitor/ui/ActivityContextManager$5
+	at org.eclipse.mylyn.internal.monitor.ui.ActivityContextManager.stop(ActivityContextManager.java:139)
+	at org.eclipse.mylyn.internal.monitor.ui.MonitorUiPlugin.stop(MonitorUiPlugin.java:161)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:838)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:831)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:1019)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:362)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:643)
+	at org.eclipse.osgi.container.Module.stop(Module.java:505)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1824)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1743)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:275)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:195)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:643)
+	at org.eclipse.osgi.container.Module.stop(Module.java:505)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:207)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:213)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.mylyn.internal.monitor.ui.ActivityContextManager$5 cannot be found by org.eclipse.mylyn.monitor.ui_3.24.2.v20180904-2231
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:511)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:422)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:414)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:153)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	... 19 more
+!SESSION 2020-03-16 15:05:25.523 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-16 15:05:33.261
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-16 15:05:33.261
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2a11ae0b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1e4d8770,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 15:05:39.814
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-16 15:15:30.496 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-16 15:15:55.704
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-16 15:15:55.704
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@13d984ee,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4fedf908,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-03-16 15:16:07.815
+!MESSAGE No repository found at file:/home/peter/CSS/cs-studio/configuration/org.eclipse.osgi/337/data/listener_1925729951/.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 15:16:08.258
+!MESSAGE Removing part descriptor with the 'org.csstudio.saverestore.ui.view.browser' id and the 'Save & Restore Browser' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 15:16:08.406
+!MESSAGE Removing part descriptor with the 'org.eclipse.mylyn.commons.repositories.ui.navigator.Repositories' id and the 'Team Repositories' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 15:16:08.411
+!MESSAGE Removing part descriptor with the 'org.eclipse.mylyn.tasks.ui.views.tasks' id and the 'Task List' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 15:16:08.411
+!MESSAGE Removing part descriptor with the 'org.eclipse.mylyn.tasks.ui.views.repositories' id and the 'Task Repositories' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 15:16:08.417
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-16 16:50:32.776 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-16 16:50:41.619
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-16 16:50:41.619
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@197d5a87,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@131d977f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-16 16:50:46.990
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-17 13:59:15.540 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-03-17 13:59:30.696
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+!SESSION 2020-03-17 14:02:10.775 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-17 14:02:19.467
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-17 14:02:19.467
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2b9ecd05,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@31f1b268,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-17 14:02:27.433
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.help 4 0 2020-03-17 14:05:06.074
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:47)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:48)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:214)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:202)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:310)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:71)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:126)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:141)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:240)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:78)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:198)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:50)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:183)
+	at org.eclipse.equinox.http.servlet.internal.HttpServiceRuntimeImpl$LegacyServlet.service(HttpServiceRuntimeImpl.java:1240)
+	at org.eclipse.equinox.http.servlet.internal.registration.EndpointRegistration.service(EndpointRegistration.java:151)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ResponseStateHandler.processRequest(ResponseStateHandler.java:65)
+	at org.eclipse.equinox.http.servlet.internal.context.DispatchTargets.doDispatch(DispatchTargets.java:134)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ProxyServlet.service(ProxyServlet.java:103)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:300)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:867)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:542)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:502)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+!SESSION 2020-03-17 15:30:22.792 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-17 15:30:31.606
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-17 15:30:31.606
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@799fb45e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4f7ba0af,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-17 15:30:41.024
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.help 4 0 2020-03-17 15:33:55.952
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:47)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:48)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:214)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:202)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:310)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:71)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:126)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:141)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:240)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:78)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:198)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:50)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:183)
+	at org.eclipse.equinox.http.servlet.internal.HttpServiceRuntimeImpl$LegacyServlet.service(HttpServiceRuntimeImpl.java:1240)
+	at org.eclipse.equinox.http.servlet.internal.registration.EndpointRegistration.service(EndpointRegistration.java:151)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ResponseStateHandler.processRequest(ResponseStateHandler.java:65)
+	at org.eclipse.equinox.http.servlet.internal.context.DispatchTargets.doDispatch(DispatchTargets.java:134)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ProxyServlet.service(ProxyServlet.java:103)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:300)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:867)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:542)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:502)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+!SESSION 2020-03-18 09:48:44.078 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-18 09:48:52.584
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-18 09:48:52.584
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@46de118b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@55682482,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-18 09:49:01.315
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-21 14:19:14.637 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-21 14:19:23.265
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-21 14:19:23.266
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@68454ed5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6d2db15b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-21 14:19:28.555
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.help 4 0 2020-03-21 16:22:31.334
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:47)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:48)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:214)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:202)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:310)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:71)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:126)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:141)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:240)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:78)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:198)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:50)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:183)
+	at org.eclipse.equinox.http.servlet.internal.HttpServiceRuntimeImpl$LegacyServlet.service(HttpServiceRuntimeImpl.java:1240)
+	at org.eclipse.equinox.http.servlet.internal.registration.EndpointRegistration.service(EndpointRegistration.java:151)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ResponseStateHandler.processRequest(ResponseStateHandler.java:65)
+	at org.eclipse.equinox.http.servlet.internal.context.DispatchTargets.doDispatch(DispatchTargets.java:134)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ProxyServlet.service(ProxyServlet.java:103)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:300)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:867)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:542)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:502)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+!SESSION 2020-03-21 16:59:11.622 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-21 16:59:23.163
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-21 16:59:23.163
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@56b66a26,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@158e6fc2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-21 16:59:30.563
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-26 11:15:04.862 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-26 11:15:17.009
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-26 11:15:17.009
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@71668a67,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3ff26c9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-26 11:15:25.693
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-26 14:59:06.342 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-26 14:59:17.478
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-26 14:59:17.479
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@151659dd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a58e0e9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-26 14:59:27.868
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-27 13:22:06.397 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-27 13:22:14.616
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-27 13:22:14.616
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3ea9a091,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@16f4a3c0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-27 13:22:22.383
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-03-27 14:30:09.996 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-03-27 14:30:17.895
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-03-27 14:30:17.895
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@48692405,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@151659dd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-03-27 14:30:25.143
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-04-01 10:10:28.967 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-04-01 10:10:37.546
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-01 10:10:37.546
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@398f0516,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a7db5a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-04-01 10:10:43.948
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.help 4 0 2020-04-01 11:42:10.275
+!MESSAGE Error reading help table of contents file /"org.csstudio.shift.viewer/toc.xml" (skipping file)
+!STACK 0
+java.io.FileNotFoundException
+	at org.eclipse.help.internal.toc.TocFileParser.parse(TocFileParser.java:47)
+	at org.eclipse.help.internal.toc.TocFileProvider.getTocContributions(TocFileProvider.java:48)
+	at org.eclipse.help.internal.toc.TocManager.getAndCacheTocContributions(TocManager.java:214)
+	at org.eclipse.help.internal.toc.TocManager.getTocContributionsForToc(TocManager.java:202)
+	at org.eclipse.help.internal.toc.TocManager.getRootTocContributions(TocManager.java:310)
+	at org.eclipse.help.internal.toc.TocManager.getTocs(TocManager.java:71)
+	at org.eclipse.help.internal.toc.TocManager.getTopic(TocManager.java:126)
+	at org.eclipse.help.internal.toc.TocManager.getTopicPath(TocManager.java:141)
+	at org.eclipse.help.internal.webapp.data.UrlUtil.getTopicPath(UrlUtil.java:240)
+	at org.eclipse.help.internal.webapp.servlet.BreadcrumbsFilter.filter(BreadcrumbsFilter.java:78)
+	at org.eclipse.help.internal.webapp.servlet.EclipseConnector.transfer(EclipseConnector.java:198)
+	at org.eclipse.help.internal.webapp.servlet.ContentServlet.doGet(ContentServlet.java:50)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.registry.internal.ServletManager$ServletWrapper.service(ServletManager.java:183)
+	at org.eclipse.equinox.http.servlet.internal.HttpServiceRuntimeImpl$LegacyServlet.service(HttpServiceRuntimeImpl.java:1240)
+	at org.eclipse.equinox.http.servlet.internal.registration.EndpointRegistration.service(EndpointRegistration.java:151)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ResponseStateHandler.processRequest(ResponseStateHandler.java:65)
+	at org.eclipse.equinox.http.servlet.internal.context.DispatchTargets.doDispatch(DispatchTargets.java:134)
+	at org.eclipse.equinox.http.servlet.internal.servlet.ProxyServlet.service(ProxyServlet.java:103)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.equinox.http.jetty.internal.HttpServerManager$InternalHttpServiceServlet.service(HttpServerManager.java:300)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:867)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:542)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1588)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1345)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:480)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1557)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1247)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:502)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+!SESSION 2020-04-02 12:43:38.161 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-04-02 12:43:47.778
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-02 12:43:47.778
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6644bdf5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@13cf5f8a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-04-02 12:43:53.302
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-04-02 12:46:30.820 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-04-02 12:46:40.868
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-02 12:46:40.868
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a58e0e9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@e8c84eb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-04-02 12:46:46.214
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-04-07 09:42:03.645 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-04-07 09:42:13.571
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-07 09:42:13.571
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@26495639,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@45c408a4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-04-07 09:42:21.248
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-04-21 13:12:36.354 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-04-21 13:12:48.564
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2020-04-21 13:13:34.762
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2020-04-21 13:14:19.230 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-04-21 13:14:27.552
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-21 13:14:27.552
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@44485db,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1f6f0fe2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-04-21 13:14:33.699
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-04-22 08:32:33.572 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-04-22 08:32:44.706
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-22 08:32:44.706
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5dd23809,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@664f49f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-04-22 08:32:50.143
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-04-22 11:13:58.866 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-04-22 11:14:04.194
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2020-04-22 11:14:06.488
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-04-22 11:14:06.488
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1fc5c0b2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@45ad3cd8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-04-22 11:14:13.923
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-05-04 16:02:24.771 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-05-04 16:02:30.907
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2020-05-04 16:02:32.951
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-04 16:02:32.952
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3c8fe8ad,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@43d6262c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-05-04 16:02:39.106
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-05-12 11:42:14.568 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-05-12 11:42:20.842
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2020-05-12 11:42:22.930
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-12 11:42:22.930
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@422ba9b7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@26cdd4af,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-05-12 11:42:27.739
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-05-13 09:18:04.266 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-05-13 09:18:12.724
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-13 09:18:12.724
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@380e33c2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3bc891f2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-05-13 09:18:18.147
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-05-13 11:55:29.902 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-05-13 11:55:38.360
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-13 11:55:38.360
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@8d29719,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@65259c53,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-05-13 11:55:46.002
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-05-30 19:44:16.680 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-05-30 19:44:25.399
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-30 19:44:25.399
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3c87e851,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@54556723,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-05-30 19:44:32.945
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-05-31 14:05:06.676 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-05-31 14:05:15.727
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-31 14:05:15.727
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2cc61b3b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@72e75786,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-05-31 14:05:23.085
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-06-02 09:45:04.507 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-06-02 09:45:14.574
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-06-02 09:45:14.574
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77eb607e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1f1fbc9f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-06-02 09:45:23.522
+!MESSAGE Removing part descriptor with the 'org.csstudio.saverestore.ui.view.browser' id and the 'Save & Restore Browser' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-06-02 09:45:25.820
+!MESSAGE Removing part descriptor with the 'org.eclipse.mylyn.commons.repositories.ui.navigator.Repositories' id and the 'Team Repositories' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-06-02 09:45:25.953
+!MESSAGE Removing part descriptor with the 'org.eclipse.mylyn.tasks.ui.views.tasks' id and the 'Task List' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-06-02 09:45:26.178
+!MESSAGE Removing part descriptor with the 'org.eclipse.mylyn.tasks.ui.views.repositories' id and the 'Task Repositories' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-06-02 09:45:26.185
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-06-02 14:55:41.464 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-06-02 14:55:50.334
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-06-02 14:55:50.334
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2cc61b3b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@72e75786,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-06-02 14:55:57.462
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.
+!SESSION 2020-06-03 14:24:39.858 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.7
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2020-06-03 14:24:49.106
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-06-03 14:24:49.106
+!MESSAGE A conflict occurred for F11:
+Binding(F11,
+	ParameterizedCommand(Command(org.csstudio.opibuilder.actions.fullscreen,Full Screen,
+		Enter/Exit Full Screen,
+		Category(org.eclipse.ui.category.views,Views,Commands for opening views,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@380e33c2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F11,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.DebugLast,Debug,
+		Launch in debug mode,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3bc891f2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2020-06-03 14:24:54.812
+!MESSAGE Removing part descriptor with the 'org.csstudio.pretune' id and the 'pretune' description. Points to the invalid 'bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView' class.

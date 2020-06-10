@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="auto_complete_history">
+		<list key="Formula">
+			<item value="det1.TDC"/>
+			<item value="det1.SHPT"/>
+			<item value="det1.TDV"/>
+			<item value="det1.MCA"/>
+			<item value="det1.GAIN"/>
+		</list>
+		<list key="PV">
+			<item value="det1.CNT"/>
+			<item value="det1.SPCTX"/>
+			<item value="det1.POL"/>
+			<item value="det1.MONCH"/>
+			<item value="det1.MCA"/>
+			<item value="det1.SPCT"/>
+			<item value="det1.TPCNT"/>
+			<item value="det1.TPENB"/>
+			<item value="det1.TDM"/>
+			<item value="det1.TPAMP"/>
+			<item value="det1.PUEN"/>
+			<item value="det1.PUR"/>
+			<item value="det1.EBLK"/>
+			<item value="det1.LOAO"/>
+			<item value="det1.MFS"/>
+		</list>
+	</section>
+</section>

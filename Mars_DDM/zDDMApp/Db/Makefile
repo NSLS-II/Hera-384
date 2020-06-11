@@ -5,8 +5,9 @@ include $(TOP)/configure/CONFIG
 
 # Install databases, templates & substitutions like this
 DB += det1.db
-DB += i2cDacs.db
-DB += SpiDacs.db
+#DB += i2cDacs.db
+#DB += SpiDacs.db
+DB += Tmp100.db
 DB += ZTMPAdcs.db
 #DB += user.substitutions
 

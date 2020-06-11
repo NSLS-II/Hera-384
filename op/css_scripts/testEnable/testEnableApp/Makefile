@@ -45,11 +45,16 @@ chanenable_SRCS	+= chanenable.c
 chanenable_LIBS	+= ezca
 chanenable_LIBS	+= $(EPICS_BASE_HOST_LIBS)
 
+PROD_HOST += getudpevents
+getudpevents_SRCS	+= getudpevents.c
+getudpevents_LIBS	+= ezca
+getudpevents_LIBS	+= $(EPICS_BASE_HOST_LIBS)
 
 PROD_HOST += loadcals
 loadcals_SRCS	+= loadcals.c
 loadcals_LIBS	+= ezca
 loadcals_LIBS	+= $(EPICS_BASE_HOST_LIBS)
+
 
 include $(TOP)/configure/RULES
 #----------------------------------------

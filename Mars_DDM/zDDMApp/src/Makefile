@@ -18,7 +18,7 @@ DBDINC += zDDMRecord
 # The following are compiled and added to the Support library
 zDDMSupport_SRCS += devzDDM.c
 zDDMSupport_SRCS += zDDMRecord.c
-zDDMSupport_SRCS += devI2C.c
+zDDMSupport_SRCS += devTmp100.c
 zDDMSupport_SRCS += devZtemp.c
 #zDDMSupport_SRCS += devSPIdac.c
 zDDMSupport_SRCS += pl_lib.c

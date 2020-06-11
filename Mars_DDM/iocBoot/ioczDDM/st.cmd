@@ -10,15 +10,16 @@ cd "${TOP}"
 ## Register all support components
 dbLoadDatabase "dbd/zDDM.dbd"
 zDDM_registerRecordDeviceDriver pdbbase
-devI2CConfig(0,1,8)
+#devI2CConfig(0,1,8)
 ##devSPIConfig(0,1,8)
 devzDDMConfig(1,1,384)
 
 ## Load record instances
 #dbLoadTemplate "db/user.substitutions"
 dbLoadRecords "db/det1.db"
-dbLoadRecords "db/i2cDacs.db"
-#dbLoadRecords "db/ZTMPAdcs.db"
+#dbLoadRecords "db/i2cDacs.db"
+dbLoadRecords "db/Tmp100.db"
+dbLoadRecords "db/ZTMPAdcs.db"
 ##dbLoadRecords "db/SpiDacs.db","user=det1"
 
 

@@ -140,7 +140,8 @@ int                 card;
 
 switch (pai->inp.type) {
         case (INST_IO) : /* doesn't need any parameters */
-        default :
+        break;
+	default :
                 recGblRecordError(S_db_badField, (void *)pai,"devAiZTMP (init_record) Illegal INP field"
 );
         return(S_db_badField);

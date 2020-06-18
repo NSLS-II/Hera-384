@@ -138,7 +138,7 @@ extern int zDDM_NCHIPS;
 #define FRAME_NO  54
 #define COUNT_MODE 55
 
- #define SIMUL 1  /* For testing without hardware, define SIMUL */
+// #define SIMUL 1  /* For testing without hardware, define SIMUL */
 
 #ifdef SIMUL
 static unsigned int fpga_data[1024];
@@ -606,12 +606,18 @@ return(0);
 
 STATIC long zDDM_arm(struct zDDMRecord *pscal, int val)
 {    
+unsigned int *intens;
+int i;
+  intens=pscal->pintens;
   Debug(2, "scaler_arm(): entry, val = %d\n\r", val); 
   if(pscal->mode==0){
     FASTLOCK(&fpga_write_lock);
 	if(val==1){
 	   fifo_disable();/* disable fifo */
 	   fifo_reset(); /* reset it */
+	   for(i=0;i<384;i++){
+	     intens[i]=0;
+	     }
 	   fifo_enable(); /* enable fifo */
 	   fpgabase[TRIG]=val; /* start count */
 	   }

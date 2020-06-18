@@ -99,19 +99,19 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define MAX_NUM_CARDS    8
-#define MAX_ACTIVE_REGS  8   /* max registers allowed */
+#define MAX_NUM_CARDS    10
+#define MAX_ACTIVE_REGS  8    /* max registers allowed */
 #define MAX_ACTIVE_BITS  16   /* largest bnumber of bits expected */
-#define MAX_A32_ADDRESS  7      /* 3 bits to decode for I2C chip addresses */
+#define MAX_A32_ADDRESS  255  /* I2C Address of chip */
 #define MIN_A32_ADDRESS  0
 #define I2C_INPUT	0
 #define I2C_OUTPUT	1
 
-FAST_LOCK       I2C_lock;
+FAST_LOCK       I2C_lock_1; /* lock on i2c interface 1 */
 
-extern int I2Cdev; /* file number for i2c interface */
+int I2Cdev; /* file number for i2c interface */
 /*extern int addr; */  /* i2c vendor-specific base address of DAC chips */
-int addr = 0b01001000;        // The I2C address of the DAC
+int addr = 0b01001010;        // The I2C address of the DAC
 
 
 typedef struct ioCard {  /* Unique for each card */
@@ -155,11 +155,21 @@ typedef struct {
 	DEVSUPFUN init;
 	DEVSUPFUN init_record;
 	DEVSUPFUN get_ioint_info;
-	DEVSUPFUN read_write;
+	DEVSUPFUN read;
 	DEVSUPFUN special_linconv;
-	}I2Cdset;
+	}aiI2Cdset;
 
-I2Cdset devAiI2C={
+typedef struct {
+	long number;
+	DEVSUPFUN report;
+	DEVSUPFUN init;
+	DEVSUPFUN init_record;
+	DEVSUPFUN get_ioint_info;
+	DEVSUPFUN write;
+	DEVSUPFUN special_linconv;
+	}aoI2Cdset;
+
+aiI2Cdset devAiI2C={
 		6,
 		NULL,
 		NULL,
@@ -169,7 +179,7 @@ I2Cdset devAiI2C={
 		NULL
 		};
 
-I2Cdset devAoI2C={
+aoI2Cdset devAoI2C={
 		6,
 		NULL,
 		NULL,
@@ -183,15 +193,10 @@ epicsExportAddress(dset,devAiI2C);
 epicsExportAddress(dset,devAoI2C);
 
 
-int devI2CConfig(card,a32base,nregs)
-int           card;
-unsigned short a32base;
-int           nregs;
-/*int         iVector;
-int           iLevel;*/
+int devI2CConfig(int card, unsigned short a32base, int nregs)
 {
-
 int temp;
+char filename[32];
 
   if((card >= MAX_NUM_CARDS) || (card < 0)) {
       errlogPrintf("devI2CConfig: Invalid Card # %d \n",card);
@@ -217,11 +222,11 @@ int temp;
   }
   else {
       cards[card].nReg = nregs;
+      cards[card].base = a32base;
       errlogPrintf("devI2CConfig: # of registers = %d\n",nregs);
   }
 
-      FASTLOCKINIT(&(I2C_lock));
-//      FASTUNLOCK(&(I2C_lock));  /* Init the board lock */      
+      FASTLOCKINIT(&(I2C_lock_1));
 
   return(OK);
 }
@@ -247,6 +252,177 @@ void registerI2CConfig(void){
 
 epicsExportRegistrar(registerI2CConfig);
 
+int EnableIntRef(int card)
+{
+    int dacaddr = cards[card].base;        // The I2C address of the DAC    
+    char buf[3] = {0};
+    char filename[20];
+    int bytesWritten;
+    sprintf(filename,"/dev/i2c-1");
+   FASTLOCK(&I2C_lock_1);
+    if ((I2Cdev = open(filename,O_RDWR)) < 0) {
+        printf("Failed to open the bus.");
+	FASTUNLOCK(&I2C_lock_1);
+        exit(1);
+    } 
+
+    if (ioctl(I2Cdev,I2C_SLAVE,dacaddr) < 0) {
+	errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
+	close(I2Cdev);
+	FASTUNLOCK(&I2C_lock_1);
+	return(-1);
+	}
+
+    buf[0] = 0x80;  //Command Access Byte
+    buf[1] = 0x00;
+    buf[2] = 0x10;
+    bytesWritten=write(I2Cdev,buf,3);
+    if (bytesWritten != 3){
+       errlogPrintf("Error Writing DAC to Set Int Ref...   Bytes Written: %d\n",bytesWritten);
+       close(I2Cdev);
+       FASTUNLOCK(&I2C_lock_1);
+       return(ERROR);
+       }
+    else {
+       errlogPrintf("Internal Reference Enabled...\n");
+       close(I2Cdev);
+       FASTUNLOCK(&I2C_lock_1);
+       return(OK);
+       }
+       
+}
+
+
+int WriteDac(int card, int channel, int val)
+{
+    int dacaddr = cards[card].base;        // The I2C address of the DAC 
+    char buf[3] = {0};
+    char filename[20];
+    int bytesWritten;
+    int test;
+    short int dacWord; 
+        
+    dacWord = val;
+    if (dacWord > 4095)  dacWord = 4095; 
+    if (dacWord < 0)     dacWord = 0;
+    if (devI2CDebug >= 20){
+       errlogPrintf("Set DAC: %i\n",val);
+       errlogPrintf("DAC Word: %d   (0x%x)\n",dacWord,dacWord);
+       }
+       sprintf(filename,"/dev/i2c-1");
+    FASTLOCK(&I2C_lock_1);
+    if ((I2Cdev = open(filename,O_RDWR)) < 0) {
+        printf("Failed to open the bus.");
+	FASTUNLOCK(&I2C_lock_1);
+	exit(1);
+    } 
+
+    if (ioctl(I2Cdev,I2C_SLAVE,dacaddr) < 0) {
+	errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
+	close(I2Cdev);
+        FASTUNLOCK(&I2C_lock_1);	
+	return(-1);
+	}  
+    buf[0] = 0x30 + channel; //Command Access Byte
+    buf[1] = (char)((dacWord & 0x0FF0) >> 4);
+    buf[2] = (char)((dacWord & 0x000F) << 4);
+//    printf("MSB: %x    LSB: %x\n",buf[1],buf[2]);
+
+    bytesWritten = write(I2Cdev,buf,3);
+    if (devI2CDebug >= 20) errlogPrintf("Chip %i DAC %i Written...  Bytes Written : %d\n",card, channel,bytesWritten);
+    close(I2Cdev);
+    FASTUNLOCK(&I2C_lock_1);
+    return(OK);
+}
+
+int ReadDac(int card, int channel, unsigned long *val)
+{
+   char buf[3] = {0};
+   char filename[20];
+   int bytesWritten, bytesRead;
+   int voltage;
+   
+   FASTLOCK(&I2C_lock_1);
+    sprintf(filename,"/dev/i2c-1");
+    if ((I2Cdev = open(filename,O_RDWR)) < 0) {
+        printf("Failed to open the bus.");
+	FASTUNLOCK(&I2C_lock_1);
+        exit(1);
+    } 
+
+   if (ioctl(I2Cdev,I2C_SLAVE,cards[card].base) < 0) {
+      errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
+      close(I2Cdev);
+      FASTUNLOCK(&I2C_lock_1);
+      return(-1);
+      }
+
+   buf[0] = 0x10+channel;  //Command Access Byte
+
+   bytesWritten = write(I2Cdev,buf,1);
+   bytesRead = read(I2Cdev,buf,2);
+   close(I2Cdev);
+   FASTUNLOCK(&I2C_lock_1);
+ if (devI2CDebug >= 20)  errlogPrintf("DAC Read : BytesRead:%d     Byte1Val: %x   Byte2Val: %x\n",bytesRead,buf[0],buf[1]);   
+   *val = (unsigned long)(((buf[0] << 8) | buf[1]) >> 4);
+   return (OK);
+}
+
+int ReadAdc(int card, int channel, int *val)
+{
+    char filename[20], buf[2];
+    int cntrlword, bytesWritten, bytesRead;
+    
+        sprintf(filename,"/dev/i2c-1");
+    FASTLOCK(&I2C_lock_1);
+     if ((I2Cdev = open(filename,O_RDWR)) < 0) {
+        printf("Failed to open the bus.");
+	FASTUNLOCK(&I2C_lock_1);
+        exit(1);
+    }
+    if (ioctl(I2Cdev,I2C_SLAVE,cards[card].base) < 0) {
+        printf("Failed to acquire bus access and/or talk to slave.\n");
+	close(I2Cdev);
+	FASTUNLOCK(&I2C_lock_1);
+        exit(1);
+    }
+//   printf("Channel: %i\n",channel);
+   
+   switch (channel) {
+      case 0 : cntrlword = 0x88; break;
+      case 2 : cntrlword = 0x98; break;
+      case 4 : cntrlword = 0xA8; break;
+      case 6 : cntrlword = 0xB8; break;
+      case 1 : cntrlword = 0xC8; break;
+      case 3 : cntrlword = 0xD8; break;
+      case 5 : cntrlword = 0xE8; break;
+      case 7 : cntrlword = 0xF8; break;
+   } 
+   buf[0] = cntrlword; 
+   bytesWritten = write(I2Cdev,buf,1);
+    if(bytesWritten != 1){
+      printf("ReadADC: cntrlWord not written: %i\n", bytesWritten);
+      close(I2Cdev);
+      FASTUNLOCK(&I2C_lock_1);
+      }
+   usleep(10000);
+   buf[0]=0;
+   buf[1]=0;
+   bytesRead = read(I2Cdev,buf,2);
+   if(devI2CDebug>=10){
+   printf("ReadADC #%i: bytesRead = %i. Buf= %i:%i\n",channel,bytesRead, buf[1],buf[0]);
+     }
+   if(bytesRead !=2){
+      printf("ReadADC: Bad # bytes received: %i\n", bytesRead);
+      }
+   close(I2Cdev);
+   FASTUNLOCK(&I2C_lock_1);
+   *val = (((buf[0] << 8) | buf[1]) >> 4);
+   if(devI2CDebug>=10){
+   printf("ReadADC #%i: val=%i\n",channel,*val);
+     }
+   return(0);
+}
 
 
 static long init_ao(void *precord)
@@ -254,14 +430,9 @@ static long init_ao(void *precord)
 aoRecord *pao = (aoRecord *)precord;
 long status = 0L;
 unsigned long rawVal = 0L;
-int             card,
-		reg, 
-		args, 
-		numBits, 
-		twotype;
-I2CDpvt         *pPvt;
+int card, reg, args, numBits, twotype;
+I2CDpvt  *pPvt;
 
-//FASTLOCK(&I2C_lock);
 switch (pao->out.type) {
 	case (VME_IO) :
 		card = pao->out.value.vmeio.card;
@@ -305,7 +476,7 @@ switch (pao->out.type) {
          pao->roff = pow(2,(numBits-1));
 
       /* Init rval to current setting */ 
-      if(ReadDac(card,reg,&pPvt,&rawVal) == OK) {
+      if(ReadDac(card,reg,&rawVal) == OK) {
         pao->rbv = rawVal;
       if (devI2CDebug >= 20)
         errlogPrintf("init_ao 2: pao->rbv %i\n",pao->rbv);
@@ -322,10 +493,10 @@ switch (pao->out.type) {
         errlogPrintf("init_ao 3: pao->rval %i\n",pao->rval);
 
 
-		if (ioctl(I2Cdev,I2C_SLAVE,addr+card) < 0) {
+/*		if (ioctl(I2Cdev,I2C_SLAVE,addr+card) < 0) {
 		errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
 		return(-1);
-		}
+		} */
 		EnableIntRef(card);      
 		status = OK;
 		break;
@@ -335,7 +506,7 @@ switch (pao->out.type) {
 	}
 /* Make sure record processing routine does not perform any conversion*/
 //	pao->linr=3;
-//FASTUNLOCK(&I2C_lock);
+//FASTUNLOCK(&I2C_lock_1);
 return(0);
 }
 
@@ -343,8 +514,8 @@ static long init_ai(void *precord)
 {
 aiRecord *pai = (aiRecord *)precord;
 long status;
-int                 card, reg, args, numBits, twotype;
-I2CDpvt         *pPvt;
+int  card, reg, args, numBits, twotype;
+I2CDpvt  *pPvt;
 
 switch (pai->inp.type) {
 	case (VME_IO) :
@@ -393,14 +564,10 @@ switch (pai->inp.type) {
 
       status = OK;
 
-           if (ioctl(I2Cdev,I2C_SLAVE,addr+card) < 0) {
+/*           if (ioctl(I2Cdev,I2C_SLAVE,addr+card) < 0) {
               errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
  	      return(-1);
-	      }
-
-//	   FASTLOCK(&I2C_lock);
-	   EnableIntRef(card); /* Already done by init_ao */
-//	   FASTUNLOCK(&I2C_lock);
+	      }  */
 	   break;
 	default :
 		recGblRecordError(S_db_badField, (void *)pai,"devAiI2C (init_record) Illegal INP field");
@@ -421,7 +588,7 @@ aoRecord *pao =(aoRecord *)precord;
 
   card = pao->out.value.vmeio.card;
   reg = pao->out.value.vmeio.signal;
-//  FASTLOCK(&I2C_lock);
+  
   if (WriteDac(card,reg,pao->rval) == OK)
   {
     if(ReadDac(card,reg,&rawVal)== OK)
@@ -436,12 +603,10 @@ aoRecord *pao =(aoRecord *)precord;
            if (pao->rbv & (2<<(pPvt->nbit-2)))
                pao->rbv |= ((2<<31) - (2<<(pPvt->nbit-2)))*2;
 
-        }
-//  FASTUNLOCK(&I2C_lock);      
+        }      
       return(0);
     }
   }
-//  FASTUNLOCK(&I2C_lock);
   /* Set an alarm for the record */
   recGblSetSevr(pao, WRITE_ALARM, INVALID_ALARM);
   return(2);
@@ -449,21 +614,22 @@ aoRecord *pao =(aoRecord *)precord;
 
 static long read_ai(void *precord)
 {
-  aiRecord*pai =(aiRecord *)precord;
+  aiRecord* pai =(aiRecord *)precord;
   long status;
-  unsigned long         rawVal=0;
+  unsigned long         val;
   int                   card,reg;
   I2CDpvt           *pPvt = (I2CDpvt *)pai->dpvt;
 
   card = pai->inp.value.vmeio.card;
   reg = pai->inp.value.vmeio.signal;
-//  FASTLOCK(&I2C_lock);
-  if (ReadDac(card,reg,&rawVal) == OK)
-  {
-     pai->rval = rawVal;
 
-  if (devI2CDebug >= 20)
-          errlogPrintf("read_ai: card %i  reg %i rawVal %i\n\r", card, reg, rawVal);
+  if (ReadAdc(card,reg, &val) == OK)
+  {
+     pai->rval = val;
+
+  if (devI2CDebug >= 10){
+          errlogPrintf("read_ai: card %i  reg %i val %i\n\r", card, reg, val);
+      }
 
 /* here is where we do the sign extensions for Bipolar....  */       
         if (pPvt->type ==1) {
@@ -471,10 +637,10 @@ static long read_ai(void *precord)
                pai->rval |= ((2<<31) - (2<<(pPvt->nbit-2)))*2; 
 
         }
-//  FASTUNLOCK(&I2C_lock);
+
      return(OK);
   }
-//  FASTUNLOCK(&I2C_lock);
+
   /* Set an alarm for the record if not OK */
   recGblSetSevr(pai, READ_ALARM, INVALID_ALARM);
   return(2);
@@ -483,82 +649,3 @@ static long read_ai(void *precord)
 #define DACTF 0.001220703   // 5v / 2^12 
 
 
-int EnableIntRef(int card)
-{
-    char buf[3] = {0};
-    int bytesWritten;
-    FASTLOCK(&I2C_lock);
-    if (ioctl(I2Cdev,I2C_SLAVE,addr+card) < 0) {
-	errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
-	FASTUNLOCK(&I2C_lock);
-	return(-1);
-	}
-
-    buf[0] = 0x80;  //Command Access Byte
-    buf[1] = 0x00;
-    buf[2] = 0x10;
-    bytesWritten=write(I2Cdev,buf,3);
-    if (bytesWritten != 3){
-       errlogPrintf("Error Writing DAC to Set Int Ref...   Bytes Written: %d\n",bytesWritten);
-       FASTUNLOCK(&I2C_lock);
-       return(ERROR);
-       }
-    else {
-       errlogPrintf("Internal Reference Enabled...\n");
-       FASTUNLOCK(&I2C_lock);
-       return(OK);
-       }
-}
-
-
-int WriteDac(int card, int channel, int val)
-{
-    char buf[3] = {0};
-    int bytesWritten;
-    short int dacWord; 
-    
-    dacWord = val;
-    if (dacWord > 4095)  dacWord = 4095; 
-    if (dacWord < 0)     dacWord = 0;
-    if (devI2CDebug >= 20){
-       errlogPrintf("Set DAC: %i\n",val);
-       errlogPrintf("DAC Word: %d   (0x%x)\n",dacWord,dacWord);
-       }
-   FASTLOCK(&I2C_lock);
-    if (ioctl(I2Cdev,I2C_SLAVE,addr+card) < 0) {
-	errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
-        FASTUNLOCK(&I2C_lock);	
-	return(-1);
-	}  
-    buf[0] = 0x30 + channel; //Command Access Byte
-    buf[1] = (char)((dacWord & 0x0FF0) >> 4);
-    buf[2] = (char)((dacWord & 0x000F) << 4);
-//    printf("MSB: %x    LSB: %x\n",buf[1],buf[2]);
-
-    bytesWritten = write(I2Cdev,buf,3);
-    if (devI2CDebug >= 20) errlogPrintf("Chip %i DAC %i Written...  Bytes Written : %d\n",card, channel,bytesWritten);
-    FASTUNLOCK(&I2C_lock);
-    return(OK);
-}
-
-int ReadDac(int card, int channel, unsigned long *val)
-{
-   char buf[3] = {0};
-   int bytesWritten, bytesRead;
-   int voltage;
-   FASTLOCK(&I2C_lock);
-   if (ioctl(I2Cdev,I2C_SLAVE,addr+card) < 0) {
-      errlogPrintf("Failed to acquire bus access and/or talk to slave.\n");
-      FASTUNLOCK(&I2C_lock);
-      return(-1);
-      }
-
-   buf[0] = 0x10+channel;  //Command Access Byte
-
-   bytesWritten = write(I2Cdev,buf,1);
-   bytesRead = read(I2Cdev,buf,2);
-   FASTUNLOCK(&I2C_lock);
- if (devI2CDebug >= 20)  errlogPrintf("DAC Read : BytesRead:%d     Byte1Val: %x   Byte2Val: %x\n",bytesRead,buf[0],buf[1]);   
-   *val = (unsigned long)(((buf[0] << 8) | buf[1]) >> 4);
-   return (OK);
-}

@@ -9,7 +9,7 @@ record(ai, "det1:ztmp") {
   field(LOPR,"0.0")
   field(ESLO,"0.123041")
   field(EOFF,"-273.03")
-  field(PREC,"3")
+  field(PREC,"1")
   field(EGU,"deg. C")
   field(SCAN, "2 second")
 }

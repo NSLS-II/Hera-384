@@ -18,6 +18,8 @@
 #include <ifaddrs.h>
 #include <sys/time.h>
 #include <time.h>
+#include <cadef.h>
+#include <ezca.h>
 
 #include "gige.h"
 
@@ -58,7 +60,7 @@ struct sockaddr_in *find_addr_from_iface(char *iface)
 }  
 
 
-gige_reg_t *gige_reg_init(uint16_t reb_id, char *iface)
+gige_reg_t *gige_reg_init(char *ip_address, char *iface)
 {
     int rc = 0;
     struct sockaddr_in *iface_addr;
@@ -69,7 +71,7 @@ gige_reg_t *gige_reg_init(uint16_t reb_id, char *iface)
         return NULL;
     
     // IP Address based off of ID
-    sprintf(ret->client_ip_addr, "%s.%01i", GIGE_CLIENT_IP, reb_id);
+    sprintf(ret->client_ip_addr, "%s", ip_address);
     
     // Recv socket
     ret->sock = socket(AF_INET, SOCK_DGRAM, 0);
@@ -250,7 +252,7 @@ int gige_reg_write(gige_reg_t *reg, uint32_t addr, uint32_t value)
 }
 
 
-gige_data_t *gige_data_init(uint16_t reb_id, char *iface)
+gige_data_t *gige_data_init(char *ip_address, char *iface)
 {
     int rc = 0;
     struct sockaddr_in *iface_addr;
@@ -261,7 +263,7 @@ gige_data_t *gige_data_init(uint16_t reb_id, char *iface)
         return NULL;
     
     // IP Address based off of ID
-    sprintf(ret->client_ip_addr, "%s.%01i", GIGE_CLIENT_IP, reb_id);
+    sprintf(ret->client_ip_addr, "%s", ip_address);
     
     // Recv socket
     ret->sock = socket(AF_INET, SOCK_DGRAM, 0);
@@ -416,8 +418,11 @@ int main(void)
 {
     int rc = 0;
     uint32_t value;
-    gige_reg_t *reg = gige_reg_init(150, NULL);
-    gige_data_t *dat = gige_data_init(150, NULL);
+    char ip_address[16];
+    ezcaGet("det1.IPADDR", ezcaString,1,&ip_address);
+    printf("Got IP address: %s\n",ip_address);
+    gige_reg_t *reg = gige_reg_init(ip_address, NULL);
+    gige_data_t *dat = gige_data_init(ip_address, NULL);
     int i,checkval,chkerr=0;
     FILE *fp;
     char filename[1024];

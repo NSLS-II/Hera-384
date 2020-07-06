@@ -608,6 +608,7 @@ STATIC long zDDM_arm(struct zDDMRecord *pscal, int val)
 {    
 unsigned int *intens;
 int i;
+extern int zDDM_NCHAN;
   intens=pscal->pintens;
   Debug(2, "scaler_arm(): entry, val = %d\n\r", val); 
   if(pscal->mode==0){
@@ -615,9 +616,10 @@ int i;
 	if(val==1){
 	   fifo_disable();/* disable fifo */
 	   fifo_reset(); /* reset it */
-	   for(i=0;i<384;i++){
+	   for(i=0;i<zDDM_NCHAN;i++){
 	     intens[i]=0;
 	     }
+	     pscal->runno=fpgabase[FRAME_NO];
 	   fifo_enable(); /* enable fifo */
 	   fpgabase[TRIG]=val; /* start count */
 	   }

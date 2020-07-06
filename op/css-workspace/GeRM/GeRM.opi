@@ -108,7 +108,7 @@
       <color red="0" green="0" blue="0" />
     </tab_3_foreground_color>
     <tab_3_icon_path></tab_3_icon_path>
-    <tab_3_title>Tab 4</tab_3_title>
+    <tab_3_title>Tab 3</tab_3_title>
     <tab_count>4</tab_count>
     <tooltip></tooltip>
     <visible>true</visible>
@@ -151,7 +151,7 @@
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>false</visible>
+      <visible>true</visible>
       <widget_type>Grouping Container</widget_type>
       <width>1198</width>
       <wuid>502b8e7d:16f389c4f7a:-661e</wuid>
@@ -1314,7 +1314,7 @@ $(pv_value)</tooltip>
         <name>Text Update</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>det1:Temp1</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1366,7 +1366,7 @@ $(pv_value)</tooltip>
         <name>Text Update_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>det1:Temp2</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -1418,7 +1418,7 @@ $(pv_value)</tooltip>
         <name>Text Update_2</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>det1:Temp3</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -4007,8 +4007,8 @@ $(pv_value)</tooltip>
         <width>80</width>
         <wrap_words>false</wrap_words>
         <wuid>-526f30b9:17035252ddc:-7bd4</wuid>
-        <x>368</x>
-        <y>150</y>
+        <x>54</x>
+        <y>285</y>
       </widget>
       <widget typeId="org.csstudio.opibuilder.widgets.xyGraph" version="1.0.0">
         <actions hook="false" hook_all="false" />
@@ -4075,7 +4075,7 @@ $(pv_value)</tooltip>
         <foreground_color>
           <color red="0" green="0" blue="255" />
         </foreground_color>
-        <height>229</height>
+        <height>250</height>
         <name>XY Graph</name>
         <plot_area_background_color>
           <color red="255" green="255" blue="255" />
@@ -4127,8 +4127,8 @@ $(trace_0_y_pv_value)</tooltip>
         <widget_type>XY Graph</widget_type>
         <width>487</width>
         <wuid>77315b63:170e9f9e66e:-7f16</wuid>
-        <x>666</x>
-        <y>264</y>
+        <x>276</x>
+        <y>170</y>
       </widget>
       <widget typeId="org.csstudio.opibuilder.widgets.spinner" version="1.0.0">
         <actions hook="false" hook_all="false" />
@@ -4182,8 +4182,8 @@ $(pv_value)</tooltip>
         <widget_type>Spinner</widget_type>
         <width>100</width>
         <wuid>4f5cf9f2:170ede777d3:-7ca1</wuid>
-        <x>458</x>
-        <y>147</y>
+        <x>144</x>
+        <y>282</y>
       </widget>
       <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
         <actions_from_pv>true</actions_from_pv>
@@ -4269,77 +4269,40 @@ $(pv_value)</tooltip>
         <x>41</x>
         <y>389</y>
       </widget>
-      <widget typeId="org.csstudio.opibuilder.widgets.xyGraph" version="1.0.0">
+      <widget typeId="org.csstudio.opibuilder.widgets.ImageBoolIndicator" version="1.0.0">
         <actions hook="false" hook_all="false" />
         <alarm_pulsing>false</alarm_pulsing>
-        <axis_0_auto_scale>false</axis_0_auto_scale>
-        <axis_0_auto_scale_threshold>0.0</axis_0_auto_scale_threshold>
-        <axis_0_axis_color>
-          <color red="0" green="0" blue="0" />
-        </axis_0_axis_color>
-        <axis_0_axis_title>Detector number</axis_0_axis_title>
-        <axis_0_dash_grid_line>true</axis_0_dash_grid_line>
-        <axis_0_grid_color>
-          <color red="200" green="200" blue="200" />
-        </axis_0_grid_color>
-        <axis_0_log_scale>false</axis_0_log_scale>
-        <axis_0_maximum>384.0</axis_0_maximum>
-        <axis_0_minimum>0.0</axis_0_minimum>
-        <axis_0_scale_font>
-          <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
-        </axis_0_scale_font>
-        <axis_0_scale_format></axis_0_scale_format>
-        <axis_0_show_grid>true</axis_0_show_grid>
-        <axis_0_time_format>0</axis_0_time_format>
-        <axis_0_title_font>
-          <opifont.name fontName="Ubuntu" height="11" style="1" pixels="false">Default Bold</opifont.name>
-        </axis_0_title_font>
-        <axis_0_visible>true</axis_0_visible>
-        <axis_1_auto_scale>true</axis_1_auto_scale>
-        <axis_1_auto_scale_threshold>0.0</axis_1_auto_scale_threshold>
-        <axis_1_axis_color>
-          <color red="0" green="0" blue="0" />
-        </axis_1_axis_color>
-        <axis_1_axis_title>Events</axis_1_axis_title>
-        <axis_1_dash_grid_line>true</axis_1_dash_grid_line>
-        <axis_1_grid_color>
-          <color red="200" green="200" blue="200" />
-        </axis_1_grid_color>
-        <axis_1_log_scale>false</axis_1_log_scale>
-        <axis_1_maximum>100.0</axis_1_maximum>
-        <axis_1_minimum>0.0</axis_1_minimum>
-        <axis_1_scale_font>
-          <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
-        </axis_1_scale_font>
-        <axis_1_scale_format></axis_1_scale_format>
-        <axis_1_show_grid>true</axis_1_show_grid>
-        <axis_1_time_format>0</axis_1_time_format>
-        <axis_1_title_font>
-          <opifont.name fontName="Ubuntu" height="11" style="1" pixels="false">Default Bold</opifont.name>
-        </axis_1_title_font>
-        <axis_1_visible>true</axis_1_visible>
-        <axis_count>2</axis_count>
+        <align_to_nearest_second>false</align_to_nearest_second>
+        <auto_size>true</auto_size>
         <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
         <background_color>
           <color red="240" green="240" blue="240" />
         </background_color>
+        <bit>-1</bit>
+        <boolean_label_position>0</boolean_label_position>
         <border_alarm_sensitive>true</border_alarm_sensitive>
         <border_color>
           <color red="0" green="128" blue="255" />
         </border_color>
         <border_style>0</border_style>
         <border_width>1</border_width>
+        <data_type>0</data_type>
         <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        </font>
         <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
         <foreground_color>
-          <color red="0" green="0" blue="255" />
+          <color red="0" green="0" blue="0" />
         </foreground_color>
-        <height>231</height>
-        <name>XY Graph</name>
-        <plot_area_background_color>
-          <color red="255" green="255" blue="255" />
-        </plot_area_background_color>
-        <pv_name>det1.INTENS</pv_name>
+        <height>89</height>
+        <name>Image Boolean Indicator</name>
+        <no_animation>false</no_animation>
+        <off_image>off_image.png</off_image>
+        <off_label>OFF</off_label>
+        <on_image>on_image.png</on_image>
+        <on_label>ON</on_label>
+        <pv_name>det1.CNT</pv_name>
         <pv_value />
         <rules />
         <scale_options>
@@ -4348,46 +4311,85 @@ $(pv_value)</tooltip>
           <keep_wh_ratio>false</keep_wh_ratio>
         </scale_options>
         <scripts />
-        <show_legend>true</show_legend>
-        <show_plot_area_border>false</show_plot_area_border>
-        <show_toolbar>true</show_toolbar>
-        <title></title>
-        <title_font>
-          <opifont.name fontName="Ubuntu" height="11" style="1" pixels="false">Default Bold</opifont.name>
-        </title_font>
-        <tooltip>$(trace_0_y_pv)
-$(trace_0_y_pv_value)</tooltip>
-        <trace_0_anti_alias>true</trace_0_anti_alias>
-        <trace_0_buffer_size>384</trace_0_buffer_size>
-        <trace_0_concatenate_data>false</trace_0_concatenate_data>
-        <trace_0_line_width>1</trace_0_line_width>
-        <trace_0_name>$(trace_0_y_pv)</trace_0_name>
-        <trace_0_plot_mode>0</trace_0_plot_mode>
-        <trace_0_point_size>4</trace_0_point_size>
-        <trace_0_point_style>0</trace_0_point_style>
-        <trace_0_trace_color>
-          <color red="21" green="21" blue="196" />
-        </trace_0_trace_color>
-        <trace_0_trace_type>0</trace_0_trace_type>
-        <trace_0_update_delay>100</trace_0_update_delay>
-        <trace_0_update_mode>0</trace_0_update_mode>
-        <trace_0_visible>true</trace_0_visible>
-        <trace_0_x_axis_index>0</trace_0_x_axis_index>
-        <trace_0_x_pv></trace_0_x_pv>
-        <trace_0_x_pv_value />
-        <trace_0_y_axis_index>1</trace_0_y_axis_index>
-        <trace_0_y_pv>$(pv_name)</trace_0_y_pv>
-        <trace_0_y_pv_value />
-        <trace_count>1</trace_count>
-        <transparent>false</transparent>
-        <trigger_pv></trigger_pv>
-        <trigger_pv_value />
+        <show_boolean_label>false</show_boolean_label>
+        <stretch_to_fit>true</stretch_to_fit>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <transparency>false</transparency>
         <visible>true</visible>
-        <widget_type>XY Graph</widget_type>
-        <width>487</width>
-        <wuid>441137d8:1729f2cc26a:-7f0b</wuid>
-        <x>666</x>
-        <y>12</y>
+        <widget_type>Image Boolean Indicator</widget_type>
+        <width>129</width>
+        <wuid>-64661101:17310ddc16a:-7daf</wuid>
+        <x>658</x>
+        <y>40</y>
+      </widget>
+      <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+        <actions hook="false" hook_all="true">
+          <action type="WRITE_PV">
+            <pv_name>det1.CNT</pv_name>
+            <value>Count</value>
+            <timeout>10</timeout>
+            <confirm_message></confirm_message>
+            <description></description>
+          </action>
+        </actions>
+        <alarm_pulsing>false</alarm_pulsing>
+        <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+        <background_color>
+          <color red="240" green="240" blue="240" />
+        </background_color>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <border_color>
+          <color red="0" green="128" blue="255" />
+        </border_color>
+        <border_style>0</border_style>
+        <border_width>1</border_width>
+        <enabled>true</enabled>
+        <font>
+          <opifont.name fontName="Ubuntu" height="11" style="0" pixels="false">Default</opifont.name>
+        </font>
+        <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+        <foreground_color>
+          <color red="0" green="0" blue="0" />
+        </foreground_color>
+        <height>40</height>
+        <image></image>
+        <name>Action Button</name>
+        <push_action_index>0</push_action_index>
+        <pv_name>det1.CNT</pv_name>
+        <pv_value />
+        <rules>
+          <rule name="Rule" prop_id="foreground_color" out_exp="false">
+            <exp bool_exp="det1.CNT==1">
+              <value>
+                <color name="Major" red="255" green="0" blue="0" />
+              </value>
+            </exp>
+            <exp bool_exp="det1.CNT==0">
+              <value>
+                <color red="192" green="192" blue="192" />
+              </value>
+            </exp>
+            <pv trig="true">det1.CNT</pv>
+          </rule>
+        </rules>
+        <scale_options>
+          <width_scalable>true</width_scalable>
+          <height_scalable>true</height_scalable>
+          <keep_wh_ratio>false</keep_wh_ratio>
+        </scale_options>
+        <scripts />
+        <style>0</style>
+        <text>COUNT</text>
+        <toggle_button>false</toggle_button>
+        <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+        <visible>true</visible>
+        <widget_type>Action Button</widget_type>
+        <width>80</width>
+        <wuid>-64661101:17310ddc16a:-7dae</wuid>
+        <x>683</x>
+        <y>65</y>
       </widget>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
@@ -4413,7 +4415,7 @@ $(trace_0_y_pv_value)</tooltip>
       <macros>
         <include_parent_macros>true</include_parent_macros>
       </macros>
-      <name>Tab 4</name>
+      <name>Tab 3</name>
       <rules />
       <scale_options>
         <width_scalable>true</width_scalable>
@@ -4424,7 +4426,7 @@ $(trace_0_y_pv_value)</tooltip>
       <show_scrollbar>true</show_scrollbar>
       <tooltip></tooltip>
       <transparent>true</transparent>
-      <visible>true</visible>
+      <visible>false</visible>
       <widget_type>Grouping Container</widget_type>
       <width>1198</width>
       <wuid>3001b669:171a2741415:-7f60</wuid>
@@ -4722,7 +4724,7 @@ $(pv_value)</tooltip>
         <name>Text Update</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>det1:HV_RBV</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -5138,7 +5140,7 @@ $(pv_value)</tooltip>
         <name>Text Update_8</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>det1:HV_CUR</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -5719,7 +5721,7 @@ $(pv_value)</tooltip>
         <minimum>0.0</minimum>
         <name>Scaled Slider_1</name>
         <page_increment>10.0</page_increment>
-        <pv_name>det1:P2</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rules />
         <scale_font>
@@ -5782,7 +5784,7 @@ $(pv_value)</tooltip>
         <name>Text Update_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>det1:P2_CUR</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />
@@ -5899,7 +5901,7 @@ $(pv_value)</tooltip>
         <minimum>0.0</minimum>
         <name>Scaled Slider_1</name>
         <page_increment>10.0</page_increment>
-        <pv_name>det1:P1</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rules />
         <scale_font>
@@ -5962,7 +5964,7 @@ $(pv_value)</tooltip>
         <name>Text Update_1</name>
         <precision>0</precision>
         <precision_from_pv>true</precision_from_pv>
-        <pv_name>det1:P1_CUR</pv_name>
+        <pv_name></pv_name>
         <pv_value />
         <rotation_angle>0.0</rotation_angle>
         <rules />

@@ -831,7 +831,7 @@ static long process(zDDMRecord *pscal)
         }
 
         pscal->pact = FALSE;
-	pscal->runno=fpgabase[FRAME_NO];
+//	pscal->runno=fpgabase[FRAME_NO];
         db_post_events(pscal,&(pscal->runno),DBE_VALUE|DBE_ARCHIVE);
         db_post_events(pscal,pscal->pmca,DBE_VALUE|DBE_ARCHIVE);
         db_post_events(pscal,pscal->ptdc,DBE_VALUE|DBE_ARCHIVE);

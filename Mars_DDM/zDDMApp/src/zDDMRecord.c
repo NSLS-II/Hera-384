@@ -927,6 +927,7 @@ static long special(dbAddr *paddr, int after)
 	zDDMRecord *pscal = (zDDMRecord *)(paddr->precord);
 	int status, i=0;
 	int j, rt, chip, chan;
+	int nchips;
 	int mars_modified;
 	char ip[64];
 	unsigned int addr, tok[4];
@@ -950,6 +951,8 @@ static long special(dbAddr *paddr, int after)
 	thtr=pscal->pthtr;
 	putr=pscal->pputr;
 	thrsh=pscal->pthrsh;
+	
+	nchips=pscal->nchips;
 
 	Debug(5, "special: entry; after=%d\n", after);
 	if (!after) return (0);
@@ -1074,14 +1077,14 @@ static long special(dbAddr *paddr, int after)
 
 	case zDDMRecordGMON: /* set switch for channel monitors or others */
 	         if(pscal->gmon==0){/* All monitors off. M0=0, C0-C4=00000*/
-		    for(chip=0;chip<12;chip++){
+		    for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
 		    globalstr[chip].saux=0;
 		    }
 		   }
 		 if(pscal->gmon==1){/* All off except this chip temp. M0=0 C0-C4=00100*/
-		    for(chip=0;chip<12;chip++){
+		    for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
 		    globalstr[chip].saux=0;
@@ -1090,7 +1093,7 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[pscal->chip].saux=1;
 		  }
 		 if(pscal->gmon==2){/* All off except this chip base M0=0 C0-C4=10100 */
- 		    for(chip=0;chip<12;chip++){
+ 		    for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
 		    globalstr[chip].saux=0;
@@ -1099,7 +1102,7 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[pscal->chip].saux=1; 
 		 }
 		 if(pscal->gmon==3){/* All off except this chip thresh M0=0 C0-C4=01100*/
- 		    for(chip=0;chip<12;chip++){
+ 		    for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
 		    globalstr[chip].saux=0;
@@ -1108,7 +1111,7 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[pscal->chip].saux=1;
 		 }
 		 if(pscal->gmon==4){/* All off except this chip test pulse M0=0 C0-C4=11100*/
- 		    for(chip=0;chip<12;chip++){
+ 		    for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
 		    globalstr[chip].saux=0;
@@ -1117,7 +1120,7 @@ static long special(dbAddr *paddr, int after)
 		    globalstr[pscal->chip].saux=1;
 		 }
 		 if(pscal->gmon==5){/* All off except this chip channel monitor M0=1; channel number to C0-C4*/
-		    for(chip=0;chip<12;chip++){
+		    for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
 		    globalstr[chip].saux=0;
@@ -1146,7 +1149,7 @@ static long special(dbAddr *paddr, int after)
 		     }
  		printf("SPCTX updated\n");
 		if(pscal->gmon==5){
-		  for(chip=0;chip<12;chip++){
+		  for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].c=0;
 		    globalstr[chip].m0=0;
 		    globalstr[chip].saux=0;
@@ -1163,7 +1166,7 @@ static long special(dbAddr *paddr, int after)
 		break;
 
 	case zDDMRecordPOL: /* set input polarity */
-	        for(chip=0;chip<12;chip++){
+	        for(chip=0;chip<nchips;chip++){
 		   globalstr[chip].sp=pscal->pol;
 		   }
 		mars_modified=1;
@@ -1180,7 +1183,7 @@ static long special(dbAddr *paddr, int after)
 	case zDDMRecordEBLK: /* Enable on-chip bias current generator */
 		Debug(2, "special: EBLK\n %i", pscal->eblk);
 		/* write hardware. Do all or nothing for now. */
-		  for(chip=0;chip<12;chip++){
+		  for(chip=0;chip<nchips;chip++){
 		   switch(pscal->eblk){
 		     case 0: globalstr[chip].sl=1;
 		        break;
@@ -1198,7 +1201,7 @@ static long special(dbAddr *paddr, int after)
 	case zDDMRecordTPAMP: /* Set test pulse amplitude */
 		Debug(2, "special: TPAMP\n %i", pscal->tpamp);
 		/* write hardware. Do all or nothing for now. */
-		  for(chip=0;chip<12;chip++){
+		  for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].pb=pscal->tpamp;
 		    }
 		mars_modified=1; 
@@ -1236,7 +1239,7 @@ static long special(dbAddr *paddr, int after)
 
 	case zDDMRecordSHPT: /* set shaping time */
 		Debug(2, "special: SHPT %i\n", pscal->shpt);
-		  for(chip=0;chip<12;chip++){
+		  for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].ts=pscal->shpt;
 		    }
 		mars_modified=1;
@@ -1245,7 +1248,7 @@ static long special(dbAddr *paddr, int after)
 
 	case zDDMRecordGAIN: /* set gain */
 		Debug(2, "special: GAIN %i\n", pscal->gain);
-		  for(chip=0;chip<12;chip++){
+		  for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].g=pscal->gain;
 		    }
 		mars_modified=1;
@@ -1289,7 +1292,7 @@ static long special(dbAddr *paddr, int after)
 		break;
 
 	case zDDMRecordPUEN: /* Pileup Rejection enable */
-		  for(chip=0;chip<12;chip++){
+		  for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].spur=pscal->puen;
 		    }
 		mars_modified=1;
@@ -1298,7 +1301,7 @@ static long special(dbAddr *paddr, int after)
 		break;
 						
 	case zDDMRecordMFS: /* Multi-fire suppression */
-		  for(chip=0;chip<12;chip++){
+		  for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].sse=pscal->mfs;
 		    }
 		mars_modified=1;
@@ -1337,7 +1340,7 @@ static long special(dbAddr *paddr, int after)
 		     rt=1;
 		     break;
 		   }
-		for(chip=0;chip<12;chip++){
+		for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].tr=j;
 		    globalstr[chip].rt=rt;
 		    }
@@ -1348,7 +1351,7 @@ static long special(dbAddr *paddr, int after)
 	        break;
 
 	case zDDMRecordTDM: /* set TDC mode */
-		for(chip=0;chip<12;chip++){
+		for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].tm=pscal->tdm;
 		    }	
 		mars_modified=1;
@@ -1357,7 +1360,7 @@ static long special(dbAddr *paddr, int after)
 		break;
 
 	case zDDMRecordTHRSH: /* Threshold */
-		for(chip=0;chip<12;chip++){
+		for(chip=0;chip<nchips;chip++){
 		    globalstr[chip].pa=thrsh[i];
 		    }	
 		mars_modified=1;
